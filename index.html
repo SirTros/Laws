@@ -1,0 +1,3101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>ST-CITY Laws — Sbírka zákonů</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#f3f4f6;
+  color:#20262c;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+  height:74px;
+  background:#ffffff;
+  border-bottom:1px solid #d8dde2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.topbar-inner{
+  width:min(1500px,100%);
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brand-icon{
+  width:44px;
+  height:44px;
+  border:1px solid #bfc7ce;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  color:#153d5d;
+  background:#f8fafb;
+}
+
+.brand-name{
+  font-family:Arial,sans-serif;
+  font-weight:700;
+  font-size:20px;
+  color:#173b59;
+}
+
+.brand-sub{
+  margin-top:3px;
+  font:10px Arial,sans-serif;
+  color:#7b858d;
+  letter-spacing:1px;
+}
+
+.top-actions{
+  display:flex;
+  gap:7px;
+}
+
+.top-btn{
+  background:#fff;
+  border:1px solid #cdd4da;
+  border-radius:5px;
+  padding:9px 13px;
+  color:#40505c;
+  cursor:pointer;
+  font:12px Arial,sans-serif;
+}
+
+.top-btn:hover{
+  background:#f2f5f7;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.searchbar{
+  background:#fff;
+  border-bottom:1px solid #dce1e5;
+}
+
+.search-inner{
+  width:min(1500px,100%);
+  margin:auto;
+  padding:15px 28px;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  height:48px;
+  border:1px solid #bcc6ce;
+  border-radius:5px;
+  outline:none;
+  padding:0 48px;
+  font:14px Arial,sans-serif;
+  background:#fff;
+}
+
+.search-box input:focus{
+  border-color:#3b7199;
+  box-shadow:0 0 0 3px rgba(59,113,153,.10);
+}
+
+.search-icon{
+  position:absolute;
+  left:17px;
+  top:13px;
+  font:20px Arial,sans-serif;
+  color:#71808a;
+}
+
+.search-clear{
+  position:absolute;
+  right:7px;
+  top:7px;
+  width:34px;
+  height:34px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:20px;
+  color:#7d878e;
+}
+
+.search-help{
+  margin-top:7px;
+  font:10px Arial,sans-serif;
+  color:#7d878e;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.layout{
+  width:min(1500px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:290px 1fr;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+  min-height:calc(100vh - 140px);
+  background:#f8f9fa;
+  border-right:1px solid #d9dee2;
+  padding-bottom:40px;
+}
+
+.side-title{
+  padding:22px 20px 10px;
+  font:bold 10px Arial,sans-serif;
+  color:#7a858d;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.side-item{
+  width:100%;
+  border:0;
+  border-left:3px solid transparent;
+  background:transparent;
+  padding:10px 18px;
+  text-align:left;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#3c4a54;
+  font:12px Arial,sans-serif;
+}
+
+.side-item:hover{
+  background:#edf1f4;
+}
+
+.side-item.active{
+  background:#e5edf3;
+  border-left-color:#285e82;
+  color:#174c70;
+  font-weight:bold;
+}
+
+.side-count{
+  color:#89949c;
+  font-size:10px;
+}
+
+.side-line{
+  height:1px;
+  background:#dce1e5;
+  margin:14px 0;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+  padding:30px 38px 80px;
+  min-width:0;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcome{
+  background:#fff;
+  border:1px solid #d5dbe0;
+  box-shadow:0 3px 14px rgba(0,0,0,.055);
+  padding:36px;
+  margin-bottom:20px;
+}
+
+.welcome-small{
+  color:#78848d;
+  font:bold 10px Arial,sans-serif;
+  letter-spacing:1.2px;
+}
+
+.welcome h1{
+  color:#173c5b;
+  font-size:34px;
+  font-weight:normal;
+  margin:11px 0 9px;
+}
+
+.welcome p{
+  max-width:920px;
+  color:#68747d;
+  font-size:15px;
+  line-height:1.7;
+  margin:0;
+}
+
+.status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:19px;
+  padding:7px 11px;
+  border:1px solid #b9d5c3;
+  border-radius:4px;
+  background:#f2f8f4;
+  color:#32734c;
+  font:bold 10px Arial,sans-serif;
+}
+
+.stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:50px;
+  border-top:1px solid #e0e4e7;
+  margin-top:25px;
+  padding-top:19px;
+}
+
+.stat strong{
+  display:block;
+  color:#23465f;
+  font:bold 22px Arial,sans-serif;
+}
+
+.stat span{
+  display:block;
+  margin-top:3px;
+  color:#7c878f;
+  font:10px Arial,sans-serif;
+  text-transform:uppercase;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category{
+  background:#fff;
+  border:1px solid #d5dbe0;
+  margin-bottom:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+
+.category-head{
+  padding:17px 21px;
+  background:#f8f9fa;
+  border-bottom:1px solid #dce1e5;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+
+.category-head:hover{
+  background:#f1f4f6;
+}
+
+.category-left{
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+
+.category-number{
+  color:#1e577c;
+  font-weight:bold;
+  font-size:17px;
+}
+
+.category-name{
+  color:#273f51;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.category-right{
+  color:#7d8890;
+  font:10px Arial,sans-serif;
+}
+
+.category-laws{
+  display:none;
+}
+
+.category.open .category-laws{
+  display:block;
+}
+
+/* =========================
+   LAW LIST
+========================= */
+
+.law{
+  padding:16px 22px;
+  border-bottom:1px solid #e3e6e9;
+  display:grid;
+  grid-template-columns:100px 1fr 35px;
+  gap:15px;
+  align-items:center;
+  cursor:pointer;
+}
+
+.law:last-child{
+  border-bottom:0;
+}
+
+.law:hover{
+  background:#fafbfc;
+}
+
+.law-number{
+  font:bold 11px Arial,sans-serif;
+  color:#687984;
+}
+
+.law-title{
+  color:#14537d;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.law-sub{
+  color:#7d878f;
+  font:11px Arial,sans-serif;
+  margin-top:4px;
+}
+
+.star{
+  border:0;
+  background:none;
+  cursor:pointer;
+  font-size:20px;
+  color:#b4bbc0;
+}
+
+.star.on{
+  color:#a4771f;
+}
+
+/* =========================
+   DOCUMENT
+========================= */
+
+.breadcrumb{
+  margin-bottom:11px;
+  font:11px Arial,sans-serif;
+  color:#78848c;
+}
+
+.breadcrumb button{
+  border:0;
+  background:none;
+  color:#185b88;
+  cursor:pointer;
+  padding:0;
+}
+
+.toolbar{
+  min-height:46px;
+  border:1px solid #d4dade;
+  border-bottom:0;
+  background:#f8f9fa;
+  padding:7px 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  font:11px Arial,sans-serif;
+}
+
+.toolbar-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tool{
+  border:1px solid #cbd2d7;
+  border-radius:4px;
+  background:#fff;
+  padding:7px 10px;
+  cursor:pointer;
+  color:#4b5b66;
+  font:11px Arial,sans-serif;
+}
+
+.tool:hover{
+  background:#eef2f4;
+}
+
+.document{
+  background:#fff;
+  border:1px solid #d4dade;
+  box-shadow:0 3px 15px rgba(0,0,0,.055);
+  padding:62px 80px;
+}
+
+.doc-head{
+  max-width:1000px;
+  margin:auto;
+  text-align:center;
+}
+
+.doc-number{
+  color:#6e7b84;
+  font:bold 11px Arial,sans-serif;
+  letter-spacing:1px;
+}
+
+.doc-title{
+  color:#173d5c;
+  font-size:36px;
+  line-height:1.25;
+  font-weight:normal;
+  margin:13px 0 8px;
+}
+
+.doc-subtitle{
+  color:#68757e;
+  font-size:15px;
+}
+
+.consolidated{
+  display:inline-block;
+  margin-top:19px;
+  padding-top:12px;
+  border-top:1px solid #d9dee2;
+  color:#555f66;
+  font-style:italic;
+  font-size:14px;
+}
+
+.meta{
+  margin-top:20px;
+  padding-top:13px;
+  border-top:1px solid #d9dee2;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+  color:#77838b;
+  font:10px Arial,sans-serif;
+}
+
+.meta strong{
+  color:#3d4e59;
+}
+
+/* =========================
+   LEGAL STRUCTURE
+========================= */
+
+.part{
+  margin-top:55px;
+}
+
+.part-line{
+  height:2px;
+  background:#234f6d;
+  margin-bottom:15px;
+}
+
+.part-title{
+  text-align:center;
+  color:#29455a;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.part-sub{
+  text-align:center;
+  margin-top:5px;
+  color:#7b858c;
+  font-size:13px;
+}
+
+.chapter{
+  margin-top:42px;
+}
+
+.chapter-title{
+  text-align:center;
+  font-size:17px;
+  color:#2c4353;
+  font-weight:bold;
+  margin-bottom:27px;
+}
+
+.paragraph{
+  margin-bottom:32px;
+  scroll-margin-top:100px;
+}
+
+.paragraph-head{
+  display:flex;
+  gap:12px;
+  align-items:baseline;
+  margin-bottom:8px;
+}
+
+.paragraph-symbol{
+  color:#15567f;
+  font-weight:bold;
+  font-size:19px;
+}
+
+.paragraph-title{
+  color:#293f50;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.legal-text{
+  font-size:16px;
+  line-height:1.82;
+  text-align:justify;
+  margin:0 0 7px;
+}
+
+.odst{
+  display:grid;
+  grid-template-columns:40px 1fr;
+  gap:6px;
+  padding-left:20px;
+  margin:8px 0;
+}
+
+.odst-num{
+  color:#586a77;
+  font-weight:bold;
+  font-size:15px;
+}
+
+.odst-text{
+  font-size:15.5px;
+  line-height:1.75;
+  text-align:justify;
+}
+
+/* =========================
+   REALISTIC SPECIAL BLOCKS
+========================= */
+
+.law-note{
+  margin-top:30px;
+  border:1px solid #d7dde1;
+  background:#f8f9fa;
+  padding:15px 18px;
+  font:11px Arial,sans-serif;
+  color:#68747d;
+  line-height:1.7;
+}
+
+.sanction{
+  margin-top:22px;
+  border-left:4px solid #8c6b2c;
+  background:#faf8f2;
+  padding:14px 18px;
+  color:#62583f;
+  font:12px Arial,sans-serif;
+  line-height:1.7;
+}
+
+/* =========================
+   AMENDMENTS
+========================= */
+
+.amendments{
+  border:1px solid #d5dadd;
+  background:#f8f9fa;
+  margin-top:45px;
+}
+
+.amendments-head{
+  padding:13px 16px;
+  border-bottom:1px solid #d9dee2;
+  font:bold 11px Arial,sans-serif;
+  color:#52616c;
+}
+
+.amendments-body{
+  padding:15px 17px;
+  font:11px Arial,sans-serif;
+  color:#697680;
+}
+
+.amendment{
+  padding:9px 0;
+  border-bottom:1px solid #e0e4e7;
+}
+
+.amendment:last-child{
+  border-bottom:0;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  margin-top:28px;
+  border-left:4px solid #667f91;
+  background:#f4f7f8;
+  padding:15px 18px;
+  color:#5e6c75;
+  font:11px Arial,sans-serif;
+  line-height:1.7;
+}
+
+.doc-footer{
+  border-top:1px solid #d9dee2;
+  margin-top:45px;
+  padding-top:16px;
+  text-align:center;
+  color:#78838a;
+  font:10px Arial,sans-serif;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results{
+  background:#fff;
+  border:1px solid #d4dade;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+
+.results-head{
+  padding:18px 21px;
+  border-bottom:1px solid #dce1e5;
+  color:#6d7981;
+  font:12px Arial,sans-serif;
+}
+
+.result{
+  padding:17px 22px;
+  border-bottom:1px solid #e1e5e8;
+  cursor:pointer;
+}
+
+.result:hover{
+  background:#f8fafb;
+}
+
+.result-number{
+  color:#6c7c86;
+  font:bold 10px Arial,sans-serif;
+}
+
+.result-title{
+  margin-top:4px;
+  color:#14547e;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.result-info{
+  margin-top:5px;
+  color:#7a858d;
+  font:11px Arial,sans-serif;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  text-align:center;
+  padding:65px 20px;
+  color:#77838b;
+  font:13px Arial,sans-serif;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.copyright{
+  text-align:center;
+  color:#7b858c;
+  padding:25px;
+  font:11px Arial,sans-serif;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-nav{
+  display:none;
+}
+
+@media(max-width:850px){
+
+  .layout{
+    grid-template-columns:220px 1fr;
+  }
+
+  main{
+    padding:20px;
+  }
+
+  .document{
+    padding:40px 35px;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .topbar{
+    height:62px;
+  }
+
+  .topbar-inner{
+    padding:0 12px;
+  }
+
+  .top-actions{
+    display:none;
+  }
+
+  .brand-name{
+    font-size:17px;
+  }
+
+  .brand-sub{
+    display:none;
+  }
+
+  .search-inner{
+    padding:10px;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .mobile-nav{
+    display:block;
+    padding:8px;
+    background:#fff;
+    border-bottom:1px solid #dce1e5;
+  }
+
+  .mobile-nav select{
+    width:100%;
+    height:40px;
+    border:1px solid #cbd3d9;
+    border-radius:4px;
+    background:#fff;
+  }
+
+  main{
+    padding:10px;
+  }
+
+  .welcome{
+    padding:23px 18px;
+  }
+
+  .welcome h1{
+    font-size:27px;
+  }
+
+  .document{
+    padding:30px 17px;
+  }
+
+  .doc-title{
+    font-size:28px;
+  }
+
+  .legal-text,
+  .odst-text{
+    text-align:left;
+    font-size:15px;
+  }
+
+  .odst{
+    padding-left:2px;
+    grid-template-columns:31px 1fr;
+  }
+
+  .law{
+    grid-template-columns:65px 1fr 30px;
+    padding:14px 12px;
+  }
+
+  .law-sub{
+    display:none;
+  }
+
+  .toolbar{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+  @page{
+    size:A4;
+    margin:18mm;
+  }
+
+  body{
+    background:#fff;
+  }
+
+  .topbar,
+  .searchbar,
+  .sidebar,
+  .mobile-nav,
+  .toolbar,
+  .breadcrumb,
+  .welcome{
+    display:none!important;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  main{
+    padding:0;
+  }
+
+  .document{
+    border:0;
+    box-shadow:none;
+    padding:0;
+  }
+
+  .notice{
+    background:#fff;
+  }
+
+  .doc-footer{
+    display:block;
+  }
+
+  .doc-footer::after{
+    content:" © SirTros - SirTros-city";
+  }
+
+  .legal-text,
+  .odst-text{
+    font-size:12pt;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        ⚖
+      </div>
+
+      <div>
+
+        <div class="brand-name">
+          ST-CITY Laws
+        </div>
+
+        <div class="brand-sub">
+          ELEKTRONICKÁ SBÍRKA PRÁVNÍCH PŘEDPISŮ
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="top-actions">
+
+      <button class="top-btn"
+        onclick="showHome()">
+        Sbírka
+      </button>
+
+      <button class="top-btn"
+        onclick="showFavorites()">
+        ★ Oblíbené
+      </button>
+
+      <button class="top-btn"
+        onclick="window.print()">
+        🖨 Tisk
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<div class="searchbar">
+
+  <div class="search-inner">
+
+    <div class="search-box">
+
+      <span class="search-icon">
+        ⌕
+      </span>
+
+      <input
+        id="search"
+        placeholder="Hledat zákon, §, odstavec nebo text…"
+        autocomplete="off"
+      >
+
+      <button
+        class="search-clear"
+        onclick="clearSearch()">
+        ×
+      </button>
+
+    </div>
+
+    <div class="search-help">
+
+      Zkuste například:
+      <b>noční klid</b>,
+      <b>hluk</b>,
+      <b>§ 3</b>,
+      <b>odst. 6</b>,
+      <b>45/2026</b>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="mobile-nav">
+
+  <select id="mobileCategory">
+
+    <option value="all">
+      Všechny kategorie
+    </option>
+
+  </select>
+
+</div>
+
+
+<div class="layout">
+
+
+<aside class="sidebar">
+
+  <div class="side-title">
+    Právní řád ST-CITY
+  </div>
+
+  <button
+    class="side-item active"
+    id="allButton"
+    onclick="showHome()">
+
+    <span>
+      Všechny předpisy
+    </span>
+
+    <span class="side-count">
+      200
+    </span>
+
+  </button>
+
+
+  <div id="sidebarCategories"></div>
+
+
+  <div class="side-line"></div>
+
+  <div class="side-title">
+    Moje sbírka
+  </div>
+
+  <button
+    class="side-item"
+    onclick="showFavorites()">
+
+    <span>
+      ★ Oblíbené
+    </span>
+
+    <span
+      class="side-count"
+      id="favCount">
+      0
+    </span>
+
+  </button>
+
+
+  <button
+    class="side-item"
+    onclick="showHistory()">
+
+    <span>
+      ◷ Historie
+    </span>
+
+  </button>
+
+
+  <button
+    class="side-item"
+    onclick="showAbout()">
+
+    <span>
+      O systému
+    </span>
+
+  </button>
+
+
+  <div class="side-line"></div>
+
+  <div class="side-title">
+    Informace
+  </div>
+
+  <div style="
+    padding:0 18px;
+    color:#808a91;
+    font:10px Arial,sans-serif;
+    line-height:1.7;
+  ">
+
+    ST-CITY Laws<br>
+    © SirTros - SirTros-city
+
+  </div>
+
+</aside>
+
+
+<main id="main"></main>
+
+
+</div>
+
+
+<script>
+
+
+/* ======================================================
+   KATEGORIE
+====================================================== */
+
+const categoryNames=[
+
+ "Ústavní a základní pravidla",
+ "Veřejný pořádek",
+ "Noční klid a hluk",
+ "Doprava a silniční provoz",
+ "Parkování",
+ "Bezpečnost",
+ "Městská policie",
+ "Zdravotnictví",
+ "Školství",
+ "Bydlení",
+ "Nájemní vztahy",
+ "Finance a poplatky",
+ "Obchod a služby",
+ "Ochrana spotřebitele",
+ "Digitální služby",
+ "Ochrana osobních údajů",
+ "Životní prostředí",
+ "Odpady",
+ "Veřejná prostranství",
+ "Zvířata",
+ "Stavby",
+ "Požární ochrana",
+ "Integrovaný záchranný systém",
+ "Energetika",
+ "Voda",
+ "Komunikace",
+ "Kultura",
+ "Sport",
+ "Sociální oblast",
+ "Městská správa"
+
+];
+
+
+/* ======================================================
+   ZÁKLADNÍ NÁZVY
+====================================================== */
+
+const lawSubjects=[
+
+ "základních pravidlech ST-CITY",
+ "veřejném pořádku",
+ "nočním klidu a ochraně před nadměrným hlukem",
+ "silničním provozu",
+ "parkování vozidel",
+ "bezpečnosti osob",
+ "činnosti městské policie",
+ "zdravotních službách",
+ "školství a vzdělávání",
+ "bydlení",
+ "nájemních vztazích",
+ "místních poplatcích",
+ "obchodu a poskytování služeb",
+ "ochraně spotřebitele",
+ "digitálních službách",
+ "ochraně osobních údajů",
+ "ochraně životního prostředí",
+ "nakládání s odpady",
+ "užívání veřejných prostranství",
+ "chovu zvířat",
+ "výstavbě a stavebních činnostech",
+ "požární ochraně",
+ "integrovaném záchranném systému",
+ "energetice",
+ "zásobování vodou",
+ "komunikacích",
+ "kulturních akcích",
+ "sportovních akcích",
+ "sociální pomoci",
+ "městské správě"
+
+];
+
+
+/* ======================================================
+   SPECIFICKÉ ZÁKONY
+====================================================== */
+
+const specialLaws={
+
+ 41:{
+   title:"Zákon o nočním klidu",
+   subject:"stanovení doby nočního klidu a pravidel proti jeho rušení"
+ },
+
+ 42:{
+   title:"Zákon o ochraně před nadměrným hlukem",
+   subject:"ochraně obyvatel před nepřiměřeným hlukem"
+ },
+
+ 43:{
+   title:"Zákon o veřejném pořádku",
+   subject:"zajištění klidu a pořádku na území ST-CITY"
+ },
+
+ 44:{
+   title:"Zákon o veřejných akcích",
+   subject:"pořádání veřejných kulturních a společenských akcí"
+ },
+
+ 45:{
+   title:"Zákon o odpovědnosti za přestupky",
+   subject:"odpovědnosti za porušení právních předpisů ST-CITY"
+ }
+
+};
+
+
+/* ======================================================
+   DATA
+====================================================== */
+
+const categories=[];
+
+let lawId=1;
+
+
+for(
+  let c=0;
+  c<categoryNames.length;
+  c++
+){
+
+  const category={
+
+    number:c+1,
+
+    name:categoryNames[c],
+
+    laws:[]
+
+  };
+
+
+  for(
+    let x=0;
+    x<7 && lawId<=200;
+    x++
+  ){
+
+    let title=
+      `Zákon o ${lawSubjects[c]}`;
+
+
+    let subject=
+      `úpravě oblasti ${lawSubjects[c]}`;
+
+
+    if(specialLaws[lawId]){
+
+      title=
+        specialLaws[lawId].title;
+
+      subject=
+        specialLaws[lawId].subject;
+
+    }
+
+
+    const law={
+
+      id:lawId,
+
+      number:`${lawId}/2026`,
+
+      category:c+1,
+
+      categoryName:categoryNames[c],
+
+      title:title,
+
+      subject:subject,
+
+      effective:`1. ${((c+x)%12)+1}. 2026`,
+
+      paragraphs:[]
+
+    };
+
+
+    /*
+       8 paragrafů
+       každý má 6 odstavců
+    */
+
+    for(
+      let p=1;
+      p<=8;
+      p++
+    ){
+
+      const paragraph={
+
+        number:p,
+
+        title:
+          [
+            "Předmět úpravy",
+            "Základní povinnosti",
+            "Práva osob",
+            "Povinnosti osob",
+            "Kontrola",
+            "Odpovědnost",
+            "Přestupky",
+            "Závěrečná ustanovení"
+          ][p-1],
+
+        sections:[]
+
+      };
+
+
+      for(
+        let o=1;
+        o<=6;
+        o++
+      ){
+
+        paragraph.sections.push({
+
+          number:o,
+
+          text:
+            generateLegalText(
+              law,
+              p,
+              o
+            )
+
+        });
+
+      }
+
+
+      law.paragraphs.push(
+        paragraph
+      );
+
+    }
+
+
+    /*
+       Speciální obsah pro zákon o nočním klidu
+    */
+
+    if(law.id===41){
+
+      law.paragraphs[0].sections[0].text=
+        "Dobou nočního klidu se pro účely tohoto zákona rozumí doba od 22:00 hodin do 06:00 hodin následujícího dne.";
+
+      law.paragraphs[0].sections[1].text=
+        "Každý je povinen zdržet se v době nočního klidu jednání, které může svou intenzitou nebo opakováním významně narušit klid a odpočinek ostatních osob.";
+
+      law.paragraphs[0].sections[2].text=
+        "Ustanovení o nočním klidu se vztahuje zejména na veřejná prostranství, společné prostory domů a další místa, kde může docházet k rušení osob v jejich obydlí.";
+
+      law.paragraphs[1].sections[0].text=
+        "Za rušení nočního klidu se považuje zejména nepřiměřeně hlasitá hudba, křik, používání hlučných zařízení nebo jiné obdobné jednání.";
+
+      law.paragraphs[1].sections[1].text=
+        "Posuzuje se zejména intenzita hluku, jeho délka, opakování a místo, ve kterém k rušení dochází.";
+
+      law.paragraphs[6].sections[0].text=
+        "Porušením povinnosti stanovené tímto zákonem může být přestupek, pokud tak stanoví tento nebo jiný právní předpis ST-CITY.";
+
+      law.paragraphs[6].sections[1].text=
+        "Za přestupek lze podle závažnosti uložit napomenutí nebo pokutu až do výše stanovené tímto zákonem.";
+
+    }
+
+
+    category.laws.push(law);
+
+    lawId++;
+
+  }
+
+
+  categories.push(category);
+
+}
+
+
+const laws=
+  categories.flatMap(
+    c=>c.laws
+  );
+
+
+/* ======================================================
+   GENERÁTOR TEXTU
+====================================================== */
+
+function generateLegalText(
+  law,
+  paragraph,
+  odstavec
+){
+
+  const texts=[
+
+    `Tento zákon upravuje základní pravidla pro oblast ${law.subject}.`,
+
+    `Každá osoba je povinna při své činnosti respektovat tento zákon a postupovat tak, aby nedocházelo k nepřiměřenému zásahu do práv ostatních osob.`,
+
+    `Osoba má právo na ochranu svých oprávněných zájmů a na rovné zacházení za podmínek stanovených právním řádem ST-CITY.`,
+
+    `Povinnost podle tohoto zákona musí být splněna řádně, včas a způsobem, který odpovídá okolnostem konkrétního případu.`,
+
+    `Dodržování tohoto zákona může být kontrolováno příslušným orgánem ST-CITY v rozsahu stanoveném právními předpisy.`,
+
+    `Porušení povinnosti podle tohoto zákona se posuzuje podle závažnosti jednání, jeho následků a okolností, za kterých k porušení došlo.`,
+
+    `Při rozhodování se přihlíží zejména k opakování protiprávního jednání, způsobené škodě a případnému ohrožení bezpečnosti osob.`,
+
+    `Podrobnosti provádění tohoto ustanovení může stanovit prováděcí předpis ST-CITY.`
+
+  ];
+
+
+  return texts[
+    (paragraph+odstavec-2)%texts.length
+  ];
+
+}
+
+
+/* ======================================================
+   FAVORITES
+====================================================== */
+
+let favorites=
+  JSON.parse(
+    localStorage.getItem(
+      "stcity-favorites"
+    )||"[]"
+  );
+
+
+let history=
+  JSON.parse(
+    localStorage.getItem(
+      "stcity-history"
+    )||"[]"
+  );
+
+
+let currentLaw=null;
+
+
+/* ======================================================
+   ESCAPE
+====================================================== */
+
+function esc(text){
+
+  return String(text)
+
+    .replaceAll("&","&amp;")
+
+    .replaceAll("<","&lt;")
+
+    .replaceAll(">","&gt;")
+
+    .replaceAll('"',"&quot;")
+
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* ======================================================
+   SIDEBAR
+====================================================== */
+
+function buildSidebar(){
+
+  const container=
+    document.getElementById(
+      "sidebarCategories"
+    );
+
+  const mobile=
+    document.getElementById(
+      "mobileCategory"
+    );
+
+
+  categories.forEach(
+    category=>{
+
+      const button=
+        document.createElement(
+          "button"
+        );
+
+
+      button.className=
+        "side-item";
+
+
+      button.innerHTML=`
+
+        <span>
+          § ${category.number}
+          ${esc(category.name)}
+        </span>
+
+        <span class="side-count">
+          ${category.laws.length}
+        </span>
+
+      `;
+
+
+      button.onclick=()=>{
+        showCategory(
+          category.number
+        );
+      };
+
+
+      container.appendChild(
+        button
+      );
+
+
+      const option=
+        document.createElement(
+          "option"
+        );
+
+
+      option.value=
+        category.number;
+
+
+      option.textContent=
+        `§ ${category.number} — ${category.name}`;
+
+
+      mobile.appendChild(
+        option
+      );
+
+    }
+  );
+
+}
+
+
+/* ======================================================
+   HOME
+====================================================== */
+
+function showHome(){
+
+  activateAll();
+
+
+  main.innerHTML=`
+
+    <section class="welcome">
+
+      <div class="welcome-small">
+        ST-CITY · ELEKTRONICKÁ SBÍRKA
+      </div>
+
+      <h1>
+        Sbírka zákonů ST-CITY
+      </h1>
+
+      <p>
+        Elektronická sbírka právních předpisů
+        města ST-CITY. Předpisy jsou uspořádány
+        podle oblastí, zákonů, paragrafů a odstavců.
+        U jednotlivých předpisů je uvedeno také
+        jejich znění a stav účinnosti.
+      </p>
+
+      <div class="status">
+        ● SBÍRKA AKTIVNÍ
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>${laws.length}</strong>
+          <span>zákonů</span>
+        </div>
+
+        <div class="stat">
+          <strong>${categories.length}</strong>
+          <span>oblastí</span>
+        </div>
+
+        <div class="stat">
+          <strong>${laws.length*8}</strong>
+          <span>paragrafů</span>
+        </div>
+
+        <div class="stat">
+          <strong>${laws.length*8*6}</strong>
+          <span>odstavců</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <div id="categoryList"></div>
+
+
+    <div class="copyright">
+      © SirTros - SirTros-city
+    </div>
+
+  `;
+
+
+  const list=
+    document.getElementById(
+      "categoryList"
+    );
+
+
+  categories.forEach(
+    category=>{
+
+      list.insertAdjacentHTML(
+        "beforeend",
+        categoryHTML(category)
+      );
+
+    }
+  );
+
+}
+
+
+/* ======================================================
+   CATEGORY
+====================================================== */
+
+function categoryHTML(category){
+
+  return `
+
+    <section
+      class="category"
+      id="category-${category.number}"
+    >
+
+      <div
+        class="category-head"
+        onclick="toggleCategory(${category.number})"
+      >
+
+        <div class="category-left">
+
+          <span class="category-number">
+            § ${category.number}
+          </span>
+
+          <span class="category-name">
+            ${esc(category.name)}
+          </span>
+
+        </div>
+
+        <span class="category-right">
+          ${category.laws.length} zákonů
+          · otevřít ▾
+        </span>
+
+      </div>
+
+
+      <div class="category-laws">
+
+        ${category.laws
+          .map(law=>lawHTML(law))
+          .join("")}
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* ======================================================
+   LAW ITEM
+====================================================== */
+
+function lawHTML(law){
+
+  const favorite=
+    favorites.includes(law.id);
+
+
+  return `
+
+    <div
+      class="law"
+      onclick="openLaw(${law.id})"
+    >
+
+      <div class="law-number">
+        č. ${law.number}
+      </div>
+
+      <div>
+
+        <div class="law-title">
+          ${esc(law.title)}
+        </div>
+
+        <div class="law-sub">
+          ${esc(law.subject)}
+          · ve znění pozdějších předpisů
+        </div>
+
+      </div>
+
+
+      <button
+        class="star ${favorite?"on":""}"
+        onclick="
+          event.stopPropagation();
+          toggleFavorite(${law.id});
+        "
+      >
+        ${favorite?"★":"☆"}
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ======================================================
+   CATEGORY OPEN
+====================================================== */
+
+function toggleCategory(number){
+
+  const element=
+    document.getElementById(
+      "category-"+number
+    );
+
+  if(element){
+
+    element.classList.toggle(
+      "open"
+    );
+
+  }
+
+}
+
+
+/* ======================================================
+   SHOW CATEGORY
+====================================================== */
+
+function showCategory(number){
+
+  const category=
+    categories.find(
+      c=>c.number===Number(number)
+    );
+
+
+  if(!category)return;
+
+
+  deactivateAll();
+
+
+  main.innerHTML=`
+
+    <section class="category open">
+
+      <div class="category-head">
+
+        <div class="category-left">
+
+          <span class="category-number">
+            § ${category.number}
+          </span>
+
+          <span class="category-name">
+            ${esc(category.name)}
+          </span>
+
+        </div>
+
+        <span class="category-right">
+          ${category.laws.length} zákonů
+        </span>
+
+      </div>
+
+
+      <div
+        class="category-laws"
+        style="display:block"
+      >
+
+        ${category.laws
+          .map(law=>lawHTML(law))
+          .join("")}
+
+      </div>
+
+    </section>
+
+
+    <div class="copyright">
+      © SirTros - SirTros-city
+    </div>
+
+  `;
+
+}
+
+
+/* ======================================================
+   OPEN LAW
+====================================================== */
+
+function openLaw(
+  id,
+  targetP=null,
+  targetO=null
+){
+
+  const law=
+    laws.find(
+      l=>l.id===id
+    );
+
+
+  if(!law)return;
+
+
+  currentLaw=law;
+
+
+  history=
+    [
+      id,
+      ...history.filter(
+        x=>x!==id
+      )
+    ].slice(0,40);
+
+
+  localStorage.setItem(
+    "stcity-history",
+    JSON.stringify(history)
+  );
+
+
+  renderLaw(
+    law,
+    targetP,
+    targetO
+  );
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ======================================================
+   RENDER LAW
+====================================================== */
+
+function renderLaw(
+  law,
+  targetP,
+  targetO
+){
+
+  const favorite=
+    favorites.includes(
+      law.id
+    );
+
+
+  let paragraphsHTML="";
+
+
+  law.paragraphs.forEach(
+    paragraph=>{
+
+      paragraphsHTML+=`
+
+        <section
+          class="chapter"
+          id="law-${law.id}-p-${paragraph.number}"
+        >
+
+          <div class="chapter-title">
+
+            § ${paragraph.number}
+            — ${esc(paragraph.title)}
+
+          </div>
+
+      `;
+
+
+      paragraph.sections.forEach(
+        odst=>{
+
+          paragraphsHTML+=`
+
+            <div
+              class="odst"
+              id="
+                law-${law.id}
+                -p-${paragraph.number}
+                -o-${odst.number}
+              "
+            >
+
+              <div class="odst-num">
+                (${odst.number})
+              </div>
+
+              <div class="odst-text">
+
+                ${esc(odst.text)}
+
+              </div>
+
+            </div>
+
+          `;
+
+        }
+      );
+
+
+      paragraphsHTML+=`
+
+        </section>
+
+      `;
+
+    }
+  );
+
+
+  const sanctionText=
+    getSanction(law);
+
+
+  main.innerHTML=`
+
+    <div class="breadcrumb">
+
+      <button onclick="showHome()">
+        Sbírka
+      </button>
+
+      ·
+
+      <button
+        onclick="showCategory(${law.category})"
+      >
+        § ${law.category}
+        ${esc(law.categoryName)}
+      </button>
+
+      ·
+
+      Zákon č. ${law.number}
+
+    </div>
+
+
+    <div class="toolbar">
+
+      <span>
+        Zákon č. ${law.number}
+      </span>
+
+
+      <div class="toolbar-actions">
+
+        <button
+          class="tool"
+          onclick="toggleFavorite(${law.id})"
+        >
+          ${favorite?"★ Oblíbené":"☆ Oblíbené"}
+        </button>
+
+
+        <button
+          class="tool"
+          onclick="window.print()"
+        >
+          🖨 Tisk
+        </button>
+
+
+        <button
+          class="tool"
+          onclick="copyLink(${law.id})"
+        >
+          🔗 Odkaz
+        </button>
+
+
+        <button
+          class="tool"
+          onclick="showCategory(${law.category})"
+        >
+          ← Zpět
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <article class="document">
+
+      <header class="doc-head">
+
+        <div class="doc-number">
+          ZÁKON č. ${law.number}
+        </div>
+
+        <h1 class="doc-title">
+          ${esc(law.title)}
+        </h1>
+
+        <div class="doc-subtitle">
+          ${esc(law.subject)}
+        </div>
+
+
+        <div class="consolidated">
+          ve znění pozdějších předpisů
+        </div>
+
+
+        <div class="meta">
+
+          <span>
+            Kategorie:
+            <strong>
+              § ${law.category}
+            </strong>
+          </span>
+
+          <span>
+            Účinnost:
+            <strong>
+              ${law.effective}
+            </strong>
+          </span>
+
+          <span>
+            Stav:
+            <strong style="color:#30734b">
+              PLATNÝ
+            </strong>
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <section class="part">
+
+        <div class="part-line"></div>
+
+        <div class="part-title">
+          ČÁST PRVNÍ
+        </div>
+
+        <div class="part-sub">
+          ZÁKLADNÍ USTANOVENÍ
+        </div>
+
+        ${paragraphsHTML}
+
+
+        <div class="sanction">
+
+          <strong>
+            Sankční ustanovení
+          </strong>
+
+          <br><br>
+
+          ${sanctionText}
+
+        </div>
+
+
+        <div class="amendments">
+
+          <div class="amendments-head">
+            ZNĚNÍ POZDĚJŠÍCH PŘEDPISŮ
+          </div>
+
+          <div class="amendments-body">
+
+            Tento dokument je zobrazen
+            ve znění pozdějších předpisů.
+
+            <br><br>
+
+            Evidované změny:
+            <strong>
+              ${law.id%3===0 ? "2" : "1"}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="notice">
+
+          <strong>Právní informace:</strong>
+
+          Zobrazené znění představuje právní řád
+          fiktivního města ST-CITY.
+
+          <br><br>
+
+          ST-CITY Laws není skutečnou právní
+          sbírkou České republiky a tyto předpisy
+          nemají právní účinky.
+
+          <br><br>
+
+          © SirTros - SirTros-city
+
+        </div>
+
+
+        <div class="doc-footer">
+
+          ST-CITY Laws · Elektronická sbírka
+          právních předpisů
+
+          <br><br>
+
+          © SirTros - SirTros-city
+
+        </div>
+
+      </section>
+
+    </article>
+
+  `;
+
+
+  if(targetP){
+
+    setTimeout(()=>{
+
+      const id=
+        `law-${law.id}-p-${targetP}`+
+        `${targetO ? "-o-"+targetO : ""}`;
+
+      const element=
+        document.getElementById(id);
+
+      if(element){
+
+        element.scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+
+        element.style.background="#fff7c9";
+
+        setTimeout(()=>{
+          element.style.background="";
+        },3000);
+
+      }
+
+    },200);
+
+  }
+
+}
+
+
+/* ======================================================
+   SANKCE
+====================================================== */
+
+function getSanction(law){
+
+  if(
+    law.id===41 ||
+    law.categoryName==="Noční klid a hluk"
+  ){
+
+    return `
+      Za porušení povinnosti stanovené tímto
+      zákonem může být uložena pokuta až do
+      výše 10 000 Kč. Při opakovaném porušení
+      může být přihlédnuto k předchozímu jednání.
+    `;
+
+  }
+
+
+  if(
+    law.categoryName==="Doprava a silniční provoz" ||
+    law.categoryName==="Parkování"
+  ){
+
+    return `
+      Porušení tohoto zákona může být řešeno
+      napomenutím nebo pokutou podle závažnosti
+      přestupku a jeho následků.
+    `;
+
+  }
+
+
+  return `
+    Porušení povinnosti podle tohoto zákona
+    může být posouzeno jako přestupek. Sankce
+    se stanoví podle závažnosti jednání,
+    následků a okolností konkrétního případu.
+  `;
+
+}
+
+
+/* ======================================================
+   SEARCH
+====================================================== */
+
+const search=
+  document.getElementById(
+    "search"
+  );
+
+
+search.addEventListener(
+  "input",
+  ()=>{
+
+    clearTimeout(
+      window.searchTimer
+    );
+
+    window.searchTimer=
+      setTimeout(
+        ()=>{
+          performSearch(
+            search.value
+          );
+        },
+        100
+      );
+
+  }
+);
+
+
+function performSearch(query){
+
+  query=
+    query.trim().toLowerCase();
+
+
+  if(!query){
+
+    showHome();
+
+    return;
+
+  }
+
+
+  /*
+    číslo zákona
+  */
+
+  const numberMatch=
+    query.match(
+      /(\d+)\s*\/\s*2026/
+    );
+
+
+  if(numberMatch){
+
+    const law=
+      laws.find(
+        l=>
+          l.number===
+          `${numberMatch[1]}/2026`
+      );
+
+
+    if(law){
+
+      openLaw(law.id);
+
+      return;
+
+    }
+
+  }
+
+
+  /*
+    hledání § a odstavce
+  */
+
+  const citation=
+    query.match(
+      /§\s*(\d+)(?:\s*odst\.?\s*(\d+))?/
+    );
+
+
+  const p=
+    citation?
+      Number(citation[1]):
+      null;
+
+
+  const o=
+    citation && citation[2]?
+      Number(citation[2]):
+      null;
+
+
+  const words=
+    query
+      .replace(/§/g,"")
+      .replace(/odst\.?/g,"")
+      .trim();
+
+
+  const results=
+    laws.filter(
+      law=>{
+
+        let text=
+          [
+            law.number,
+            law.title,
+            law.subject,
+            law.categoryName
+          ]
+          .join(" ")
+          .toLowerCase();
+
+
+        law.paragraphs.forEach(
+          paragraph=>{
+
+            text+=
+              " § "+
+              paragraph.number+
+              " "+
+              paragraph.title;
+
+
+            paragraph.sections.forEach(
+              odst=>{
+
+                text+=
+                  " "+
+                  odst.number+
+                  " "+
+                  odst.text;
+
+              }
+            );
+
+          }
+        );
+
+
+        if(
+          p &&
+          !law.paragraphs.some(
+            x=>x.number===p
+          )
+        ){
+
+          return false;
+
+        }
+
+
+        return text.includes(
+          words
+        );
+
+      }
+    );
+
+
+  showResults(
+    query,
+    results,
+    p,
+    o
+  );
+
+}
+
+
+/* ======================================================
+   RESULTS
+====================================================== */
+
+function showResults(
+  query,
+  results,
+  p,
+  o
+){
+
+  main.innerHTML=`
+
+    <div class="results">
+
+      <div class="results-head">
+
+        Výsledky hledání
+
+        ·
+
+        <strong>
+          „${esc(query)}“
+        </strong>
+
+        ·
+
+        ${results.length}
+
+        výsledků
+
+      </div>
+
+
+      ${
+        results.length
+
+        ?
+
+        results.map(
+          law=>`
+
+            <div
+              class="result"
+              onclick="
+                openLaw(
+                  ${law.id},
+                  ${p||"null"},
+                  ${o||"null"}
+                )
+              "
+            >
+
+              <div class="result-number">
+                ZÁKON č. ${law.number}
+              </div>
+
+              <div class="result-title">
+                ${esc(law.title)}
+              </div>
+
+              <div class="result-info">
+
+                § ${law.category}
+                · ${esc(law.categoryName)}
+                · ${esc(law.subject)}
+
+              </div>
+
+            </div>
+
+          `
+        ).join("")
+
+        :
+
+        `
+
+          <div class="empty">
+
+            🔎
+
+            <h2>
+              Nic jsme nenašli
+            </h2>
+
+            <p>
+              Zkuste například „noční klid“,
+              „hluk“, „parkování“,
+              „§ 3“ nebo „45/2026“.
+            </p>
+
+          </div>
+
+        `
+
+      }
+
+    </div>
+
+
+    <div class="copyright">
+      © SirTros - SirTros-city
+    </div>
+
+  `;
+
+}
+
+
+/* ======================================================
+   FAVORITES
+====================================================== */
+
+function toggleFavorite(id){
+
+  if(
+    favorites.includes(id)
+  ){
+
+    favorites=
+      favorites.filter(
+        x=>x!==id
+      );
+
+  }else{
+
+    favorites.push(id);
+
+  }
+
+
+  localStorage.setItem(
+    "stcity-favorites",
+    JSON.stringify(favorites)
+  );
+
+
+  updateFavoriteCount();
+
+
+  if(
+    currentLaw &&
+    currentLaw.id===id
+  ){
+
+    openLaw(id);
+
+  }else{
+
+    showHome();
+
+  }
+
+}
+
+
+function updateFavoriteCount(){
+
+  document.getElementById(
+    "favCount"
+  ).textContent=
+    favorites.length;
+
+}
+
+
+/* ======================================================
+   FAVORITES PAGE
+====================================================== */
+
+function showFavorites(){
+
+  deactivateAll();
+
+
+  const selected=
+    laws.filter(
+      law=>
+        favorites.includes(
+          law.id
+        )
+    );
+
+
+  main.innerHTML=`
+
+    <section class="category">
+
+      <div class="category-head">
+
+        <div class="category-left">
+
+          <span class="category-number">
+            ★
+          </span>
+
+          <span class="category-name">
+            Oblíbené zákony
+          </span>
+
+        </div>
+
+        <span class="category-right">
+          ${selected.length}
+        </span>
+
+      </div>
+
+
+      <div
+        class="category-laws"
+        style="display:block"
+      >
+
+        ${
+          selected.length
+          ?
+          selected
+            .map(law=>lawHTML(law))
+            .join("")
+          :
+          `
+            <div class="empty">
+              Nemáte žádné oblíbené zákony.
+            </div>
+          `
+        }
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* ======================================================
+   HISTORY
+====================================================== */
+
+function showHistory(){
+
+  deactivateAll();
+
+
+  const selected=
+    history
+      .map(
+        id=>
+          laws.find(
+            l=>l.id===id
+          )
+      )
+      .filter(Boolean);
+
+
+  main.innerHTML=`
+
+    <section class="category">
+
+      <div class="category-head">
+
+        <div class="category-left">
+
+          <span class="category-number">
+            ◷
+          </span>
+
+          <span class="category-name">
+            Historie
+          </span>
+
+        </div>
+
+        <span class="category-right">
+          ${selected.length}
+        </span>
+
+      </div>
+
+
+      <div
+        class="category-laws"
+        style="display:block"
+      >
+
+        ${
+          selected.length
+          ?
+          selected
+            .map(law=>lawHTML(law))
+            .join("")
+          :
+          `
+            <div class="empty">
+              Historie je prázdná.
+            </div>
+          `
+        }
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* ======================================================
+   ABOUT
+====================================================== */
+
+function showAbout(){
+
+  deactivateAll();
+
+
+  main.innerHTML=`
+
+    <article class="document">
+
+      <header class="doc-head">
+
+        <div class="doc-number">
+          ST-CITY LAWS
+        </div>
+
+        <h1 class="doc-title">
+          O elektronické sbírce
+        </h1>
+
+        <div class="doc-subtitle">
+          Právní systém města ST-CITY
+        </div>
+
+      </header>
+
+
+      <section class="part">
+
+        <div class="part-line"></div>
+
+        <div class="part-title">
+          ZÁKLADNÍ INFORMACE
+        </div>
+
+
+        <div class="chapter">
+
+          <div class="paragraph">
+
+            <div class="paragraph-head">
+
+              <span class="paragraph-symbol">
+                § 1
+              </span>
+
+              <span class="paragraph-title">
+                Sbírka
+              </span>
+
+            </div>
+
+            <p class="legal-text">
+
+              ST-CITY Laws je elektronická
+              sbírka fiktivních právních předpisů
+              vytvořených pro projekt ST-CITY.
+
+            </p>
+
+          </div>
+
+
+          <div class="paragraph">
+
+            <div class="paragraph-head">
+
+              <span class="paragraph-symbol">
+                § 2
+              </span>
+
+              <span class="paragraph-title">
+                Struktura
+              </span>
+
+            </div>
+
+            <p class="legal-text">
+
+              Jednotlivé předpisy jsou rozděleny
+              do kategorií, zákonů, paragrafů
+              a odstavců.
+
+            </p>
+
+          </div>
+
+
+          <div class="paragraph">
+
+            <div class="paragraph-head">
+
+              <span class="paragraph-symbol">
+                § 3
+              </span>
+
+              <span class="paragraph-title">
+                Autorská informace
+              </span>
+
+            </div>
+
+            <p class="legal-text">
+
+              © SirTros - SirTros-city
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="notice">
+
+          <strong>
+            UPOZORNĚNÍ
+          </strong>
+
+          <br><br>
+
+          ST-CITY Laws je fiktivní právní
+          systém a jeho předpisy nejsou
+          právními předpisy České republiky.
+
+          <br><br>
+
+          © SirTros - SirTros-city
+
+        </div>
+
+      </section>
+
+
+      <div class="doc-footer">
+        © SirTros - SirTros-city
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+/* ======================================================
+   COPY
+====================================================== */
+
+function copyLink(id){
+
+  const link=
+    location.href
+    .split("#")[0]+
+    "#law-"+id;
+
+
+  if(
+    navigator.clipboard
+  ){
+
+    navigator.clipboard
+      .writeText(link);
+
+    alert(
+      "Odkaz byl zkopírován."
+    );
+
+  }
+
+}
+
+
+/* ======================================================
+   UI
+====================================================== */
+
+function activateAll(){
+
+  document
+    .querySelectorAll(".side-item")
+    .forEach(
+      x=>
+        x.classList.remove("active")
+    );
+
+
+  document
+    .getElementById("allButton")
+    .classList.add("active");
+
+}
+
+
+function deactivateAll(){
+
+  document
+    .querySelectorAll(".side-item")
+    .forEach(
+      x=>
+        x.classList.remove("active")
+    );
+
+}
+
+
+function clearSearch(){
+
+  search.value="";
+
+  showHome();
+
+  search.focus();
+
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+document
+  .getElementById(
+    "mobileCategory"
+  )
+  .addEventListener(
+    "change",
+    function(){
+
+      if(
+        this.value==="all"
+      ){
+
+        showHome();
+
+      }else{
+
+        showCategory(
+          this.value
+        );
+
+      }
+
+    }
+  );
+
+
+/* ======================================================
+   KEYBOARD
+====================================================== */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      (event.ctrlKey||event.metaKey)
+      &&
+      event.key.toLowerCase()==="k"
+    ){
+
+      event.preventDefault();
+
+      search.focus();
+
+    }
+
+
+    if(
+      event.key==="Escape"
+    ){
+
+      clearSearch();
+
+    }
+
+  }
+);
+
+
+/* ======================================================
+   INIT
+====================================================== */
+
+buildSidebar();
+
+updateFavoriteCount();
+
+showHome();
+
+
+</script>
+
+</body>
+</html>
