@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -7,17 +8,12 @@
 <title>ST-CITY Laws 2.0</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 :root{
     --bg:#f3f5f7;
-    --panel:#ffffff;
+    --panel:#fff;
     --panel2:#f8fafb;
     --text:#202a31;
     --muted:#74818a;
@@ -53,14 +49,8 @@ body{
     transition:.2s;
 }
 
-button,
-input{
-    font-family:Arial,sans-serif;
-}
-
-button{
-    color:inherit;
-}
+button,input{font-family:Arial,sans-serif}
+button{color:inherit}
 
 .header{
     height:72px;
@@ -163,9 +153,7 @@ button{
     padding:13px 22px;
 }
 
-.search{
-    position:relative;
-}
+.search{position:relative}
 
 .search input{
     width:100%;
@@ -249,9 +237,7 @@ button{
     font:12px Arial,sans-serif;
 }
 
-.side-btn:hover{
-    background:var(--panel2);
-}
+.side-btn:hover{background:var(--panel2)}
 
 .side-btn.active{
     background:var(--blue2);
@@ -399,9 +385,7 @@ main{
     cursor:pointer;
 }
 
-.category-head:hover{
-    background:var(--blue2);
-}
+.category-head:hover{background:var(--blue2)}
 
 .category-title{
     display:flex;
@@ -436,13 +420,8 @@ main{
     font:10px Arial,sans-serif;
 }
 
-.laws{
-    display:none;
-}
-
-.category.open .laws{
-    display:block;
-}
+.laws{display:none}
+.category.open .laws{display:block}
 
 .law{
     display:grid;
@@ -454,13 +433,8 @@ main{
     cursor:pointer;
 }
 
-.law:last-child{
-    border-bottom:0;
-}
-
-.law:hover{
-    background:var(--panel2);
-}
+.law:last-child{border-bottom:0}
+.law:hover{background:var(--panel2)}
 
 .law-number{
     color:var(--muted);
@@ -491,13 +465,8 @@ main{
     color:#aeb6bc;
 }
 
-.star:hover{
-    background:var(--panel2);
-}
-
-.star.active{
-    color:var(--gold);
-}
+.star:hover{background:var(--panel2)}
+.star.active{color:var(--gold)}
 
 .breadcrumb{
     color:var(--muted);
@@ -589,13 +558,9 @@ main{
     font:10px Arial,sans-serif;
 }
 
-.metadata strong{
-    color:var(--text);
-}
+.metadata strong{color:var(--text)}
 
-.part{
-    margin-top:52px;
-}
+.part{margin-top:52px}
 
 .part-line{
     height:2px;
@@ -731,9 +696,7 @@ main{
     cursor:pointer;
 }
 
-.result:hover{
-    background:var(--panel2);
-}
+.result:hover{background:var(--panel2)}
 
 .result-number{
     color:var(--muted);
@@ -789,58 +752,23 @@ main{
     font-size:18px;
 }
 
-.mobile-nav{
-    display:none;
-}
+.mobile-nav{display:none}
 
 @media(max-width:900px){
-
-    .layout{
-        grid-template-columns:225px 1fr;
-    }
-
-    main{
-        padding:20px;
-    }
-
-    .document{
-        padding:42px 35px;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
+    .layout{grid-template-columns:225px 1fr}
+    main{padding:20px}
+    .document{padding:42px 35px}
+    .stats{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:680px){
-
-    .header{
-        height:62px;
-    }
-
-    .header-inner{
-        padding:0 10px;
-    }
-
-    .header-buttons{
-        display:none;
-    }
-
-    .mobile-menu{
-        display:block;
-    }
-
-    .brand-title{
-        font-size:17px;
-    }
-
-    .brand-sub{
-        display:none;
-    }
-
-    .layout{
-        display:block;
-    }
+    .header{height:62px}
+    .header-inner{padding:0 10px}
+    .header-buttons{display:none}
+    .mobile-menu{display:block}
+    .brand-title{font-size:17px}
+    .brand-sub{display:none}
+    .layout{display:block}
 
     .sidebar{
         display:none;
@@ -854,9 +782,7 @@ main{
         box-shadow:5px 0 20px rgba(0,0,0,.15);
     }
 
-    .sidebar.mobile-open{
-        display:block;
-    }
+    .sidebar.mobile-open{display:block}
 
     .mobile-nav{
         display:flex;
@@ -885,41 +811,15 @@ main{
         margin-bottom:2px;
     }
 
-    main{
-        padding:10px 10px 75px;
-    }
-
-    .search-inner{
-        padding:9px;
-    }
-
-    .home-hero{
-        padding:22px 17px;
-    }
-
-    .hero-top{
-        display:block;
-    }
-
-    .home-hero h1{
-        font-size:27px;
-    }
-
-    .stats{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stat{
-        padding:13px;
-    }
-
-    .stat strong{
-        font-size:19px;
-    }
-
-    .category-head{
-        padding:13px;
-    }
+    main{padding:10px 10px 75px}
+    .search-inner{padding:9px}
+    .home-hero{padding:22px 17px}
+    .hero-top{display:block}
+    .home-hero h1{font-size:27px}
+    .stats{grid-template-columns:1fr 1fr}
+    .stat{padding:13px}
+    .stat strong{font-size:19px}
+    .category-head{padding:13px}
 
     .law{
         grid-template-columns:68px 1fr 35px;
@@ -927,21 +827,10 @@ main{
         gap:9px;
     }
 
-    .law-description{
-        display:none;
-    }
-
-    .law-name{
-        font-size:14px;
-    }
-
-    .document{
-        padding:32px 16px;
-    }
-
-    .document h1{
-        font-size:27px;
-    }
+    .law-description{display:none}
+    .law-name{font-size:14px}
+    .document{padding:32px 16px}
+    .document h1{font-size:27px}
 
     .odst{
         padding-left:3px;
@@ -963,18 +852,14 @@ main{
         grid-template-columns:1fr 1fr;
     }
 
-    .toolbar-buttons .btn{
-        width:100%;
-    }
+    .toolbar-buttons .btn{width:100%}
 
     .quick-actions{
         display:grid;
         grid-template-columns:1fr 1fr;
     }
 
-    .quick-action{
-        text-align:center;
-    }
+    .quick-action{text-align:center}
 
     .top-button{
         bottom:70px;
@@ -983,7 +868,6 @@ main{
 }
 
 @media print{
-
     @page{
         size:A4;
         margin:18mm;
@@ -1005,13 +889,8 @@ main{
         display:none!important;
     }
 
-    .layout{
-        display:block;
-    }
-
-    main{
-        padding:0;
-    }
+    .layout{display:block}
+    main{padding:0}
 
     .document{
         border:0;
@@ -1019,9 +898,7 @@ main{
         padding:0;
     }
 
-    .odst-text{
-        font-size:12pt;
-    }
+    .odst-text{font-size:12pt}
 }
 </style>
 </head>
@@ -1075,7 +952,6 @@ ELEKTRONICKÁ SBÍRKA PRÁVNÍCH PŘEDPISŮ
 
 </header>
 
-
 <div class="search-area">
 
 <div class="search-inner">
@@ -1099,16 +975,15 @@ onclick="clearSearch()">
 
 <div class="search-help">
 💡 Zkus například:
-<b>noční klid</b> ·
-<b>parkování</b> ·
-<b>§ 3</b> ·
-<b>41/2026</b>
+<b>znásilnění</b> ·
+<b>ochrana dětí</b> ·
+<b>krádež</b> ·
+<b>§ 3</b>
 </div>
 
 </div>
 
 </div>
-
 
 <div class="layout">
 
@@ -1178,11 +1053,9 @@ line-height:1.7">
 
 </aside>
 
-
 <main id="main"></main>
 
 </div>
-
 
 <div class="mobile-nav">
 
@@ -1208,14 +1081,12 @@ Sbírka
 
 </div>
 
-
 <button
 id="topButton"
 class="top-button"
 onclick="window.scrollTo({top:0,behavior:'smooth'})">
 ⬆️
 </button>
-
 
 <script>
 
@@ -1261,179 +1132,180 @@ const laws=[];
 const lawNames={
 
 "Veřejný pořádek":[
-["Zákon o veřejném pořádku","Stanovuje základní pravidla pro zachování pořádku ve městě."],
-["Zákon o veřejném obtěžování","Upravuje jednání, kterým může osoba nepřiměřeně obtěžovat ostatní."],
-["Zákon o městském mobiliáři","Chrání lavičky, koše, osvětlení a další veřejné vybavení."],
-["Zákon o bezpečném užívání ulic","Stanovuje pravidla bezpečného pohybu osob na veřejných místech."]
+["Zákon o veřejném pořádku","Chrání klidné, bezpečné a důstojné soužití obyvatel ST-CITY."],
+["Zákon o veřejném obtěžování","Upravuje jednání, kterým osoba bezdůvodně obtěžuje, zastrašuje nebo omezuje ostatní."],
+["Zákon o ochraně veřejného majetku","Chrání lavičky, osvětlení, koše, zastávky a další veřejný majetek před poškozením."],
+["Zákon o bezpečném užívání ulic","Stanovuje povinnost chovat se na veřejných místech tak, aby nebyli ohrožováni ostatní."]
 ],
 
 "Noční klid a hluk":[
-["Zákon o nočním klidu","Stanovuje dobu a podmínky nočního klidu."],
-["Zákon o rušení nočního klidu","Upravuje jednání, které významně narušuje odpočinek obyvatel."],
-["Zákon o nadměrném hluku","Stanovuje pravidla pro omezení nadměrného hluku."],
-["Zákon o hlučných činnostech","Upravuje používání hlučných zařízení v obytných oblastech."]
+["Zákon o nočním klidu","Stanovuje dobu nočního klidu a chrání právo obyvatel na nerušený odpočinek."],
+["Zákon o rušení nočního klidu","Zakazuje úmyslné nebo nepřiměřené rušení nočního klidu."],
+["Zákon o nadměrném hluku","Upravuje omezení hluku, který nepřiměřeně zatěžuje okolí."],
+["Zákon o hlučných činnostech","Stanovuje pravidla pro používání hlučných zařízení v obytných oblastech."]
 ],
 
 "Doprava":[
-["Zákon o silničním provozu ST-CITY","Stanovuje základní pravidla pohybu vozidel a dalších účastníků provozu."],
-["Zákon o bezpečnosti chodců","Upravuje ochranu chodců při pohybu na komunikacích."],
-["Zákon o jízdních kolech","Stanovuje pravidla pro používání jízdních kol."],
-["Zákon o koloběžkách","Upravuje bezpečné používání koloběžek ve městě."]
+["Zákon o silničním provozu ST-CITY","Stanovuje základní pravidla bezpečného pohybu vozidel, chodců a dalších účastníků provozu."],
+["Zákon o bezpečnosti chodců","Posiluje ochranu chodců a stanovuje povinnost řidičů dbát zvýšené opatrnosti."],
+["Zákon o jízdních kolech","Upravuje bezpečný provoz jízdních kol na komunikacích a veřejných místech."],
+["Zákon o koloběžkách","Stanovuje pravidla bezpečného používání koloběžek a ochrany ostatních účastníků provozu."]
 ],
 
 "Parkování":[
-["Zákon o parkování vozidel","Upravuje pravidla zastavení a stání vozidel."],
-["Zákon o parkovacích zónách","Stanovuje režim jednotlivých parkovacích oblastí."],
-["Zákon o vyhrazených místech","Upravuje používání parkovacích míst určených pro zvláštní účely."],
-["Zákon o dlouhodobém stání","Stanovuje pravidla pro dlouhodobé ponechání vozidla."]
+["Zákon o parkování vozidel","Upravuje pravidla zastavení, stání a používání parkovacích míst."],
+["Zákon o parkovacích zónách","Stanovuje režim jednotlivých parkovacích oblastí a podmínky parkování."],
+["Zákon o vyhrazených místech","Chrání parkovací místa určená pro osoby nebo účely se zvláštním oprávněním."],
+["Zákon o dlouhodobém stání","Upravuje podmínky dlouhodobého ponechání vozidla na veřejném prostoru."]
 ],
 
 "Bezpečnost":[
-["Zákon o obecné bezpečnosti","Stanovuje základní pravidla předcházení nebezpečným situacím."],
-["Zákon o nebezpečném jednání","Upravuje jednání, které může ohrozit jiné osoby."],
-["Zákon o evakuaci","Stanovuje povinnosti při nařízené evakuaci."],
-["Zákon o mimořádných situacích","Upravuje postupy při mimořádných událostech."]
+["Zákon o ochraně života a zdraví","Chrání život, zdraví, tělesnou integritu a bezpečí všech osob na území ST-CITY."],
+["Zákon proti násilí a napadení","Zakazuje úmyslné násilné jednání vůči jiné osobě a stanovuje odpovědnost za jeho následky."],
+["Zákon proti sexuálnímu násilí a znásilnění","Chrání každou osobu před znásilněním, sexuálním násilím, nátlakem a jednáním bez svobodného souhlasu."],
+["Zákon o ochraně dětí a zranitelných osob","Poskytuje zvýšenou ochranu dětem a zranitelným osobám před násilím, zneužíváním, zanedbáváním a vykořisťováním."]
 ],
 
 "Veřejná prostranství":[
-["Zákon o užívání veřejných prostranství","Upravuje používání ulic, náměstí, parků a dalších míst."],
-["Zákon o čistotě veřejných míst","Stanovuje povinnost udržovat veřejné prostory čisté."],
-["Zákon o městském vybavení","Chrání zařízení umístěná ve veřejném prostoru."],
-["Zákon o dočasném zabrání prostoru","Upravuje dočasné využití veřejného prostoru."]
+["Zákon o užívání veřejných prostranství","Upravuje používání ulic, náměstí, parků a dalších veřejných míst."],
+["Zákon o čistotě veřejných míst","Stanovuje povinnost neznečišťovat veřejná prostranství a odstraňovat způsobené znečištění."],
+["Zákon o městském vybavení","Chrání zařízení umístěná ve veřejném prostoru před poškozením a zneužitím."],
+["Zákon o dočasném zabrání prostoru","Upravuje podmínky dočasného využití veřejného prostoru pro akce nebo práce."]
 ],
 
 "Životní prostředí":[
-["Zákon o ochraně životního prostředí","Stanovuje základní pravidla ochrany prostředí ve městě."],
-["Zákon o městské zeleni","Chrání stromy, keře a další veřejnou zeleň."],
-["Zákon o ochraně ovzduší","Upravuje činnosti ovlivňující kvalitu ovzduší."],
-["Zákon o ochraně přírodních míst","Stanovuje režim ochrany vybraných přírodních lokalit."]
+["Zákon o ochraně životního prostředí","Stanovuje základní pravidla ochrany přírody, půdy, vody a ovzduší."],
+["Zákon o městské zeleni","Chrání stromy, keře, parky a další veřejnou zeleň."],
+["Zákon o ochraně ovzduší","Upravuje činnosti, které mohou nepřiměřeně zhoršovat kvalitu ovzduší."],
+["Zákon o ochraně přírodních míst","Stanovuje ochranný režim pro významná přírodní místa."]
 ],
 
 "Odpady":[
-["Zákon o odpadech","Upravuje nakládání s odpady na území ST-CITY."],
-["Zákon o třídění odpadu","Stanovuje pravidla odděleného třídění odpadu."],
-["Zákon o černých skládkách","Zakazuje ukládání odpadu mimo určená místa."],
-["Zákon o objemném odpadu","Upravuje předávání odpadu větších rozměrů."]
+["Zákon o odpadech","Upravuje bezpečné a odpovědné nakládání s odpady na území ST-CITY."],
+["Zákon o třídění odpadu","Stanovuje pravidla oddělování jednotlivých druhů odpadu."],
+["Zákon proti černým skládkám","Zakazuje ukládání odpadu mimo místa určená k jeho převzetí."],
+["Zákon o objemném odpadu","Upravuje způsob předávání nábytku, spotřebičů a dalšího objemného odpadu."]
 ],
 
 "Zvířata":[
-["Zákon o chovu zvířat","Stanovuje základní pravidla odpovědného chovu."],
-["Zákon o psech na veřejnosti","Upravuje pohyb psů na veřejných místech."],
-["Zákon o povinnostech chovatele","Stanovuje odpovědnost osoby za svěřené zvíře."],
-["Zákon o ochraně zvířat","Stanovuje pravidla ochrany zvířat před nevhodným zacházením."]
+["Zákon o chovu zvířat","Stanovuje povinnosti osob, které chovají nebo mají ve své péči zvíře."],
+["Zákon o psech na veřejnosti","Upravuje pohyb psů na veřejných místech a povinnosti jejich chovatelů."],
+["Zákon o odpovědnosti chovatele","Stanovuje odpovědnost chovatele za bezpečnost lidí, zvířete a okolí."],
+["Zákon o ochraně zvířat","Chrání zvířata před týráním, zanedbáváním a zbytečným utrpením."]
 ],
 
 "Bydlení":[
-["Zákon o bydlení","Upravuje základní pravidla soužití obyvatel."],
-["Zákon o společných prostorách","Stanovuje pravidla užívání společných částí domů."],
-["Zákon o domovním klidu","Upravuje podmínky klidného soužití obyvatel."],
-["Zákon o bezpečnosti bytových domů","Stanovuje bezpečnostní povinnosti v obytných domech."]
+["Zákon o bydlení","Upravuje základní pravidla bezpečného a pokojného bydlení."],
+["Zákon o společných prostorách","Stanovuje pravidla užívání chodeb, schodišť, výtahů a dalších společných částí domů."],
+["Zákon o domovním klidu","Chrání obyvatele před závažným a opakovaným narušováním klidného soužití."],
+["Zákon o bezpečnosti bytových domů","Stanovuje povinnosti při udržování bezpečného stavu obytných budov."]
 ],
 
 "Nájemní vztahy":[
-["Zákon o nájemních vztazích","Upravuje základní vztahy mezi nájemcem a pronajímatelem."],
-["Zákon o právech nájemce","Stanovuje základní práva nájemce."],
-["Zákon o povinnostech pronajímatele","Upravuje povinnosti pronajímatele."],
-["Zákon o ukončení nájmu","Stanovuje pravidla pro ukončení nájemního vztahu."]
+["Zákon o nájemních vztazích","Upravuje základní práva a povinnosti nájemce a pronajímatele."],
+["Zákon o právech nájemce","Chrání nájemce před neoprávněným zásahem do jeho práv."],
+["Zákon o povinnostech pronajímatele","Stanovuje povinnosti pronajímatele při správě a údržbě pronajatého prostoru."],
+["Zákon o ukončení nájmu","Upravuje podmínky řádného ukončení nájemního vztahu."]
 ],
 
 "Stavby":[
-["Zákon o stavebních činnostech","Upravuje provádění stavebních prací."],
-["Zákon o bezpečnosti stavenišť","Stanovuje bezpečnostní pravidla na staveništích."],
-["Zákon o dočasných stavbách","Upravuje umisťování dočasných konstrukcí."],
-["Zákon o ochraně okolí stavby","Stanovuje povinnosti stavebníků vůči okolí."]
+["Zákon o stavebních činnostech","Upravuje bezpečné provádění stavebních a rekonstrukčních prací."],
+["Zákon o bezpečnosti stavenišť","Stanovuje povinnosti k ochraně pracovníků, obyvatel a okolí staveniště."],
+["Zákon o dočasných stavbách","Upravuje umisťování a provoz dočasných konstrukcí."],
+["Zákon o ochraně okolí stavby","Stanovuje povinnosti stavebníka při ochraně okolních osob a majetku."]
 ],
 
 "Požární ochrana":[
-["Zákon o požární ochraně","Stanovuje pravidla prevence požárů."],
-["Zákon o požárních cestách","Chrání přístupové cesty pro hasičský zásah."],
-["Zákon o evakuačních cestách","Stanovuje pravidla pro únikové cesty."],
-["Zákon o požárních oznámeních","Upravuje oznamování požárů a nebezpečných situací."]
+["Zákon o požární ochraně","Stanovuje pravidla prevence požárů a povinnosti při vzniku požáru."],
+["Zákon o požárních cestách","Chrání přístupové cesty určené pro hasičský zásah."],
+["Zákon o evakuačních cestách","Stanovuje požadavky na bezpečné únikové a evakuační cesty."],
+["Zákon o požárních oznámeních","Upravuje povinnost včas oznámit požár nebo jiné závažné nebezpečí."]
 ],
 
 "Zdravotnictví":[
-["Zákon o zdravotních službách","Upravuje poskytování zdravotních služeb ve městě."],
-["Zákon o první pomoci","Stanovuje základní pravidla pomoci osobám v ohrožení."],
-["Zákon o zdravotnických zařízeních","Upravuje provoz městských zdravotnických zařízení."],
-["Zákon o hygieně","Stanovuje hygienická pravidla ve vybraných veřejných prostorách."]
+["Zákon o zdravotních službách","Upravuje poskytování zdravotních služeb a základní práva pacientů."],
+["Zákon o první pomoci","Stanovuje základní pravidla pomoci osobám v bezprostředním ohrožení."],
+["Zákon o zdravotnických zařízeních","Upravuje bezpečný provoz zdravotnických zařízení."],
+["Zákon o hygieně","Stanovuje hygienická pravidla pro veřejné prostory a vybraná zařízení."]
 ],
 
 "Školství":[
-["Zákon o školách ST-CITY","Upravuje organizaci školských zařízení."],
-["Zákon o školním řádu","Stanovuje základní pravidla chování ve škole."],
-["Zákon o bezpečnosti žáků","Upravuje povinnost školy vytvářet bezpečné prostředí."],
-["Zákon o školních akcích","Stanovuje pravidla pro školní výlety a akce."]
+["Zákon o školách ST-CITY","Upravuje základní fungování školských zařízení a práva žáků."],
+["Zákon o školním řádu","Stanovuje pravidla bezpečného a respektujícího chování ve škole."],
+["Zákon o bezpečnosti žáků","Chrání žáky před násilím, šikanou, nebezpečným jednáním a dalšími riziky."],
+["Zákon o školních akcích","Upravuje bezpečnostní a organizační pravidla školních výletů a akcí."]
 ],
 
 "Obchod a služby":[
-["Zákon o provozovnách","Upravuje provoz obchodů a služeb."],
-["Zákon o otevírací době","Stanovuje pravidla zveřejňování provozní doby."],
-["Zákon o označení provozovny","Upravuje povinné údaje na provozovnách."],
-["Zákon o poskytování služeb","Stanovuje základní povinnosti poskytovatelů služeb."]
+["Zákon o provozovnách","Upravuje bezpečný a řádný provoz obchodů a služeb."],
+["Zákon o otevírací době","Stanovuje pravidla zveřejňování a dodržování provozní doby."],
+["Zákon o označení provozovny","Upravuje povinné informace zveřejněné na provozovnách."],
+["Zákon o poskytování služeb","Stanovuje základní povinnosti poskytovatelů služeb vůči zákazníkům."]
 ],
 
 "Ochrana spotřebitele":[
-["Zákon o právech spotřebitele","Upravuje základní práva spotřebitelů."],
-["Zákon o reklamaci","Stanovuje pravidla vyřízení reklamací."],
-["Zákon o cenách","Upravuje způsob uvádění cen."],
-["Zákon o nekalých praktikách","Zakazuje klamavé a nepřiměřené obchodní jednání."]
+["Zákon o právech spotřebitele","Chrání spotřebitele při nákupu zboží a služeb."],
+["Zákon o reklamaci","Stanovuje pravidla pro uplatnění a vyřízení reklamace."],
+["Zákon o cenách","Upravuje způsob jasného a pravdivého uvádění cen."],
+["Zákon proti nekalým praktikám","Zakazuje klamavé, agresivní a jiné nepoctivé obchodní praktiky."]
 ],
 
 "Digitální služby":[
-["Zákon o digitálních službách","Upravuje městské elektronické služby."],
-["Zákon o elektronické komunikaci","Stanovuje pravidla elektronické komunikace."],
+["Zákon o digitálních službách","Upravuje základní pravidla poskytování elektronických služeb ST-CITY."],
+["Zákon o elektronické komunikaci","Chrání bezpečnou a řádnou elektronickou komunikaci."],
 ["Zákon o městských účtech","Upravuje používání elektronických účtů obyvatel."],
-["Zákon o elektronických oznámeních","Stanovuje pravidla elektronického doručování."]
+["Zákon o elektronických oznámeních","Stanovuje pravidla elektronického doručování a upozornění."]
 ],
 
 "Osobní údaje":[
-["Zákon o ochraně osobních údajů","Stanovuje pravidla nakládání s osobními údaji."],
-["Zákon o přístupu k údajům","Upravuje přístup osoby k údajům vedeným o ní."],
-["Zákon o zabezpečení údajů","Stanovuje povinnost chránit osobní údaje."],
-["Zákon o uchovávání údajů","Upravuje dobu a podmínky uchovávání údajů."]
+["Zákon o ochraně osobních údajů","Chrání osobní údaje a soukromí obyvatel ST-CITY."],
+["Zákon o přístupu k údajům","Upravuje právo osoby zjistit, jaké osobní údaje jsou o ní vedeny."],
+["Zákon o zabezpečení údajů","Stanovuje povinnost chránit osobní údaje před zneužitím a neoprávněným přístupem."],
+["Zákon o uchovávání údajů","Upravuje dobu a podmínky uchovávání osobních údajů."]
 ],
 
 "Kultura":[
-["Zákon o kulturních akcích","Upravuje pořádání kulturních akcí."],
+["Zákon o kulturních akcích","Upravuje bezpečné a řádné pořádání kulturních akcí."],
 ["Zákon o kulturních zařízeních","Stanovuje pravidla využívání městských kulturních prostor."],
-["Zákon o veřejných vystoupeních","Upravuje veřejná vystoupení."],
-["Zákon o ochraně kulturních míst","Chrání určená kulturní a historická místa."]
+["Zákon o veřejných vystoupeních","Upravuje podmínky veřejných vystoupení."],
+["Zákon o ochraně kulturních míst","Chrání historická, kulturní a památková místa."]
 ],
 
 "Sport":[
-["Zákon o sportovních zařízeních","Upravuje provoz městských sportovišť."],
-["Zákon o bezpečnosti sportovišť","Stanovuje bezpečnostní pravidla při sportu."],
-["Zákon o sportovních akcích","Upravuje veřejné sportovní akce."],
-["Zákon o sportovním vybavení","Stanovuje pravidla bezpečného používání vybavení."]
+["Zákon o sportovních zařízeních","Upravuje bezpečný provoz městských sportovišť."],
+["Zákon o bezpečnosti sportovišť","Stanovuje povinnost předcházet zbytečným úrazům a nebezpečným situacím."],
+["Zákon o sportovních akcích","Upravuje pořádání veřejných sportovních akcí."],
+["Zákon o sportovním vybavení","Stanovuje pravidla bezpečného používání sportovního vybavení."]
 ],
 
 "Veřejné akce":[
-["Zákon o veřejných akcích","Upravuje pořádání veřejných společenských akcí."],
-["Zákon o shromažďování osob","Stanovuje pravidla pro větší shromáždění."],
-["Zákon o dočasných uzavírkách","Upravuje omezení provozu během akcí."],
-["Zákon o odpovědnosti pořadatele","Stanovuje povinnosti pořadatele veřejné akce."]
+["Zákon o veřejných akcích","Upravuje pořádání veřejných společenských a kulturních akcí."],
+["Zákon o shromažďování osob","Stanovuje pravidla pro bezpečné pořádání větších shromáždění."],
+["Zákon o dočasných uzavírkách","Upravuje dočasná omezení provozu během veřejných akcí."],
+["Zákon o odpovědnosti pořadatele","Stanovuje povinnosti pořadatele při zajištění bezpečnosti účastníků."]
 ],
 
 "Městská policie":[
-["Zákon o městské policii","Upravuje působnost městské policie ST-CITY."],
-["Zákon o kontrole veřejného pořádku","Stanovuje rozsah kontroly dodržování pravidel."],
-["Zákon o řešení přestupků","Upravuje základní postup při řešení přestupků."],
-["Zákon o spolupráci s obyvateli","Stanovuje pravidla komunikace obyvatel s policií."]
+["Zákon o městské policii","Upravuje působnost a základní povinnosti městské policie ST-CITY."],
+["Zákon o kontrole veřejného pořádku","Stanovuje pravidla kontroly dodržování veřejného pořádku."],
+["Zákon o řešení přestupků","Upravuje postup při zjištění a řešení přestupků."],
+["Zákon o spolupráci s obyvateli","Stanovuje pravidla komunikace obyvatel s městskou policií."]
 ],
 
 "Finance a poplatky":[
 ["Zákon o místních poplatcích","Upravuje místní poplatky vybírané městem."],
-["Zákon o poplatku za odpad","Stanovuje pravidla poplatku za komunální odpad."],
-["Zákon o městských platbách","Upravuje způsoby úhrady městských plateb."],
-["Zákon o vracení přeplatků","Stanovuje pravidla vracení přeplatků."]
+["Zákon o poplatku za odpad","Stanovuje pravidla úhrady poplatku za komunální odpad."],
+["Zákon o městských platbách","Upravuje způsoby bezpečné úhrady městských plateb."],
+["Zákon o vracení přeplatků","Stanovuje pravidla pro vracení neoprávněně nebo nadměrně uhrazených částek."]
 ],
 
 "Městská správa":[
-["Zákon o městské správě","Upravuje organizaci správních orgánů."],
+["Zákon o městské správě","Upravuje organizaci a činnost správních orgánů ST-CITY."],
 ["Zákon o městských úřadech","Stanovuje pravidla činnosti městských úřadů."],
-["Zákon o správním řízení","Upravuje rozhodování města o právech a povinnostech."],
-["Zákon o zveřejňování informací","Stanovuje pravidla zveřejňování městských informací."]
+["Zákon o správním řízení","Upravuje postup města při rozhodování o právech a povinnostech osob."],
+["Zákon o zveřejňování informací","Stanovuje pravidla zveřejňování veřejných informací města."]
 ]
+
 };
 
 
@@ -1476,20 +1348,20 @@ const contentTemplates={
 
 "Doprava":[
 ["Bezpečný provoz",[
-"Účastník provozu je povinen přizpůsobit své jednání situaci na komunikaci.",
-"Při pohybu nesmí bezdůvodně ohrožovat ostatní účastníky.",
-"Každý účastník je povinen respektovat dopravní značení.",
-"V případě překážky musí být přijata přiměřená opatření k zajištění bezpečnosti."
+"Každý účastník provozu je povinen chovat se tak, aby neohrožoval život, zdraví ani majetek ostatních.",
+"Účastník provozu musí přizpůsobit své jednání aktuální situaci, počasí a stavu komunikace.",
+"Každý účastník je povinen respektovat dopravní značení a pokyny oprávněných osob.",
+"V případě překážky nebo nebezpečí musí být přijata přiměřená opatření k jeho odstranění nebo označení."
 ]],
 ["Povinnosti účastníků",[
-"Řidič odpovídá za bezpečné vedení vozidla.",
+"Řidič odpovídá za bezpečné vedení vozidla a nesmí řídit způsobem ohrožujícím ostatní.",
 "Chodec je povinen využívat určené části komunikace, pokud jsou k dispozici.",
-"Cyklista musí dbát zvýšené opatrnosti zejména v místech se zvýšeným pohybem osob.",
-"Při změně směru nebo způsobu pohybu musí být zohledněno okolí."
+"Cyklista musí dbát zvýšené opatrnosti zejména v místech s vysokým pohybem osob.",
+"Při změně směru nebo způsobu pohybu musí účastník zohlednit ostatní osoby."
 ]],
 ["Mimořádné situace",[
-"Při dopravní nehodě je nutné postupovat tak, aby nedošlo k dalšímu ohrožení.",
-"Pokud je komunikace neprůjezdná, může být provoz dočasně omezen.",
+"Při dopravní nehodě je každý povinen podle svých možností zabránit dalšímu ohrožení osob.",
+"Pokud je komunikace neprůjezdná nebo nebezpečná, může být provoz dočasně omezen.",
 "Pokyny oprávněných osob mají při mimořádné události přednost.",
 "Po odstranění nebezpečí se provoz obnoví podle pokynů příslušného orgánu."
 ]]
@@ -1497,22 +1369,22 @@ const contentTemplates={
 
 "Parkování":[
 ["Zastavení a stání",[
-"Vozidlo smí být zastaveno pouze způsobem, který neohrožuje ostatní účastníky.",
-"Stáním nesmí být bezdůvodně blokován průchod chodců.",
-"Řidič musí respektovat vyznačená parkovací místa.",
+"Vozidlo smí být zastaveno pouze způsobem, který neohrožuje ostatní účastníky provozu.",
+"Stáním nesmí být bezdůvodně blokován průchod chodců ani přístup k důležitým zařízením.",
+"Řidič musí respektovat vyznačená parkovací místa a dopravní značení.",
 "Na místě se zákazem stání nesmí být vozidlo ponecháno mimo stanovené výjimky."
 ]],
 ["Parkovací zóny",[
 "V parkovací zóně je řidič povinen respektovat podmínky uvedené na dopravním značení.",
 "Pokud je vyžadována registrace nebo úhrada, musí být provedena stanoveným způsobem.",
-"Parkovací oprávnění je nepřenosné, pokud pravidla nestanoví jinak.",
+"Parkovací oprávnění lze používat pouze v rozsahu, pro který bylo vydáno.",
 "Kontrola oprávnění může být provedena příslušným orgánem."
 ]],
 ["Odstranění vozidla",[
-"Vozidlo může být odstraněno, pokud jeho stání vytváří závažnou překážku nebo nebezpečí.",
-"O odstranění musí být pořízen záznam.",
+"Vozidlo může být odstraněno, pokud jeho stání vytváří závažnou překážku nebo bezprostřední nebezpečí.",
+"O oprávněném odstranění musí být pořízen záznam.",
 "Vlastník nebo provozovatel může být vyrozuměn způsobem stanoveným pravidly.",
-"Náklady související s oprávněným odstraněním může nést osoba odpovědná za porušení."
+"Náklady oprávněného odstranění může nést osoba odpovědná za porušení."
 ]]
 ],
 
@@ -1520,19 +1392,19 @@ const contentTemplates={
 ["Třídění",[
 "Odpad musí být odkládán do nádoby určené pro příslušný druh odpadu.",
 "Jednotlivé druhy odpadu nesmí být záměrně smíchány způsobem znemožňujícím jejich další zpracování.",
-"Nebezpečný odpad musí být předán na určeném místě.",
-"Objem odpadu nesmí bránit řádnému uzavření nádoby."
+"Nebezpečný odpad musí být předán na místě určeném k jeho bezpečnému převzetí.",
+"Odpad nesmí být ponechán tak, aby ohrožoval zdraví nebo bezpečnost osob."
 ]],
 ["Svoz a předávání",[
 "Odpad musí být připraven k předání způsobem stanoveným městem.",
 "Je zakázáno ponechávat odpad mimo určená sběrná místa.",
-"Provozovatel sběru odpovídá za řádný převzetí odpadu v rozsahu své činnosti.",
+"Provozovatel sběru odpovídá za řádné převzetí odpadu v rozsahu své činnosti.",
 "Při mimořádné změně svozu může město zveřejnit náhradní termín."
 ]],
 ["Černé skládky",[
 "Je zakázáno ukládat odpad mimo místa určená pro jeho odložení.",
 "Osoba, která zjistí nelegální skládku, může její výskyt oznámit městu.",
-"Vlastník pozemku může být vyzván k odstranění odpadu, pokud to umožňuje příslušný režim.",
+"Osoba odpovědná za nezákonné uložení odpadu může být povinna odstranit jeho následky.",
 "Při odstranění skládky musí být postupováno způsobem odpovídajícím druhu odpadu."
 ]]
 ],
@@ -1541,7 +1413,7 @@ const contentTemplates={
 ["Odpovědnost chovatele",[
 "Chovatel odpovídá za dohled nad zvířetem v rozsahu odpovídajícím jeho povaze.",
 "Zvíře nesmí být ponecháno způsobem, který může ohrozit osoby nebo jiné živočichy.",
-"Chovatel musí zajistit zvířeti podmínky odpovídající jeho potřebám.",
+"Chovatel musí zajistit zvířeti přiměřenou potravu, vodu, prostor a péči.",
 "Při vzniku nebezpečné situace je chovatel povinen přijmout přiměřené opatření."
 ]],
 ["Pohyb na veřejnosti",[
@@ -1550,11 +1422,11 @@ const contentTemplates={
 "Chovatel je povinen uklidit znečištění způsobené zvířetem.",
 "Zvíře nesmí bez dozoru pobíhat tam, kde by mohlo způsobit nebezpečí."
 ]],
-["Péče o zvíře",[
-"Zvíře musí mít přístup k podmínkám potřebným pro jeho řádnou péči.",
-"Je zakázáno zvíře úmyslně vystavovat zbytečnému utrpení.",
-"Při podezření na závažné zanedbání péče může být věc oznámena příslušnému orgánu.",
-"Chovatel je povinen zajistit odpovídající péči podle druhu a okolností."
+["Ochrana zvířat",[
+"Je zakázáno zvíře týrat nebo mu úmyslně působit zbytečné utrpení.",
+"Chovatel je povinen zajistit zvířeti péči odpovídající jeho druhu a potřebám.",
+"Závažné zanedbání péče může být oznámeno příslušnému orgánu.",
+"Při zjištění ohrožení zvířete může být požadováno okamžité zajištění jeho bezpečí."
 ]]
 ],
 
@@ -1580,17 +1452,17 @@ const contentTemplates={
 ],
 
 "Školství":[
-["Školní prostředí",[
-"Škola vytváří podmínky pro bezpečné vzdělávání žáků.",
+["Bezpečné školní prostředí",[
+"Škola musí vytvářet prostředí, ve kterém je chráněn život, zdraví a důstojnost žáků.",
 "Žák je povinen respektovat školní řád a pokyny pedagogických pracovníků.",
-"Ve škole není dovoleno úmyslně poškozovat vybavení.",
-"Pravidla školy musí být žákům přístupně oznámena."
+"Ve škole není dovoleno úmyslně poškozovat vybavení ani ohrožovat jiné osoby.",
+"Škola musí mít srozumitelná pravidla pro řešení nebezpečných situací."
 ]],
-["Bezpečnost žáků",[
-"Škola přijímá přiměřená opatření k předcházení nebezpečným situacím.",
-"Závada ohrožující bezpečnost musí být bez zbytečného odkladu oznámena.",
-"Při mimořádné události se postupuje podle bezpečnostních pokynů školy.",
-"Školní prostory musí být používány způsobem odpovídajícím jejich účelu."
+["Ochrana žáků",[
+"Žák nesmí být vystaven násilí, šikaně, ponižování, vyhrožování ani jinému úmyslnému ubližování.",
+"Je zakázáno zneužívat postavení vůči žákovi způsobem, který ohrožuje jeho bezpečí nebo důstojnost.",
+"Podezření na závažné ohrožení dítěte musí být řešeno bez zbytečného odkladu podle příslušných pravidel.",
+"Při řešení situace musí být přednostně chráněno bezpečí dítěte."
 ]],
 ["Školní akce",[
 "Pořadatel školní akce stanoví základní organizační a bezpečnostní pravidla.",
@@ -1604,7 +1476,39 @@ const contentTemplates={
 
 
 /* ==========================================================
-   GENERICKÝ OBSAH PODLE KONKRÉTNÍHO ZÁKONA
+   OBSAH PRO BEZPEČNOST
+========================================================== */
+
+contentTemplates["Bezpečnost"]=[
+["Ochrana života a zdraví",[
+"Každá osoba má právo na ochranu svého života, zdraví a tělesné integrity.",
+"Je zakázáno úmyslně způsobit jiné osobě újmu nebo ji vystavit nepřiměřenému nebezpečí.",
+"Osoba, která způsobí nebezpečnou situaci, je povinna podle svých možností zabránit dalším následkům.",
+"Při bezprostředním ohrožení života nebo zdraví je každý oprávněn přivolat pomoc."
+]],
+["Ochrana před násilím",[
+"Je zakázáno použít proti jiné osobě násilí bez zákonného důvodu.",
+"Je zakázáno úmyslně jinou osobu napadat, zraňovat nebo ji vystavovat bezprostřednímu nebezpečí.",
+"Za násilné jednání se považuje také jednání, kterým je osoba násilím nebo hrozbou nucena něco vykonat, strpět nebo opomenout.",
+"Závažnost porušení se posuzuje zejména podle okolností, úmyslu a způsobených následků."
+]],
+["Ochrana před sexuálním násilím",[
+"Je zakázáno provést sexuální jednání vůči jiné osobě bez jejího svobodného souhlasu.",
+"Za závažné porušení tohoto zákona se považuje zejména znásilnění, sexuální nátlak a jiné sexuální násilí.",
+"Souhlas musí být svobodný a nesmí být vynucen násilím, hrozbou, nátlakem nebo zneužitím bezbrannosti.",
+"Každá osoba má právo odmítnout sexuální jednání a její rozhodnutí musí být respektováno."
+]],
+["Zvýšená ochrana dětí",[
+"Dítě požívá zvláštní ochrany před násilím, sexuálním zneužíváním, vykořisťováním, zanedbáváním a jiným škodlivým jednáním.",
+"Je zakázáno sexuálně zneužívat dítě nebo ho vystavovat jednání, které ohrožuje jeho bezpečí a zdravý vývoj.",
+"Je zakázáno využívat dítě k jednání, kterým je ohrožena jeho důstojnost, zdraví nebo bezpečí.",
+"Při rozhodování o opatřeních týkajících se dítěte musí být přednostně zohledněno jeho bezpečí a nejlepší zájem."
+]]
+];
+
+
+/* ==========================================================
+   GENERICKÝ OBSAH
 ========================================================== */
 
 function createSections(law){
@@ -1693,31 +1597,37 @@ function sanctionFor(law){
     const sanctions={
 
         "Doprava":
-        "Za porušení tohoto zákona může být podle závažnosti uložena pokuta nebo jiné opatření stanovené právním řádem ST-CITY.",
+        "Za porušení pravidel může být podle závažnosti uložena pokuta, zákaz určité činnosti nebo jiné opatření stanovené právním řádem ST-CITY.",
 
         "Parkování":
-        "Za neoprávněné parkování může být uložena pokuta až do 5 000 Kč. V odůvodněných případech může být vozidlo odstraněno.",
+        "Za neoprávněné parkování může být uložena pokuta a v odůvodněných případech může být vozidlo odstraněno.",
 
         "Odpady":
         "Za neoprávněné nakládání s odpadem může být uložena pokuta a povinnost odstranit následky porušení.",
 
         "Zvířata":
-        "Za porušení povinností chovatele může být uložena pokuta nebo nápravné opatření.",
+        "Za porušení povinností chovatele může být uložena pokuta, nápravné opatření nebo omezení chovu.",
 
         "Požární ochrana":
-        "Za porušení požárních povinností může být uložena pokuta podle míry vzniklého rizika.",
+        "Za porušení požárních povinností může být uložena pokuta podle míry vzniklého rizika a následků.",
 
         "Noční klid a hluk":
-        "Za závažné rušení nočního klidu nebo nadměrný hluk může být uložena pokuta až do 10 000 Kč.",
+        "Za závažné nebo opakované rušení nočního klidu či nadměrný hluk může být uložena pokuta nebo jiné nápravné opatření.",
 
         "Veřejná prostranství":
-        "Za neoprávněné nebo škodlivé užívání veřejného prostoru může být uložena pokuta a nápravné opatření.",
+        "Za neoprávněné nebo škodlivé užívání veřejného prostoru může být uložena pokuta a povinnost odstranit způsobené následky.",
 
         "Městská policie":
         "Porušení povinností může být řešeno postupem stanoveným právním řádem ST-CITY.",
 
         "Finance a poplatky":
-        "Při nesplnění stanovené platební povinnosti může vzniknout povinnost uhradit dlužnou částku a případné zákonné příslušenství."
+        "Při nesplnění stanovené platební povinnosti může vzniknout povinnost uhradit dlužnou částku a příslušné náklady.",
+
+        "Bezpečnost":
+        "Za násilí, sexuální násilí, znásilnění, závažné vyhrožování nebo ohrožení dítěte může být uložena přísná sankce podle závažnosti jednání. Závažné protiprávní jednání může být předáno příslušným orgánům.",
+
+        "Školství":
+        "Porušení povinností ve škole může být řešeno výchovným, ochranným nebo nápravným opatřením podle závažnosti případu."
 
     };
 
@@ -1914,7 +1824,6 @@ function home(){
 
         </div>
 
-
         <div class="stats">
 
             <div class="stat">
@@ -1940,7 +1849,6 @@ function home(){
         </div>
 
     </section>
-
 
     <div class="section-title">
         📚 Právní oblasti
@@ -1997,6 +1905,7 @@ function showAllLaws(){
         <div class="category-head">
 
             <div class="category-title">
+
                 <div class="category-icon">📚</div>
 
                 <div>
@@ -2007,6 +1916,7 @@ function showAllLaws(){
                         Kompletní sbírka ST-CITY
                     </div>
                 </div>
+
             </div>
 
             <span class="category-count">
@@ -2245,7 +2155,6 @@ function renderLaw(law){
 
     });
 
-
     main.innerHTML=`
 
     <div class="breadcrumb">
@@ -2263,7 +2172,6 @@ function renderLaw(law){
         · Zákon č. ${law.number}
 
     </div>
-
 
     <div class="toolbar">
 
@@ -2316,7 +2224,6 @@ function renderLaw(law){
         </div>
 
     </div>
-
 
     <article class="document">
 
@@ -2372,7 +2279,6 @@ function renderLaw(law){
 
         </header>
 
-
         <section class="part">
 
             <div class="part-line"></div>
@@ -2387,7 +2293,6 @@ function renderLaw(law){
 
             ${content}
 
-
             <div class="sanction">
 
                 <strong>
@@ -2399,7 +2304,6 @@ function renderLaw(law){
                 ${esc(sanctionFor(law))}
 
             </div>
-
 
             <div class="amendments">
 
@@ -2421,7 +2325,6 @@ function renderLaw(law){
 
             </div>
 
-
             <div class="info">
 
                 <strong>
@@ -2437,7 +2340,6 @@ function renderLaw(law){
                 právní účinnost.
 
             </div>
-
 
             <div class="document-footer">
 
@@ -2918,7 +2820,6 @@ function aboutPage(){
 
             </section>
 
-
             <section class="paragraph">
 
                 <div class="paragraph-heading">
@@ -2957,7 +2858,6 @@ function aboutPage(){
 
             </section>
 
-
             <section class="paragraph">
 
                 <div class="paragraph-heading">
@@ -2985,7 +2885,6 @@ function aboutPage(){
 
             </section>
 
-
             <div class="info">
 
                 <strong>
@@ -2999,7 +2898,6 @@ function aboutPage(){
                 vytvořený pro projekt ST-CITY.
 
             </div>
-
 
             <div class="document-footer">
                 ⚖️ ST-CITY Laws 2.0
@@ -3090,7 +2988,6 @@ function toggleMobileMenu(){
 
 }
 
-
 function closeMobileMenu(){
 
     document
@@ -3117,7 +3014,6 @@ function activateAll(){
         .classList.add("active");
 
 }
-
 
 function deactivateAll(){
 
@@ -3153,9 +3049,7 @@ document.addEventListener(
         }
 
         if(event.key==="Escape"){
-
             clearSearch();
-
         }
 
     }
@@ -3174,13 +3068,9 @@ window.addEventListener(
             document.getElementById("topButton");
 
         if(window.scrollY>350){
-
             button.style.display="block";
-
         }else{
-
             button.style.display="none";
-
         }
 
     }
@@ -3227,4 +3117,4 @@ openHash();
 </script>
 
 </body>
-</html>
+    </html>
