@@ -4,70 +4,112 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>ST-CITY Laws</title>
+<title>ST-CITY Laws 2.0</title>
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f3f5f7;
+    --panel:#ffffff;
+    --panel2:#f8fafb;
+    --text:#202a31;
+    --muted:#74818a;
+    --border:#d7dde2;
+    --blue:#17577e;
+    --blue2:#e8f0f5;
+    --green:#34734d;
+    --green-bg:#f0f8f3;
+    --gold:#9b7629;
+    --shadow:0 4px 18px rgba(0,0,0,.055);
+}
+
+body.dark{
+    --bg:#15191d;
+    --panel:#20252a;
+    --panel2:#252b30;
+    --text:#edf1f3;
+    --muted:#aab4bb;
+    --border:#3a4248;
+    --blue:#69a9d0;
+    --blue2:#293b48;
+    --green:#75c18e;
+    --green-bg:#21372a;
+    --gold:#d5b35b;
+    --shadow:0 5px 20px rgba(0,0,0,.25);
+}
 
 body{
     margin:0;
-    background:#f4f5f7;
-    color:#20262d;
+    background:var(--bg);
+    color:var(--text);
     font-family:Georgia,"Times New Roman",serif;
+    transition:.2s;
 }
 
-button,input,select{
+button,
+input{
     font-family:Arial,sans-serif;
+}
+
+button{
+    color:inherit;
 }
 
 .header{
     height:72px;
-    background:#fff;
-    border-bottom:1px solid #d8dde2;
+    background:var(--panel);
+    border-bottom:1px solid var(--border);
     display:flex;
     align-items:center;
     position:sticky;
     top:0;
-    z-index:20;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    z-index:100;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
 }
 
 .header-inner{
-    width:min(1450px,100%);
+    width:min(1500px,100%);
     margin:auto;
-    padding:0 25px;
+    padding:0 22px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:13px;
+    gap:12px;
+    cursor:pointer;
 }
 
 .logo{
-    width:44px;
-    height:44px;
-    border:1px solid #bfc8cf;
-    border-radius:6px;
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
+    border-radius:9px;
     display:flex;
-    align-items:center;
     justify-content:center;
-    background:#f8fafb;
-    color:#194d70;
+    align-items:center;
+    background:var(--panel2);
     font-size:25px;
 }
 
 .brand-title{
+    color:var(--blue);
     font:bold 20px Arial,sans-serif;
-    color:#173e5c;
 }
 
 .brand-sub{
-    color:#879098;
+    color:var(--muted);
     font:9px Arial,sans-serif;
     letter-spacing:1px;
     margin-top:3px;
@@ -75,31 +117,50 @@ button,input,select{
 
 .header-buttons{
     display:flex;
-    gap:7px;
+    gap:6px;
+    flex-wrap:wrap;
 }
 
 .btn{
-    border:1px solid #cbd3d9;
-    background:#fff;
-    border-radius:5px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:7px;
     padding:9px 12px;
     cursor:pointer;
-    color:#45535d;
+    transition:.15s;
 }
 
 .btn:hover{
-    background:#f1f4f6;
+    background:var(--panel2);
+    transform:translateY(-1px);
+}
+
+.btn.primary{
+    background:var(--blue);
+    color:#fff;
+    border-color:var(--blue);
+}
+
+.mobile-menu{
+    display:none;
+    border:1px solid var(--border);
+    background:var(--panel);
+    border-radius:8px;
+    font-size:20px;
+    width:42px;
+    height:42px;
+    cursor:pointer;
 }
 
 .search-area{
-    background:#fff;
-    border-bottom:1px solid #dce1e5;
+    background:var(--panel);
+    border-bottom:1px solid var(--border);
 }
 
 .search-inner{
-    width:min(1450px,100%);
+    width:min(1500px,100%);
     margin:auto;
-    padding:14px 25px;
+    padding:13px 22px;
 }
 
 .search{
@@ -108,62 +169,65 @@ button,input,select{
 
 .search input{
     width:100%;
-    height:47px;
-    border:1px solid #bcc6ce;
-    border-radius:5px;
+    height:48px;
+    border:1px solid var(--border);
+    border-radius:8px;
     outline:none;
-    padding:0 45px;
+    padding:0 46px;
     font-size:14px;
+    background:var(--panel);
+    color:var(--text);
 }
 
 .search input:focus{
-    border-color:#316889;
-    box-shadow:0 0 0 3px rgba(49,104,137,.10);
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(50,110,145,.12);
 }
 
 .search-icon{
     position:absolute;
     left:15px;
     top:12px;
-    font:21px Arial,sans-serif;
-    color:#71808a;
+    font-size:20px;
+    color:var(--muted);
 }
 
 .search-clear{
     position:absolute;
     right:5px;
     top:5px;
-    height:35px;
-    width:35px;
+    width:37px;
+    height:37px;
     border:0;
     background:none;
     cursor:pointer;
     font-size:20px;
-    color:#7b858c;
+    color:var(--muted);
 }
 
 .search-help{
     margin-top:7px;
-    color:#7d878e;
+    color:var(--muted);
     font:10px Arial,sans-serif;
 }
 
 .layout{
-    width:min(1450px,100%);
+    width:min(1500px,100%);
     margin:auto;
     display:grid;
-    grid-template-columns:275px 1fr;
+    grid-template-columns:285px 1fr;
 }
 
 .sidebar{
-    background:#f8f9fa;
-    border-right:1px solid #d9dee2;
-    min-height:calc(100vh - 140px);
+    background:var(--panel);
+    border-right:1px solid var(--border);
+    min-height:calc(100vh - 134px);
+    padding-bottom:25px;
 }
 
 .side-title{
-    padding:21px 18px 9px;
-    color:#7d878e;
+    padding:20px 18px 9px;
+    color:var(--muted);
     font:bold 10px Arial,sans-serif;
     text-transform:uppercase;
     letter-spacing:1px;
@@ -177,139 +241,198 @@ button,input,select{
     padding:10px 16px;
     text-align:left;
     display:flex;
+    align-items:center;
     justify-content:space-between;
-    gap:5px;
-    color:#46545e;
+    gap:7px;
+    color:var(--text);
     cursor:pointer;
     font:12px Arial,sans-serif;
 }
 
 .side-btn:hover{
-    background:#edf1f3;
+    background:var(--panel2);
 }
 
 .side-btn.active{
-    background:#e6eef3;
-    border-left-color:#245c7e;
-    color:#154b6e;
+    background:var(--blue2);
+    border-left-color:var(--blue);
+    color:var(--blue);
     font-weight:bold;
 }
 
 .side-count{
-    color:#8a949b;
+    color:var(--muted);
+    font-size:10px;
 }
 
 .side-line{
     height:1px;
-    background:#dce1e5;
-    margin:14px 0;
+    background:var(--border);
+    margin:13px 0;
 }
 
 main{
-    padding:30px 36px 70px;
     min-width:0;
+    padding:28px 35px 80px;
 }
 
-.welcome{
-    background:#fff;
-    border:1px solid #d5dbe0;
-    box-shadow:0 3px 15px rgba(0,0,0,.05);
-    padding:35px;
-    margin-bottom:20px;
+.home-hero{
+    background:var(--panel);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:34px;
+    border-radius:9px;
+    margin-bottom:18px;
+}
+
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    align-items:flex-start;
 }
 
 .small-title{
-    color:#7b858c;
+    color:var(--muted);
     font:bold 10px Arial,sans-serif;
-    letter-spacing:1.3px;
+    letter-spacing:1.4px;
 }
 
-.welcome h1{
-    color:#183e5c;
+.home-hero h1{
+    margin:10px 0;
+    font-size:35px;
     font-weight:normal;
-    font-size:34px;
-    margin:11px 0 9px;
+    color:var(--blue);
 }
 
-.welcome p{
-    max-width:900px;
-    color:#68747c;
-    font-size:15px;
+.home-hero p{
+    max-width:950px;
+    color:var(--muted);
     line-height:1.75;
+    font-size:15px;
 }
 
 .status{
-    display:inline-block;
-    margin-top:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
     padding:7px 11px;
-    border:1px solid #b9d5c3;
-    background:#f2f8f4;
-    color:#34704b;
-    border-radius:4px;
+    border:1px solid #b8d4c1;
+    background:var(--green-bg);
+    color:var(--green);
+    border-radius:5px;
     font:bold 10px Arial,sans-serif;
 }
 
-.stats{
+.quick-actions{
     display:flex;
-    gap:45px;
     flex-wrap:wrap;
-    border-top:1px solid #e0e4e7;
-    margin-top:25px;
-    padding-top:18px;
+    gap:8px;
+    margin-top:22px;
+}
+
+.quick-action{
+    border:1px solid var(--border);
+    background:var(--panel2);
+    border-radius:8px;
+    padding:11px 14px;
+    cursor:pointer;
+    font:12px Arial,sans-serif;
+}
+
+.quick-action:hover{
+    border-color:var(--blue);
+    color:var(--blue);
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:27px;
+}
+
+.stat{
+    border:1px solid var(--border);
+    background:var(--panel2);
+    border-radius:8px;
+    padding:17px;
 }
 
 .stat strong{
     display:block;
-    color:#214a65;
-    font:bold 22px Arial,sans-serif;
+    color:var(--blue);
+    font:bold 23px Arial,sans-serif;
 }
 
 .stat span{
-    color:#808a91;
+    display:block;
+    margin-top:4px;
+    color:var(--muted);
     font:10px Arial,sans-serif;
     text-transform:uppercase;
 }
 
+.section-title{
+    color:var(--blue);
+    font-size:20px;
+    margin:27px 0 12px;
+}
+
 .category{
-    background:#fff;
-    border:1px solid #d5dbe0;
-    box-shadow:0 2px 10px rgba(0,0,0,.04);
-    margin-bottom:16px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    box-shadow:0 2px 10px rgba(0,0,0,.035);
+    margin-bottom:13px;
+    border-radius:8px;
+    overflow:hidden;
 }
 
 .category-head{
-    background:#f8f9fa;
-    border-bottom:1px solid #dce1e5;
-    padding:17px 20px;
+    background:var(--panel2);
+    border-bottom:1px solid var(--border);
+    padding:16px 19px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:10px;
     cursor:pointer;
 }
 
 .category-head:hover{
-    background:#f1f4f6;
+    background:var(--blue2);
 }
 
 .category-title{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:11px;
+}
+
+.category-icon{
+    width:32px;
+    height:32px;
+    border-radius:7px;
+    background:var(--blue2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
 }
 
 .category-number{
-    color:#18567c;
-    font-weight:bold;
+    color:var(--blue);
+    font:bold 11px Arial,sans-serif;
 }
 
 .category-name{
-    color:#294354;
+    color:var(--text);
     font-weight:bold;
     font-size:15px;
 }
 
 .category-count{
-    color:#7c878f;
+    color:var(--muted);
     font:10px Arial,sans-serif;
 }
 
@@ -323,11 +446,11 @@ main{
 
 .law{
     display:grid;
-    grid-template-columns:100px 1fr 35px;
-    gap:15px;
+    grid-template-columns:100px 1fr 38px;
+    gap:14px;
     align-items:center;
-    padding:16px 20px;
-    border-bottom:1px solid #e3e6e9;
+    padding:15px 19px;
+    border-bottom:1px solid var(--border);
     cursor:pointer;
 }
 
@@ -336,40 +459,48 @@ main{
 }
 
 .law:hover{
-    background:#fafbfc;
+    background:var(--panel2);
 }
 
 .law-number{
-    color:#687984;
-    font:bold 11px Arial,sans-serif;
+    color:var(--muted);
+    font:bold 10px Arial,sans-serif;
 }
 
 .law-name{
-    color:#15557d;
+    color:var(--blue);
     font-weight:bold;
     font-size:15px;
 }
 
 .law-description{
-    color:#7c878e;
+    color:var(--muted);
     font:11px Arial,sans-serif;
     margin-top:4px;
+    line-height:1.45;
 }
 
 .star{
-    border:0;
+    width:35px;
+    height:35px;
+    border:1px solid transparent;
     background:none;
     cursor:pointer;
-    color:#b3bac0;
-    font-size:20px;
+    border-radius:7px;
+    font-size:21px;
+    color:#aeb6bc;
+}
+
+.star:hover{
+    background:var(--panel2);
 }
 
 .star.active{
-    color:#a37b28;
+    color:var(--gold);
 }
 
 .breadcrumb{
-    color:#7b858d;
+    color:var(--muted);
     font:11px Arial,sans-serif;
     margin-bottom:10px;
 }
@@ -377,15 +508,15 @@ main{
 .breadcrumb button{
     border:0;
     background:none;
-    color:#175a87;
+    color:var(--blue);
     cursor:pointer;
     padding:0;
 }
 
 .toolbar{
     min-height:47px;
-    background:#f8f9fa;
-    border:1px solid #d4dade;
+    background:var(--panel2);
+    border:1px solid var(--border);
     border-bottom:0;
     padding:7px 10px;
     display:flex;
@@ -393,6 +524,7 @@ main{
     align-items:center;
     gap:8px;
     font:11px Arial,sans-serif;
+    border-radius:8px 8px 0 0;
 }
 
 .toolbar-buttons{
@@ -402,10 +534,11 @@ main{
 }
 
 .document{
-    background:#fff;
-    border:1px solid #d4dade;
-    box-shadow:0 3px 15px rgba(0,0,0,.055);
-    padding:65px 80px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:60px 80px;
+    border-radius:0 0 8px 8px;
 }
 
 .document-head{
@@ -415,70 +548,71 @@ main{
 }
 
 .document-number{
-    color:#707d85;
+    color:var(--muted);
     font:bold 11px Arial,sans-serif;
     letter-spacing:1px;
 }
 
 .document h1{
-    color:#173d5b;
+    color:var(--blue);
     font-size:35px;
     font-weight:normal;
     line-height:1.25;
-    margin:14px 0 9px;
+    margin:13px 0 9px;
 }
 
 .document-subtitle{
-    color:#69757e;
+    color:var(--muted);
     font-size:15px;
+    line-height:1.6;
 }
 
 .consolidated{
     display:inline-block;
-    color:#59636b;
+    color:var(--muted);
     font-style:italic;
-    font-size:14px;
-    border-top:1px solid #dce1e4;
-    margin-top:19px;
-    padding-top:12px;
+    font-size:13px;
+    border-top:1px solid var(--border);
+    margin-top:18px;
+    padding-top:11px;
 }
 
 .metadata{
     display:flex;
     justify-content:center;
-    gap:25px;
+    gap:22px;
     flex-wrap:wrap;
     margin-top:20px;
     padding-top:13px;
-    border-top:1px solid #dce1e4;
-    color:#7b858d;
+    border-top:1px solid var(--border);
+    color:var(--muted);
     font:10px Arial,sans-serif;
 }
 
 .metadata strong{
-    color:#3e4e58;
+    color:var(--text);
 }
 
 .part{
-    margin-top:55px;
+    margin-top:52px;
 }
 
 .part-line{
     height:2px;
-    background:#234f6d;
-    margin-bottom:15px;
+    background:var(--blue);
+    margin-bottom:14px;
 }
 
 .part-title{
     text-align:center;
-    color:#294659;
+    color:var(--text);
     font-size:19px;
     font-weight:bold;
 }
 
 .part-subtitle{
     text-align:center;
-    color:#7b858d;
+    color:var(--muted);
     font-size:13px;
     margin-top:5px;
 }
@@ -496,25 +630,15 @@ main{
 }
 
 .paragraph-symbol{
-    color:#15567f;
+    color:var(--blue);
     font-weight:bold;
     font-size:19px;
 }
 
 .paragraph-title{
-    color:#2a4151;
+    color:var(--text);
     font-size:16px;
     font-weight:bold;
-}
-
-.paragraph-intro{
-    font-size:16px;
-    line-height:1.82;
-    text-align:justify;
-}
-
-.paragraphs{
-    margin-top:12px;
 }
 
 .odst{
@@ -522,28 +646,28 @@ main{
     grid-template-columns:42px 1fr;
     gap:6px;
     padding-left:20px;
-    margin:9px 0;
+    margin:10px 0;
 }
 
 .odst-num{
-    color:#596b77;
+    color:var(--muted);
     font-size:15px;
     font-weight:bold;
 }
 
 .odst-text{
-    color:#282f34;
-    font-size:15.5px;
-    line-height:1.76;
+    color:var(--text);
+    font-size:15px;
+    line-height:1.78;
     text-align:justify;
 }
 
 .sanction{
     margin-top:40px;
-    border-left:4px solid #8c6d31;
-    background:#faf8f1;
+    border-left:4px solid var(--gold);
+    background:rgba(190,160,75,.08);
     padding:16px 19px;
-    color:#62583f;
+    color:var(--text);
     font:12px Arial,sans-serif;
     line-height:1.7;
 }
@@ -551,77 +675,80 @@ main{
 .info{
     margin-top:30px;
     border-left:4px solid #607b8e;
-    background:#f4f7f8;
+    background:var(--panel2);
     padding:15px 18px;
-    color:#5d6c75;
+    color:var(--muted);
     font:11px Arial,sans-serif;
     line-height:1.7;
 }
 
 .amendments{
     margin-top:38px;
-    border:1px solid #d6dce0;
-    background:#f8f9fa;
+    border:1px solid var(--border);
+    background:var(--panel2);
 }
 
 .amendments-title{
     padding:13px 16px;
-    border-bottom:1px solid #d9dee2;
+    border-bottom:1px solid var(--border);
     font:bold 10px Arial,sans-serif;
-    color:#52616c;
+    color:var(--muted);
 }
 
 .amendments-content{
     padding:15px 17px;
-    color:#697680;
+    color:var(--muted);
     font:11px Arial,sans-serif;
+    line-height:1.7;
 }
 
 .document-footer{
-    border-top:1px solid #d9dee2;
+    border-top:1px solid var(--border);
     margin-top:45px;
     padding-top:16px;
     text-align:center;
-    color:#78838a;
+    color:var(--muted);
     font:10px Arial,sans-serif;
 }
 
 .results{
-    background:#fff;
-    border:1px solid #d4dade;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
 }
 
 .results-header{
     padding:18px 20px;
-    border-bottom:1px solid #dce1e5;
-    color:#68757d;
+    border-bottom:1px solid var(--border);
+    color:var(--muted);
     font:12px Arial,sans-serif;
 }
 
 .result{
     padding:17px 21px;
-    border-bottom:1px solid #e1e5e8;
+    border-bottom:1px solid var(--border);
     cursor:pointer;
 }
 
 .result:hover{
-    background:#f8fafb;
+    background:var(--panel2);
 }
 
 .result-number{
-    color:#70808a;
+    color:var(--muted);
     font:bold 10px Arial,sans-serif;
 }
 
 .result-title{
-    color:#14557f;
+    color:var(--blue);
     font-weight:bold;
     font-size:16px;
     margin-top:4px;
 }
 
 .result-description{
-    color:#7b858d;
+    color:var(--muted);
     font:11px Arial,sans-serif;
     margin-top:5px;
 }
@@ -629,20 +756,47 @@ main{
 .empty{
     padding:70px 20px;
     text-align:center;
-    color:#7a858c;
+    color:var(--muted);
     font:13px Arial,sans-serif;
+}
+
+.empty-icon{
+    font-size:42px;
+    margin-bottom:12px;
 }
 
 .copyright{
     text-align:center;
-    color:#7c868d;
+    color:var(--muted);
     font:10px Arial,sans-serif;
     padding:25px;
 }
 
-@media(max-width:850px){
+.top-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
+    background:var(--panel);
+    color:var(--blue);
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    display:none;
+    z-index:90;
+    font-size:18px;
+}
+
+.mobile-nav{
+    display:none;
+}
+
+@media(max-width:900px){
+
     .layout{
-        grid-template-columns:220px 1fr;
+        grid-template-columns:225px 1fr;
     }
 
     main{
@@ -650,22 +804,30 @@ main{
     }
 
     .document{
-        padding:40px 35px;
+        padding:42px 35px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:650px){
+@media(max-width:680px){
 
     .header{
         height:62px;
     }
 
     .header-inner{
-        padding:0 12px;
+        padding:0 10px;
     }
 
     .header-buttons{
         display:none;
+    }
+
+    .mobile-menu{
+        display:block;
     }
 
     .brand-title{
@@ -676,55 +838,147 @@ main{
         display:none;
     }
 
-    .search-inner{
-        padding:10px;
-    }
-
     .layout{
         display:block;
     }
 
     .sidebar{
         display:none;
+        position:fixed;
+        left:0;
+        top:62px;
+        bottom:0;
+        width:290px;
+        z-index:80;
+        overflow:auto;
+        box-shadow:5px 0 20px rgba(0,0,0,.15);
+    }
+
+    .sidebar.mobile-open{
+        display:block;
+    }
+
+    .mobile-nav{
+        display:flex;
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        height:58px;
+        background:var(--panel);
+        border-top:1px solid var(--border);
+        z-index:90;
+        justify-content:space-around;
+    }
+
+    .mobile-nav button{
+        flex:1;
+        border:0;
+        background:none;
+        color:var(--muted);
+        font:10px Arial,sans-serif;
+    }
+
+    .mobile-nav button span{
+        display:block;
+        font-size:19px;
+        margin-bottom:2px;
     }
 
     main{
-        padding:10px;
+        padding:10px 10px 75px;
     }
 
-    .welcome{
-        padding:23px 18px;
+    .search-inner{
+        padding:9px;
     }
 
-    .welcome h1{
+    .home-hero{
+        padding:22px 17px;
+    }
+
+    .hero-top{
+        display:block;
+    }
+
+    .home-hero h1{
         font-size:27px;
     }
 
-    .document{
-        padding:32px 17px;
+    .stats{
+        grid-template-columns:1fr 1fr;
     }
 
-    .document h1{
-        font-size:27px;
+    .stat{
+        padding:13px;
     }
 
-    .odst-text,
-    .paragraph-intro{
-        text-align:left;
+    .stat strong{
+        font-size:19px;
+    }
+
+    .category-head{
+        padding:13px;
     }
 
     .law{
-        grid-template-columns:70px 1fr 30px;
-        padding:14px 12px;
+        grid-template-columns:68px 1fr 35px;
+        padding:13px 11px;
+        gap:9px;
     }
 
     .law-description{
         display:none;
     }
 
+    .law-name{
+        font-size:14px;
+    }
+
+    .document{
+        padding:32px 16px;
+    }
+
+    .document h1{
+        font-size:27px;
+    }
+
+    .odst{
+        padding-left:3px;
+        grid-template-columns:35px 1fr;
+    }
+
+    .odst-text{
+        text-align:left;
+        font-size:14px;
+    }
+
     .toolbar{
         flex-direction:column;
-        align-items:flex-start;
+        align-items:stretch;
+    }
+
+    .toolbar-buttons{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .toolbar-buttons .btn{
+        width:100%;
+    }
+
+    .quick-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-action{
+        text-align:center;
+    }
+
+    .top-button{
+        bottom:70px;
+        right:13px;
     }
 }
 
@@ -737,6 +991,7 @@ main{
 
     body{
         background:#fff;
+        color:#000;
     }
 
     .header,
@@ -744,7 +999,9 @@ main{
     .sidebar,
     .toolbar,
     .breadcrumb,
-    .welcome{
+    .home-hero,
+    .mobile-nav,
+    .top-button{
         display:none!important;
     }
 
@@ -762,12 +1019,7 @@ main{
         padding:0;
     }
 
-    .document-footer{
-        display:block;
-    }
-
-    .odst-text,
-    .paragraph-intro{
+    .odst-text{
         font-size:12pt;
     }
 }
@@ -777,543 +1029,700 @@ main{
 <body>
 
 <header class="header">
+
 <div class="header-inner">
 
-<div class="brand">
-<div class="logo">⚖</div>
+<div class="brand" onclick="home()">
+
+<div class="logo">⚖️</div>
+
 <div>
 <div class="brand-title">ST-CITY Laws</div>
-<div class="brand-sub">ELEKTRONICKÁ SBÍRKA PRÁVNÍCH PŘEDPISŮ</div>
+<div class="brand-sub">
+ELEKTRONICKÁ SBÍRKA PRÁVNÍCH PŘEDPISŮ
 </div>
+</div>
+
 </div>
 
 <div class="header-buttons">
-<button class="btn" onclick="home()">Sbírka</button>
-<button class="btn" onclick="favoritesPage()">★ Oblíbené</button>
-<button class="btn" onclick="window.print()">🖨 Tisk</button>
-</div>
+
+<button class="btn" onclick="home()">🏠 Domů</button>
+
+<button class="btn" onclick="favoritesPage()">
+⭐ Oblíbené
+</button>
+
+<button class="btn" onclick="historyPage()">
+🕘 Historie
+</button>
+
+<button class="btn" onclick="toggleTheme()">
+🌙 Motiv
+</button>
+
+<button class="btn" onclick="window.print()">
+🖨️ Tisk
+</button>
 
 </div>
+
+<button class="mobile-menu" onclick="toggleMobileMenu()">
+☰
+</button>
+
+</div>
+
 </header>
 
+
 <div class="search-area">
+
 <div class="search-inner">
 
 <div class="search">
-<span class="search-icon">⌕</span>
-<input id="search" placeholder="Hledat zákon, §, odstavec nebo text…">
-<button class="search-clear" onclick="clearSearch()">×</button>
+
+<span class="search-icon">🔎</span>
+
+<input
+id="search"
+autocomplete="off"
+placeholder="Hledat zákon, číslo, §, odstavec nebo text…">
+
+<button
+class="search-clear"
+onclick="clearSearch()">
+×
+</button>
+
 </div>
 
 <div class="search-help">
-Hledání: <b>noční klid</b> · <b>parkování</b> · <b>§ 3</b> · <b>odst. 2</b> · <b>41/2026</b>
+💡 Zkus například:
+<b>noční klid</b> ·
+<b>parkování</b> ·
+<b>§ 3</b> ·
+<b>41/2026</b>
 </div>
 
 </div>
+
 </div>
+
 
 <div class="layout">
 
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
 
-<div class="side-title">ST-CITY Laws</div>
+<div class="side-title">
+📚 ST-CITY Laws
+</div>
 
-<button class="side-btn active" id="allButton" onclick="home()">
-<span>Všechny zákony</span>
+<button
+class="side-btn active"
+id="allButton"
+onclick="home();closeMobileMenu()">
+
+<span>🏠 Všechny zákony</span>
 <span class="side-count">100</span>
+
 </button>
 
 <div id="sideCategories"></div>
 
 <div class="side-line"></div>
 
-<div class="side-title">Moje sbírka</div>
+<div class="side-title">
+👤 Moje sbírka
+</div>
 
-<button class="side-btn" onclick="favoritesPage()">
-<span>★ Oblíbené</span>
+<button
+class="side-btn"
+onclick="favoritesPage();closeMobileMenu()">
+
+<span>⭐ Oblíbené</span>
 <span class="side-count" id="favoriteCount">0</span>
+
 </button>
 
-<button class="side-btn" onclick="historyPage()">
-<span>◷ Historie</span>
+<button
+class="side-btn"
+onclick="historyPage();closeMobileMenu()">
+
+<span>🕘 Historie</span>
+<span class="side-count" id="historyCount">0</span>
+
 </button>
 
-<button class="side-btn" onclick="aboutPage()">
-<span>ⓘ O systému</span>
+<button
+class="side-btn"
+onclick="aboutPage();closeMobileMenu()">
+
+<span>ℹ️ O systému</span>
+
 </button>
 
 <div class="side-line"></div>
 
-<div style="padding:0 17px;color:#808a91;font:10px Arial,sans-serif;line-height:1.7">
-ST-CITY Laws<br>
-© SirTros - SirTros-city
+<div style="
+padding:0 17px;
+color:var(--muted);
+font:10px Arial,sans-serif;
+line-height:1.7">
+
+⚖️ ST-CITY Laws<br>
+🏛️ SirTros-city<br>
+© SirTros
+
 </div>
 
 </aside>
+
 
 <main id="main"></main>
 
 </div>
 
+
+<div class="mobile-nav">
+
+<button onclick="home()">
+<span>🏠</span>
+Domů
+</button>
+
+<button onclick="favoritesPage()">
+<span>⭐</span>
+Oblíbené
+</button>
+
+<button onclick="historyPage()">
+<span>🕘</span>
+Historie
+</button>
+
+<button onclick="toggleMobileMenu()">
+<span>📚</span>
+Sbírka
+</button>
+
+</div>
+
+
+<button
+id="topButton"
+class="top-button"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆️
+</button>
+
+
 <script>
 
 /* ==========================================================
-   ST-CITY LAWS
-   FIKTIVNÍ PRÁVNÍ SYSTÉM
+   ST-CITY LAWS 2.0
 ========================================================== */
 
 const categories=[
-"Veřejný pořádek",
-"Noční klid a hluk",
-"Doprava",
-"Parkování",
-"Bezpečnost",
-"Veřejná prostranství",
-"Životní prostředí",
-"Odpady",
-"Zvířata",
-"Bydlení",
-"Nájemní vztahy",
-"Stavby",
-"Požární ochrana",
-"Zdravotnictví",
-"Školství",
-"Obchod a služby",
-"Ochrana spotřebitele",
-"Digitální služby",
-"Osobní údaje",
-"Kultura",
-"Sport",
-"Veřejné akce",
-"Městská policie",
-"Finance a poplatky",
-"Městská správa"
+["Veřejný pořádek","🏛️"],
+["Noční klid a hluk","🌙"],
+["Doprava","🚗"],
+["Parkování","🅿️"],
+["Bezpečnost","🛡️"],
+["Veřejná prostranství","🏙️"],
+["Životní prostředí","🌳"],
+["Odpady","♻️"],
+["Zvířata","🐾"],
+["Bydlení","🏠"],
+["Nájemní vztahy","🔑"],
+["Stavby","🏗️"],
+["Požární ochrana","🚒"],
+["Zdravotnictví","🏥"],
+["Školství","🎓"],
+["Obchod a služby","🏪"],
+["Ochrana spotřebitele","🛒"],
+["Digitální služby","💻"],
+["Osobní údaje","🔐"],
+["Kultura","🎭"],
+["Sport","⚽"],
+["Veřejné akce","🎪"],
+["Městská policie","👮"],
+["Finance a poplatky","💰"],
+["Městská správa","🏛️"]
 ];
-
-/*
- Každá kategorie má vlastní zákony.
-*/
-
-const lawData=[
-
-["Veřejný pořádek","Zákon o veřejném pořádku","Stanovuje základní pravidla pro zachování klidu a pořádku na území ST-CITY."],
-["Veřejný pořádek","Zákon o obtěžování na veřejnosti","Upravuje jednání, kterým může osoba nepřiměřeně obtěžovat ostatní obyvatele."],
-["Veřejný pořádek","Zákon o používání veřejných zařízení","Stanovuje pravidla pro řádné užívání laviček, fontán a dalšího městského vybavení."],
-["Veřejný pořádek","Zákon o pohybu na veřejných místech","Upravuje základní povinnosti osob při pohybu na veřejných prostranstvích."],
-
-["Noční klid a hluk","Zákon o nočním klidu","Stanovuje dobu nočního klidu a pravidla pro ochranu klidného odpočinku obyvatel."],
-["Noční klid a hluk","Zákon o rušení nočního klidu","Upravuje jednání, která mohou v době nočního klidu významně narušovat odpočinek."],
-["Noční klid a hluk","Zákon o nadměrném hluku","Stanovuje pravidla pro používání zařízení, která vytvářejí výrazný hluk."],
-["Noční klid a hluk","Zákon o hlučných činnostech","Upravuje používání hlučných strojů a zařízení v obytných oblastech."],
-
-["Doprava","Zákon o silničním provozu ST-CITY","Stanovuje základní pravidla bezpečného pohybu vozidel, cyklistů a chodců."],
-["Doprava","Zákon o bezpečnosti chodců","Upravuje povinnosti řidičů a chodců při vzájemném pohybu na komunikacích."],
-["Doprava","Zákon o jízdních kolech","Stanovuje pravidla používání jízdních kol na městských komunikacích."],
-["Doprava","Zákon o koloběžkách","Upravuje používání koloběžek a jejich bezpečný pohyb ve městě."],
-
-["Parkování","Zákon o parkování vozidel","Upravuje pravidla pro zastavení a stání vozidel na území ST-CITY."],
-["Parkování","Zákon o vyhrazených parkovacích místech","Stanovuje podmínky používání míst určených pro konkrétní účely."],
-["Parkování","Zákon o dlouhodobém stání","Upravuje ponechání vozidla na jednom místě po delší dobu."],
-["Parkování","Zákon o parkovacích zónách","Stanovuje pravidla pro jednotlivé městské parkovací oblasti."],
-
-["Bezpečnost","Zákon o obecné bezpečnosti","Stanovuje základní povinnosti osob při předcházení nebezpečným situacím."],
-["Bezpečnost","Zákon o nebezpečném jednání","Upravuje jednání, které může bezprostředně ohrozit jiné osoby."],
-["Bezpečnost","Zákon o evakuaci","Stanovuje povinnosti při nařízené evakuaci obyvatel."],
-["Bezpečnost","Zákon o mimořádných situacích","Upravuje základní postupy města při mimořádných událostech."],
-
-["Veřejná prostranství","Zákon o užívání veřejných prostranství","Stanovuje pravidla pro užívání náměstí, ulic, parků a dalších veřejných míst."],
-["Veřejná prostranství","Zákon o čistotě veřejných míst","Upravuje povinnost udržovat veřejná prostranství v čistém stavu."],
-["Veřejná prostranství","Zákon o městském mobiliáři","Chrání lavičky, koše, osvětlení a další zařízení města."],
-["Veřejná prostranství","Zákon o dočasném zabrání prostoru","Upravuje situace, kdy je část veřejného prostoru využita pro zvláštní účel."],
-
-["Životní prostředí","Zákon o ochraně životního prostředí","Stanovuje základní pravidla ochrany přírody a životního prostředí v ST-CITY."],
-["Životní prostředí","Zákon o ochraně městské zeleně","Chrání stromy, keře, záhony a další městskou zeleň."],
-["Životní prostředí","Zákon o ochraně ovzduší","Upravuje činnosti, které mohou významně zhoršovat kvalitu ovzduší."],
-["Životní prostředí","Zákon o ochraně přírodních míst","Stanovuje pravidla pro ochranu vybraných přírodních lokalit."],
-
-["Odpady","Zákon o odpadech","Upravuje třídění, ukládání a odstraňování odpadu na území ST-CITY."],
-["Odpady","Zákon o třídění odpadu","Stanovuje pravidla pro oddělené ukládání jednotlivých druhů odpadu."],
-["Odpady","Zákon o černých skládkách","Zakazuje neoprávněné ukládání odpadu mimo určená místa."],
-["Odpady","Zákon o objemném odpadu","Upravuje nakládání s odpadem, který nelze běžně ukládat do domácích nádob."],
-
-["Zvířata","Zákon o chovu zvířat","Stanovuje základní pravidla odpovědného chovu zvířat."],
-["Zvířata","Zákon o psech na veřejnosti","Upravuje pohyb psů na veřejných prostranstvích."],
-["Zvířata","Zákon o povinnostech chovatele","Stanovuje povinnosti osoby, která zvíře chová nebo za něj odpovídá."],
-["Zvířata","Zákon o ochraně zvířat","Stanovuje zákaz týrání a povinnost zajistit zvířeti odpovídající péči."],
-
-["Bydlení","Zákon o základních pravidlech bydlení","Upravuje základní pravidla soužití obyvatel v bytových domech."],
-["Bydlení","Zákon o společných prostorách","Stanovuje pravidla užívání chodeb, schodišť a dalších společných částí domů."],
-["Bydlení","Zákon o domovním klidu","Upravuje pravidla klidného soužití obyvatel bytových domů."],
-["Bydlení","Zákon o bezpečnosti bytových domů","Stanovuje základní bezpečnostní povinnosti v obytných budovách."],
-
-["Nájemní vztahy","Zákon o nájemních vztazích","Upravuje základní pravidla nájemních vztahů v ST-CITY."],
-["Nájemní vztahy","Zákon o právech nájemce","Stanovuje základní práva osoby užívající byt na základě nájemní smlouvy."],
-["Nájemní vztahy","Zákon o povinnostech pronajímatele","Upravuje povinnosti vlastníka pronajímaného prostoru."],
-["Nájemní vztahy","Zákon o ukončení nájmu","Stanovuje základní pravidla pro ukončení nájemního vztahu."],
-
-["Stavby","Zákon o stavebních činnostech","Upravuje základní pravidla provádění stavebních prací na území ST-CITY."],
-["Stavby","Zákon o bezpečnosti stavenišť","Stanovuje povinnosti osob odpovědných za bezpečnost staveniště."],
-["Stavby","Zákon o dočasných stavbách","Upravuje podmínky umístění a odstranění dočasných konstrukcí."],
-["Stavby","Zákon o ochraně okolí stavby","Stanovuje povinnosti stavebníků vůči okolním osobám a majetku."],
-
-["Požární ochrana","Zákon o požární ochraně","Stanovuje základní povinnosti při předcházení požárům."],
-["Požární ochrana","Zákon o požárních cestách","Upravuje povinnost zachovat přístupové cesty pro zásah."],
-["Požární ochrana","Zákon o evakuačních cestách","Stanovuje pravidla pro udržování únikových cest."],
-["Požární ochrana","Zákon o požárních oznámeních","Upravuje povinnost oznámit vznik požáru nebo jiné nebezpečné situace."],
-
-["Zdravotnictví","Zákon o zdravotních službách","Upravuje základní pravidla poskytování zdravotních služeb ve městě."],
-["Zdravotnictví","Zákon o první pomoci","Stanovuje základní povinnost přiměřeně pomoci osobě v ohrožení."],
-["Zdravotnictví","Zákon o zdravotnických zařízeních","Upravuje provoz a základní pravidla městských zdravotnických zařízení."],
-["Zdravotnictví","Zákon o hygieně","Stanovuje základní hygienická pravidla ve vybraných veřejných prostorách."],
-
-["Školství","Zákon o školách ST-CITY","Upravuje základní organizaci školských zařízení města."],
-["Školství","Zákon o školním řádu","Stanovuje základní pravidla chování ve školách."],
-["Školství","Zákon o bezpečnosti žáků","Upravuje povinnosti školy při zajišťování bezpečného prostředí."],
-["Školství","Zákon o školních akcích","Stanovuje pravidla pro pořádání školních výletů a akcí."],
-
-["Obchod a služby","Zákon o provozovnách","Upravuje základní pravidla provozu obchodů a služeb."],
-["Obchod a služby","Zákon o otevírací době","Stanovuje pravidla pro zveřejnění provozní doby provozoven."],
-["Obchod a služby","Zákon o označení provozovny","Upravuje povinné informace uvedené na provozovnách."],
-["Obchod a služby","Zákon o poskytování služeb","Stanovuje základní povinnosti poskytovatelů služeb vůči zákazníkům."],
-
-["Ochrana spotřebitele","Zákon o právech spotřebitele","Upravuje základní práva spotřebitelů při nákupu zboží a služeb."],
-["Ochrana spotřebitele","Zákon o reklamaci","Stanovuje pravidla pro uplatnění a vyřízení reklamace."],
-["Ochrana spotřebitele","Zákon o cenách","Upravuje povinnost uvádět ceny srozumitelným způsobem."],
-["Ochrana spotřebitele","Zákon o nekalých obchodních praktikách","Zakazuje jednání, které může spotřebitele klamat nebo nepřiměřeně ovlivňovat."],
-
-["Digitální služby","Zákon o digitálních službách","Upravuje základní pravidla poskytování městských digitálních služeb."],
-["Digitální služby","Zákon o elektronické komunikaci","Stanovuje pravidla používání elektronických komunikačních systémů ST-CITY."],
-["Digitální služby","Zákon o městských účtech","Upravuje používání účtů občanů v elektronických službách města."],
-["Digitální služby","Zákon o elektronických oznámeních","Stanovuje pravidla pro doručování vybraných městských oznámení elektronickou cestou."],
-
-["Osobní údaje","Zákon o ochraně osobních údajů","Stanovuje pravidla pro nakládání s osobními údaji v systému ST-CITY."],
-["Osobní údaje","Zákon o přístupu k údajům","Upravuje právo osoby získat informace o údajích, které jsou o ní vedeny."],
-["Osobní údaje","Zákon o zabezpečení údajů","Stanovuje povinnost chránit osobní údaje před neoprávněným přístupem."],
-["Osobní údaje","Zákon o uchovávání údajů","Upravuje dobu a podmínky uchovávání vybraných osobních údajů."],
-
-["Kultura","Zákon o kulturních akcích","Upravuje pořádání kulturních akcí na území ST-CITY."],
-["Kultura","Zákon o městských kulturních zařízeních","Stanovuje pravidla využívání městských kulturních prostor."],
-["Kultura","Zákon o veřejných vystoupeních","Upravuje základní podmínky veřejných vystoupení."],
-["Kultura","Zákon o ochraně kulturních míst","Chrání určená kulturní a historická místa města."],
-
-["Sport","Zákon o sportovních zařízeních","Upravuje provoz městských sportovních zařízení."],
-["Sport","Zákon o bezpečnosti sportovišť","Stanovuje základní bezpečnostní pravidla při používání sportovišť."],
-["Sport","Zákon o veřejných sportovních akcích","Upravuje pořádání sportovních akcí přístupných veřejnosti."],
-["Sport","Zákon o používání sportovního vybavení","Stanovuje pravidla bezpečného používání vybavení městských sportovišť."],
-
-["Veřejné akce","Zákon o veřejných akcích","Upravuje pořádání veřejných společenských akcí."],
-["Veřejné akce","Zákon o shromažďování osob","Stanovuje základní pravidla pro větší shromáždění osob."],
-["Veřejné akce","Zákon o dočasných uzavírkách","Upravuje dočasné omezení provozu při pořádání akcí."],
-["Veřejné akce","Zákon o odpovědnosti pořadatele","Stanovuje povinnosti pořadatele veřejné akce."],
-
-["Městská policie","Zákon o městské policii","Upravuje základní působnost a činnost městské policie ST-CITY."],
-["Městská policie","Zákon o kontrole veřejného pořádku","Stanovuje rozsah kontroly dodržování městských pravidel."],
-["Městská policie","Zákon o řešení přestupků","Upravuje základní postup při řešení přestupků."],
-["Městská policie","Zákon o spolupráci s obyvateli","Stanovuje pravidla pro oznamování problémů a spolupráci obyvatel s policií."],
-
-["Finance a poplatky","Zákon o místních poplatcích","Upravuje jednotlivé místní poplatky vybírané městem."],
-["Finance a poplatky","Zákon o poplatku za odpad","Stanovuje pravidla pro poplatek související s komunálním odpadem."],
-["Finance a poplatky","Zákon o městských platbách","Upravuje způsoby úhrady městských poplatků."],
-["Finance a poplatky","Zákon o vracení přeplatků","Stanovuje pravidla pro vracení neoprávněně nebo nadměrně uhrazených částek."],
-
-["Městská správa","Zákon o městské správě","Upravuje základní organizaci správních orgánů ST-CITY."],
-["Městská správa","Zákon o městských úřadech","Stanovuje pravidla činnosti městských úřadů."],
-["Městská správa","Zákon o správním řízení","Upravuje základní postup města při rozhodování o právech a povinnostech osob."],
-["Městská správa","Zákon o zveřejňování městských informací","Stanovuje pravidla pro zveřejňování vybraných informací městem."]
-];
-
-
-/* ==========================================================
-   AUTOMATICKÉ DOPLNĚNÍ NA 100 ZÁKONŮ
-========================================================== */
 
 const laws=[];
 
-let lawNumber=1;
 
-for(const item of lawData){
+/* ==========================================================
+   100 RŮZNÝCH ZÁKONŮ
+========================================================== */
 
-    laws.push({
-        id:lawNumber,
-        number:`${lawNumber}/2026`,
-        category:item[0],
-        title:item[1],
-        description:item[2]
-    });
+const lawNames={
 
-    lawNumber++;
-}
+"Veřejný pořádek":[
+["Zákon o veřejném pořádku","Stanovuje základní pravidla pro zachování pořádku ve městě."],
+["Zákon o veřejném obtěžování","Upravuje jednání, kterým může osoba nepřiměřeně obtěžovat ostatní."],
+["Zákon o městském mobiliáři","Chrání lavičky, koše, osvětlení a další veřejné vybavení."],
+["Zákon o bezpečném užívání ulic","Stanovuje pravidla bezpečného pohybu osob na veřejných místech."]
+],
 
+"Noční klid a hluk":[
+["Zákon o nočním klidu","Stanovuje dobu a podmínky nočního klidu."],
+["Zákon o rušení nočního klidu","Upravuje jednání, které významně narušuje odpočinek obyvatel."],
+["Zákon o nadměrném hluku","Stanovuje pravidla pro omezení nadměrného hluku."],
+["Zákon o hlučných činnostech","Upravuje používání hlučných zařízení v obytných oblastech."]
+],
 
-/*
- Pokud budeš chtít více než 100 zákonů,
- tento systém je připravený.
-*/
+"Doprava":[
+["Zákon o silničním provozu ST-CITY","Stanovuje základní pravidla pohybu vozidel a dalších účastníků provozu."],
+["Zákon o bezpečnosti chodců","Upravuje ochranu chodců při pohybu na komunikacích."],
+["Zákon o jízdních kolech","Stanovuje pravidla pro používání jízdních kol."],
+["Zákon o koloběžkách","Upravuje bezpečné používání koloběžek ve městě."]
+],
 
-const extraSubjects=[
-"kontrole",
-"evidenci",
-"odpovědnosti",
-"bezpečnosti",
-"provozu",
-"ochraně",
-"užívání",
-"oznamování",
-"povolování",
-"správě"
-];
+"Parkování":[
+["Zákon o parkování vozidel","Upravuje pravidla zastavení a stání vozidel."],
+["Zákon o parkovacích zónách","Stanovuje režim jednotlivých parkovacích oblastí."],
+["Zákon o vyhrazených místech","Upravuje používání parkovacích míst určených pro zvláštní účely."],
+["Zákon o dlouhodobém stání","Stanovuje pravidla pro dlouhodobé ponechání vozidla."]
+],
 
-while(laws.length<100){
+"Bezpečnost":[
+["Zákon o obecné bezpečnosti","Stanovuje základní pravidla předcházení nebezpečným situacím."],
+["Zákon o nebezpečném jednání","Upravuje jednání, které může ohrozit jiné osoby."],
+["Zákon o evakuaci","Stanovuje povinnosti při nařízené evakuaci."],
+["Zákon o mimořádných situacích","Upravuje postupy při mimořádných událostech."]
+],
 
-    const category=categories[laws.length%categories.length];
+"Veřejná prostranství":[
+["Zákon o užívání veřejných prostranství","Upravuje používání ulic, náměstí, parků a dalších míst."],
+["Zákon o čistotě veřejných míst","Stanovuje povinnost udržovat veřejné prostory čisté."],
+["Zákon o městském vybavení","Chrání zařízení umístěná ve veřejném prostoru."],
+["Zákon o dočasném zabrání prostoru","Upravuje dočasné využití veřejného prostoru."]
+],
 
-    const subject=extraSubjects[laws.length%extraSubjects.length];
+"Životní prostředí":[
+["Zákon o ochraně životního prostředí","Stanovuje základní pravidla ochrany prostředí ve městě."],
+["Zákon o městské zeleni","Chrání stromy, keře a další veřejnou zeleň."],
+["Zákon o ochraně ovzduší","Upravuje činnosti ovlivňující kvalitu ovzduší."],
+["Zákon o ochraně přírodních míst","Stanovuje režim ochrany vybraných přírodních lokalit."]
+],
 
-    laws.push({
-        id:laws.length+1,
-        number:`${laws.length+1}/2026`,
-        category,
-        title:`Zákon o ${subject} v oblasti ${category.toLowerCase()}`,
-        description:`Stanovuje podrobná pravidla pro ${subject} v oblasti ${category.toLowerCase()} a vymezuje povinnosti dotčených osob.`
-    });
-}
+"Odpady":[
+["Zákon o odpadech","Upravuje nakládání s odpady na území ST-CITY."],
+["Zákon o třídění odpadu","Stanovuje pravidla odděleného třídění odpadu."],
+["Zákon o černých skládkách","Zakazuje ukládání odpadu mimo určená místa."],
+["Zákon o objemném odpadu","Upravuje předávání odpadu větších rozměrů."]
+],
+
+"Zvířata":[
+["Zákon o chovu zvířat","Stanovuje základní pravidla odpovědného chovu."],
+["Zákon o psech na veřejnosti","Upravuje pohyb psů na veřejných místech."],
+["Zákon o povinnostech chovatele","Stanovuje odpovědnost osoby za svěřené zvíře."],
+["Zákon o ochraně zvířat","Stanovuje pravidla ochrany zvířat před nevhodným zacházením."]
+],
+
+"Bydlení":[
+["Zákon o bydlení","Upravuje základní pravidla soužití obyvatel."],
+["Zákon o společných prostorách","Stanovuje pravidla užívání společných částí domů."],
+["Zákon o domovním klidu","Upravuje podmínky klidného soužití obyvatel."],
+["Zákon o bezpečnosti bytových domů","Stanovuje bezpečnostní povinnosti v obytných domech."]
+],
+
+"Nájemní vztahy":[
+["Zákon o nájemních vztazích","Upravuje základní vztahy mezi nájemcem a pronajímatelem."],
+["Zákon o právech nájemce","Stanovuje základní práva nájemce."],
+["Zákon o povinnostech pronajímatele","Upravuje povinnosti pronajímatele."],
+["Zákon o ukončení nájmu","Stanovuje pravidla pro ukončení nájemního vztahu."]
+],
+
+"Stavby":[
+["Zákon o stavebních činnostech","Upravuje provádění stavebních prací."],
+["Zákon o bezpečnosti stavenišť","Stanovuje bezpečnostní pravidla na staveništích."],
+["Zákon o dočasných stavbách","Upravuje umisťování dočasných konstrukcí."],
+["Zákon o ochraně okolí stavby","Stanovuje povinnosti stavebníků vůči okolí."]
+],
+
+"Požární ochrana":[
+["Zákon o požární ochraně","Stanovuje pravidla prevence požárů."],
+["Zákon o požárních cestách","Chrání přístupové cesty pro hasičský zásah."],
+["Zákon o evakuačních cestách","Stanovuje pravidla pro únikové cesty."],
+["Zákon o požárních oznámeních","Upravuje oznamování požárů a nebezpečných situací."]
+],
+
+"Zdravotnictví":[
+["Zákon o zdravotních službách","Upravuje poskytování zdravotních služeb ve městě."],
+["Zákon o první pomoci","Stanovuje základní pravidla pomoci osobám v ohrožení."],
+["Zákon o zdravotnických zařízeních","Upravuje provoz městských zdravotnických zařízení."],
+["Zákon o hygieně","Stanovuje hygienická pravidla ve vybraných veřejných prostorách."]
+],
+
+"Školství":[
+["Zákon o školách ST-CITY","Upravuje organizaci školských zařízení."],
+["Zákon o školním řádu","Stanovuje základní pravidla chování ve škole."],
+["Zákon o bezpečnosti žáků","Upravuje povinnost školy vytvářet bezpečné prostředí."],
+["Zákon o školních akcích","Stanovuje pravidla pro školní výlety a akce."]
+],
+
+"Obchod a služby":[
+["Zákon o provozovnách","Upravuje provoz obchodů a služeb."],
+["Zákon o otevírací době","Stanovuje pravidla zveřejňování provozní doby."],
+["Zákon o označení provozovny","Upravuje povinné údaje na provozovnách."],
+["Zákon o poskytování služeb","Stanovuje základní povinnosti poskytovatelů služeb."]
+],
+
+"Ochrana spotřebitele":[
+["Zákon o právech spotřebitele","Upravuje základní práva spotřebitelů."],
+["Zákon o reklamaci","Stanovuje pravidla vyřízení reklamací."],
+["Zákon o cenách","Upravuje způsob uvádění cen."],
+["Zákon o nekalých praktikách","Zakazuje klamavé a nepřiměřené obchodní jednání."]
+],
+
+"Digitální služby":[
+["Zákon o digitálních službách","Upravuje městské elektronické služby."],
+["Zákon o elektronické komunikaci","Stanovuje pravidla elektronické komunikace."],
+["Zákon o městských účtech","Upravuje používání elektronických účtů obyvatel."],
+["Zákon o elektronických oznámeních","Stanovuje pravidla elektronického doručování."]
+],
+
+"Osobní údaje":[
+["Zákon o ochraně osobních údajů","Stanovuje pravidla nakládání s osobními údaji."],
+["Zákon o přístupu k údajům","Upravuje přístup osoby k údajům vedeným o ní."],
+["Zákon o zabezpečení údajů","Stanovuje povinnost chránit osobní údaje."],
+["Zákon o uchovávání údajů","Upravuje dobu a podmínky uchovávání údajů."]
+],
+
+"Kultura":[
+["Zákon o kulturních akcích","Upravuje pořádání kulturních akcí."],
+["Zákon o kulturních zařízeních","Stanovuje pravidla využívání městských kulturních prostor."],
+["Zákon o veřejných vystoupeních","Upravuje veřejná vystoupení."],
+["Zákon o ochraně kulturních míst","Chrání určená kulturní a historická místa."]
+],
+
+"Sport":[
+["Zákon o sportovních zařízeních","Upravuje provoz městských sportovišť."],
+["Zákon o bezpečnosti sportovišť","Stanovuje bezpečnostní pravidla při sportu."],
+["Zákon o sportovních akcích","Upravuje veřejné sportovní akce."],
+["Zákon o sportovním vybavení","Stanovuje pravidla bezpečného používání vybavení."]
+],
+
+"Veřejné akce":[
+["Zákon o veřejných akcích","Upravuje pořádání veřejných společenských akcí."],
+["Zákon o shromažďování osob","Stanovuje pravidla pro větší shromáždění."],
+["Zákon o dočasných uzavírkách","Upravuje omezení provozu během akcí."],
+["Zákon o odpovědnosti pořadatele","Stanovuje povinnosti pořadatele veřejné akce."]
+],
+
+"Městská policie":[
+["Zákon o městské policii","Upravuje působnost městské policie ST-CITY."],
+["Zákon o kontrole veřejného pořádku","Stanovuje rozsah kontroly dodržování pravidel."],
+["Zákon o řešení přestupků","Upravuje základní postup při řešení přestupků."],
+["Zákon o spolupráci s obyvateli","Stanovuje pravidla komunikace obyvatel s policií."]
+],
+
+"Finance a poplatky":[
+["Zákon o místních poplatcích","Upravuje místní poplatky vybírané městem."],
+["Zákon o poplatku za odpad","Stanovuje pravidla poplatku za komunální odpad."],
+["Zákon o městských platbách","Upravuje způsoby úhrady městských plateb."],
+["Zákon o vracení přeplatků","Stanovuje pravidla vracení přeplatků."]
+],
+
+"Městská správa":[
+["Zákon o městské správě","Upravuje organizaci správních orgánů."],
+["Zákon o městských úřadech","Stanovuje pravidla činnosti městských úřadů."],
+["Zákon o správním řízení","Upravuje rozhodování města o právech a povinnostech."],
+["Zákon o zveřejňování informací","Stanovuje pravidla zveřejňování městských informací."]
+]
+};
 
 
 /* ==========================================================
-   VLASTNÍ OBSAH JEDNOTLIVÝCH ZÁKONŮ
+   GENEROVÁNÍ ZÁKONŮ
 ========================================================== */
 
-const specificContent={
+let lawId=1;
 
-1:{
-    sections:[
-        ["Předmět úpravy",[
-            "Tento zákon upravuje základní pravidla zachování veřejného pořádku na území ST-CITY.",
-            "Každá osoba je povinna při pohybu na veřejnosti respektovat práva a oprávněné zájmy ostatních.",
-            "Jednání nesmí bezdůvodně narušovat bezpečnost nebo běžné užívání veřejných prostor.",
-            "Osoba, která zjistí závažné narušení pořádku, může o situaci informovat příslušný orgán města."
-        ]],
-        ["Povinnosti osob",[
-            "Osoba je povinna řídit se pokyny oprávněných pracovníků při řešení mimořádné situace.",
-            "Na veřejném místě je zakázáno úmyslně poškozovat zařízení sloužící veřejnosti.",
-            "Každý je povinen respektovat vyznačené zákazy vstupu a dočasná bezpečnostní opatření.",
-            "Při používání veřejného prostoru musí osoba přiměřeně zohlednit okolnosti a přítomnost dalších osob."
-        ]],
-        ["Rušení pořádku",[
-            "Za rušení veřejného pořádku se považuje zejména jednání, které významně narušuje bezpečné užívání veřejného prostoru.",
-            "Za rušení se nepovažuje běžný přiměřený provoz, pokud nejsou překročeny stanovené podmínky.",
-            "Při posuzování se přihlíží k délce, intenzitě a následkům jednání.",
-            "Opakované porušování stejné povinnosti může být hodnoceno jako přitěžující okolnost."
-        ]]
-    ],
-    sanction:"Za porušení tohoto zákona může být podle závažnosti uloženo napomenutí nebo pokuta až do 10 000 Kč."
-},
+categories.forEach(cat=>{
 
-5:{
-    sections:[
-        ["Doba nočního klidu",[
-            "Dobou nočního klidu se rozumí doba od 22:00 hodin do 06:00 hodin následujícího dne.",
-            "V době nočního klidu je každý povinen zdržet se jednání, které může významně narušit odpočinek ostatních osob.",
-            "Pravidlo se vztahuje zejména na veřejná prostranství a místa, ze kterých se hluk šíří do obytných prostor.",
-            "Za běžný provoz se nepovažuje jednání, jehož účelem je bezdůvodné vytváření nadměrného hluku."
-        ]],
-        ["Rušení nočního klidu",[
-            "Za rušení nočního klidu může být považována nepřiměřeně hlasitá hudba, křik nebo používání hlučného zařízení.",
-            "Při posouzení se přihlíží k intenzitě hluku, délce jeho trvání a místním podmínkám.",
-            "Pokud je hluk způsoben veřejnou akcí, odpovídá za dodržení podmínek její pořadatel.",
-            "Osoba, která je vyzvána k ukončení rušení, je povinna výzvu respektovat."
-        ]],
-        ["Výjimky",[
-            "Výjimku z doby nočního klidu může stanovit město pro předem určenou veřejnou událost.",
-            "Výjimka musí být časově a místně vymezena.",
-            "Výjimka se nevztahuje na jednání, které představuje bezpečnostní riziko.",
-            "Mimořádná událost může být důvodem k dočasnému odlišnému režimu."
-        ]]
-    ],
-    sanction:"Porušení povinnosti zachovat noční klid může být řešeno jako přestupek a může být za něj uložena pokuta až do 10 000 Kč."
-},
+    const category=cat[0];
+    const icon=cat[1];
+    const names=lawNames[category];
 
-13:{
-    sections:[
-        ["Základní pravidla parkování",[
-            "Řidič smí vozidlo ponechat pouze na místě, kde je zastavení nebo stání povoleno.",
-            "Při parkování nesmí být bezdůvodně blokován průjezd ostatních vozidel.",
-            "Vozidlo musí být zaparkováno tak, aby nebránilo bezpečnému pohybu chodců.",
-            "Řidič je povinen respektovat dopravní značení a vyznačení parkovacích míst."
-        ]],
-        ["Vyhrazená místa",[
-            "Vyhrazené parkovací místo smí být používáno pouze za podmínek uvedených na příslušném označení.",
-            "Oprávnění k použití vyhrazeného místa musí být možné na požádání doložit.",
-            "Neoprávněné zabrání vyhrazeného místa je porušením tohoto zákona.",
-            "Při mimořádné události může být režim parkování dočasně změněn."
-        ]]
-    ],
-    sanction:"Za neoprávněné parkování může být uložena pokuta až do 5 000 Kč. V případech stanovených předpisy může být vozidlo také odstraněno."
-},
+    names.forEach((item,index)=>{
 
-25:{
-    sections:[
-        ["Ochrana životního prostředí",[
-            "Každý je povinen při své činnosti přiměřeně chránit životní prostředí.",
-            "Je zakázáno úmyslně poškozovat chráněnou městskou zeleň.",
-            "Činnost s významným dopadem na okolí musí být prováděna tak, aby byly omezeny zbytečné škodlivé následky.",
-            "Město může stanovit zvláštní ochranné režimy pro vybraná území."
-        ]],
-        ["Městská zeleň",[
-            "Stromy a veřejná zeleň mohou být odstraněny pouze způsobem stanoveným příslušným rozhodnutím nebo pravidlem.",
-            "Poškození městské zeleně musí být bez zbytečného odkladu oznámeno příslušnému správci.",
-            "Při stavebních pracích musí být okolní zeleň chráněna před zbytečným poškozením.",
-            "Město může uložit nápravné opatření k odstranění následků poškození."
-        ]]
-    ],
-    sanction:"Za úmyslné poškození městské zeleně může být uložena pokuta a povinnost nahradit vzniklou škodu."
-}
+        laws.push({
+            id:lawId,
+            number:`${String(lawId).padStart(3,"0")}/2026`,
+            category,
+            icon,
+            title:item[0],
+            description:item[1],
+            type:index
+        });
+
+        lawId++;
+
+    });
+
+});
+
+
+/* ==========================================================
+   OBSAH PODLE OBLASTI
+========================================================== */
+
+const contentTemplates={
+
+"Doprava":[
+["Bezpečný provoz",[
+"Účastník provozu je povinen přizpůsobit své jednání situaci na komunikaci.",
+"Při pohybu nesmí bezdůvodně ohrožovat ostatní účastníky.",
+"Každý účastník je povinen respektovat dopravní značení.",
+"V případě překážky musí být přijata přiměřená opatření k zajištění bezpečnosti."
+]],
+["Povinnosti účastníků",[
+"Řidič odpovídá za bezpečné vedení vozidla.",
+"Chodec je povinen využívat určené části komunikace, pokud jsou k dispozici.",
+"Cyklista musí dbát zvýšené opatrnosti zejména v místech se zvýšeným pohybem osob.",
+"Při změně směru nebo způsobu pohybu musí být zohledněno okolí."
+]],
+["Mimořádné situace",[
+"Při dopravní nehodě je nutné postupovat tak, aby nedošlo k dalšímu ohrožení.",
+"Pokud je komunikace neprůjezdná, může být provoz dočasně omezen.",
+"Pokyny oprávněných osob mají při mimořádné události přednost.",
+"Po odstranění nebezpečí se provoz obnoví podle pokynů příslušného orgánu."
+]]
+],
+
+"Parkování":[
+["Zastavení a stání",[
+"Vozidlo smí být zastaveno pouze způsobem, který neohrožuje ostatní účastníky.",
+"Stáním nesmí být bezdůvodně blokován průchod chodců.",
+"Řidič musí respektovat vyznačená parkovací místa.",
+"Na místě se zákazem stání nesmí být vozidlo ponecháno mimo stanovené výjimky."
+]],
+["Parkovací zóny",[
+"V parkovací zóně je řidič povinen respektovat podmínky uvedené na dopravním značení.",
+"Pokud je vyžadována registrace nebo úhrada, musí být provedena stanoveným způsobem.",
+"Parkovací oprávnění je nepřenosné, pokud pravidla nestanoví jinak.",
+"Kontrola oprávnění může být provedena příslušným orgánem."
+]],
+["Odstranění vozidla",[
+"Vozidlo může být odstraněno, pokud jeho stání vytváří závažnou překážku nebo nebezpečí.",
+"O odstranění musí být pořízen záznam.",
+"Vlastník nebo provozovatel může být vyrozuměn způsobem stanoveným pravidly.",
+"Náklady související s oprávněným odstraněním může nést osoba odpovědná za porušení."
+]]
+],
+
+"Odpady":[
+["Třídění",[
+"Odpad musí být odkládán do nádoby určené pro příslušný druh odpadu.",
+"Jednotlivé druhy odpadu nesmí být záměrně smíchány způsobem znemožňujícím jejich další zpracování.",
+"Nebezpečný odpad musí být předán na určeném místě.",
+"Objem odpadu nesmí bránit řádnému uzavření nádoby."
+]],
+["Svoz a předávání",[
+"Odpad musí být připraven k předání způsobem stanoveným městem.",
+"Je zakázáno ponechávat odpad mimo určená sběrná místa.",
+"Provozovatel sběru odpovídá za řádný převzetí odpadu v rozsahu své činnosti.",
+"Při mimořádné změně svozu může město zveřejnit náhradní termín."
+]],
+["Černé skládky",[
+"Je zakázáno ukládat odpad mimo místa určená pro jeho odložení.",
+"Osoba, která zjistí nelegální skládku, může její výskyt oznámit městu.",
+"Vlastník pozemku může být vyzván k odstranění odpadu, pokud to umožňuje příslušný režim.",
+"Při odstranění skládky musí být postupováno způsobem odpovídajícím druhu odpadu."
+]]
+],
+
+"Zvířata":[
+["Odpovědnost chovatele",[
+"Chovatel odpovídá za dohled nad zvířetem v rozsahu odpovídajícím jeho povaze.",
+"Zvíře nesmí být ponecháno způsobem, který může ohrozit osoby nebo jiné živočichy.",
+"Chovatel musí zajistit zvířeti podmínky odpovídající jeho potřebám.",
+"Při vzniku nebezpečné situace je chovatel povinen přijmout přiměřené opatření."
+]],
+["Pohyb na veřejnosti",[
+"Na místech označených městem může být stanovena povinnost použít vodítko.",
+"Vstup zvířat může být omezen na dětská hřiště nebo některá sportoviště.",
+"Chovatel je povinen uklidit znečištění způsobené zvířetem.",
+"Zvíře nesmí bez dozoru pobíhat tam, kde by mohlo způsobit nebezpečí."
+]],
+["Péče o zvíře",[
+"Zvíře musí mít přístup k podmínkám potřebným pro jeho řádnou péči.",
+"Je zakázáno zvíře úmyslně vystavovat zbytečnému utrpení.",
+"Při podezření na závažné zanedbání péče může být věc oznámena příslušnému orgánu.",
+"Chovatel je povinen zajistit odpovídající péči podle druhu a okolností."
+]]
+],
+
+"Požární ochrana":[
+["Prevence",[
+"Každý je povinen počínat si tak, aby nevytvářel zbytečné požární riziko.",
+"Hořlavé materiály nesmí být ukládány způsobem, který může vést ke vzniku požáru.",
+"Přístup k požárním zařízením musí zůstat volný.",
+"Zařízení určená k požární ochraně nesmí být úmyslně vyřazována z provozu."
+]],
+["Evakuace",[
+"Při nařízené evakuaci je osoba povinna postupovat podle pokynů zasahujících osob.",
+"Únikové cesty musí být udržovány průchodné.",
+"Osoba nesmí zbytečně zpomalovat evakuaci ostatních.",
+"Po opuštění ohroženého prostoru se osoba nesmí bez pokynu vracet."
+]],
+["Oznámení požáru",[
+"Osoba, která zjistí požár, má bez zbytečného odkladu přivolat pomoc.",
+"Při oznámení musí být pokud možno uvedeno místo události.",
+"Informace o rozsahu požáru musí být sdělena pouze v rozsahu, který je znám.",
+"Po příjezdu zasahujících osob je nutné respektovat jejich pokyny."
+]]
+],
+
+"Školství":[
+["Školní prostředí",[
+"Škola vytváří podmínky pro bezpečné vzdělávání žáků.",
+"Žák je povinen respektovat školní řád a pokyny pedagogických pracovníků.",
+"Ve škole není dovoleno úmyslně poškozovat vybavení.",
+"Pravidla školy musí být žákům přístupně oznámena."
+]],
+["Bezpečnost žáků",[
+"Škola přijímá přiměřená opatření k předcházení nebezpečným situacím.",
+"Závada ohrožující bezpečnost musí být bez zbytečného odkladu oznámena.",
+"Při mimořádné události se postupuje podle bezpečnostních pokynů školy.",
+"Školní prostory musí být používány způsobem odpovídajícím jejich účelu."
+]],
+["Školní akce",[
+"Pořadatel školní akce stanoví základní organizační a bezpečnostní pravidla.",
+"Účastníci akce jsou povinni respektovat pokyny odpovědných osob.",
+"Při cestě mimo školu musí být zajištěn odpovídající dohled.",
+"Změny programu musí být oznámeny způsobem přiměřeným situaci."
+]]
+]
 
 };
 
 
 /* ==========================================================
-   GENEROVÁNÍ UNIKÁTNÍHO ZÁKONA
+   GENERICKÝ OBSAH PODLE KONKRÉTNÍHO ZÁKONA
 ========================================================== */
 
 function createSections(law){
 
-    if(specificContent[law.id]){
-        return specificContent[law.id].sections;
+    if(contentTemplates[law.category]){
+        return contentTemplates[law.category];
     }
 
-    const c=law.category;
+    const c=law.category.toLowerCase();
 
-    const templates={
-
-        "Doprava":[
-            ["Bezpečný provoz",[
-                `Každý účastník provozu je povinen přizpůsobit své jednání okolnostem a dbát zvýšené opatrnosti.`,
-                `Při pohybu na komunikaci nesmí být bezdůvodně ohrožena bezpečnost ostatních účastníků.`,
-                `Řidič je povinen respektovat dopravní značení a pokyny oprávněných osob.`
-            ]],
-            ["Povinnosti účastníků",[
-                `Účastník provozu je povinen předcházet situacím, které mohou vést ke střetu nebo jinému nebezpečí.`,
-                `Při změně směru jízdy musí být přihlédnuto k přítomnosti ostatních účastníků.`,
-                `V případě překážky je nutné postupovat tak, aby byl provoz co nejméně omezen.`
-            ]]
-        ],
-
-        "Odpady":[
-            ["Třídění odpadu",[
-                `Odpad musí být odkládán do nádoby nebo na místo určené pro příslušný druh odpadu.`,
-                `Odlišné druhy odpadu nesmí být záměrně smíchány způsobem, který znemožní jejich další zpracování.`,
-                `Nebezpečný odpad se ukládá pouze na místech k tomu určených.`
-            ]],
-            ["Ukládání odpadu",[
-                `Odpad nesmí být odkládán na veřejné prostranství mimo určené nádoby.`,
-                `Při ukládání odpadu musí být nádoba používána způsobem, který neohrožuje okolí.`,
-                `Objemný odpad musí být předán způsobem stanoveným městem.`
-            ]]
-        ],
-
-        "Zvířata":[
-            ["Povinnosti chovatele",[
-                `Chovatel odpovídá za to, že zvíře nebude bezdůvodně ohrožovat osoby ani jiné živočichy.`,
-                `Zvíře musí mít zajištěny podmínky odpovídající jeho potřebám.`,
-                `Chovatel je povinen zabránit volnému pohybu zvířete tam, kde by mohl způsobit nebezpečí.`
-            ]],
-            ["Pohyb zvířat",[
-                `Na vybraných veřejných místech může město stanovit povinnost vedení zvířete na vodítku.`,
-                `Chovatel je povinen po zvířeti uklidit znečištění veřejného prostoru.`,
-                `Zvláštní režim může být stanoven pro dětská hřiště, sportoviště a další určená místa.`
-            ]]
-        ],
-
-        "Požární ochrana":[
-            ["Prevence požáru",[
-                `Každý je povinen počínat si tak, aby nevytvářel zbytečné požární riziko.`,
-                `Hořlavé předměty nesmí být ponechány způsobem, který může vést ke vzniku požáru.`,
-                `Přístup k požárním zařízením musí zůstat volný.`
-            ]],
-            ["Oznámení požáru",[
-                `Osoba, která zjistí požár nebo bezprostřední nebezpečí jeho vzniku, má povinnost bez zbytečného odkladu informovat příslušné složky.`,
-                `Při evakuaci musí osoba postupovat podle pokynů zasahujících osob.`,
-                `Je zakázáno úmyslně bránit bezpečnému průchodu evakuační cestou.`
-            ]]
-        ],
-
-        "Bydlení":[
-            ["Soužití obyvatel",[
-                `Uživatel bytu je povinen respektovat právo ostatních obyvatel na nerušené užívání jejich prostor.`,
-                `Společné části domu musí být užívány způsobem odpovídajícím jejich účelu.`,
-                `Je zakázáno úmyslně poškozovat společné zařízení domu.`
-            ]],
-            ["Společné prostory",[
-                `Chodby a schodiště nesmí být používány způsobem, který brání bezpečnému průchodu.`,
-                `Předměty uložené ve společných prostorách nesmí vytvářet bezpečnostní riziko.`,
-                `Při zjištění závady ve společných prostorách má být informována odpovědná osoba.`
-            ]]
-        ]
-
-    };
-
-    if(templates[c]) return templates[c];
-
-    return [
+    const special=[
         ["Předmět úpravy",[
-            `${law.title} upravuje základní pravidla v oblasti ${c.toLowerCase()}.`,
-            `Účelem tohoto zákona je stanovit srozumitelné podmínky pro osoby, kterých se daná oblast týká.`,
-            `Při používání práv podle tohoto zákona musí být respektována práva ostatních osob.`,
-            `Povinnosti stanovené tímto zákonem musí být plněny řádně a způsobem odpovídajícím okolnostem.`
+            `${law.title} stanovuje pravidla pro oblast ${c} na území ST-CITY.`,
+            `Účelem zákona je vytvořit předvídatelné podmínky pro osoby, kterých se daná oblast týká.`,
+            `Pravidla musí být uplatňována přiměřeně okolnostem konkrétního případu.`,
+            `Při používání práv podle tohoto zákona musí být respektována práva ostatních osob.`
         ]],
-
         ["Práva a povinnosti",[
-            `Každá osoba má právo na spravedlivé zacházení při uplatňování pravidel podle tohoto zákona.`,
-            `Osoba je povinna poskytnout potřebnou součinnost, pokud tak stanoví tento zákon.`,
-            `Nikdo nesmí své právo vykonávat způsobem, který by bezdůvodně poškozoval jinou osobu.`,
-            `Při rozhodování se přihlíží k účelu zákona a konkrétním okolnostem případu.`
+            `Osoba dotčená tímto zákonem má právo na srozumitelné informace o povinnostech, které se na ni vztahují.`,
+            `Povinnost stanovenou tímto zákonem musí osoba splnit řádně a včas.`,
+            `Nikdo nesmí své oprávnění využívat způsobem, který by bezdůvodně poškozoval jinou osobu.`,
+            `Pokud zákon stanoví výjimku, lze ji použít pouze za podmínek, které jsou v ní uvedeny.`
         ]],
-
-        ["Kontrola",[
-            `Dodržování povinností může být kontrolováno příslušným orgánem ST-CITY.`,
-            `Kontrolovaná osoba je povinna umožnit provedení kontroly v rozsahu stanoveném tímto zákonem.`,
-            `Kontrola musí být provedena přiměřeně a pouze v rozsahu nezbytném pro její účel.`,
-            `O zjištěných skutečnostech může být pořízen záznam.`
+        ["Kontrola a evidence",[
+            `Dodržování povinností může kontrolovat příslušný orgán ST-CITY.`,
+            `Kontrola musí být provedena pouze v rozsahu potřebném pro její účel.`,
+            `O důležitých zjištěních může být pořízen záznam.`,
+            `Osoba je povinna poskytnout přiměřenou součinnost, pokud tak stanoví tento zákon.`
         ]],
-
-        ["Odpovědnost",[
-            `Za porušení povinnosti odpovídá osoba, která ji porušila, pokud tento zákon nestanoví jinak.`,
-            `Při posouzení odpovědnosti se přihlíží k závažnosti jednání a jeho následkům.`,
-            `Úmyslné porušení může být posuzováno přísněji než porušení způsobené nedbalostí.`,
-            `Při ukládání opatření se přihlíží také k tomu, zda byla způsobená újma napravena.`
-        ]],
-
         ["Náprava",[
-            `Osoba může být vyzvána k odstranění následků porušení povinnosti.`,
-            `Nápravné opatření musí být přiměřené povaze porušení.`,
-            `Pokud lze následky odstranit dobrovolně, může být k jejich odstranění poskytnuta přiměřená lhůta.`,
-            `Splnění nápravného opatření může být ověřeno příslušným orgánem.`
-        ]],
-
-        ["Přestupky a sankce",[
-            `Porušení povinnosti stanovené tímto zákonem může být přestupkem, pokud tak stanoví právní předpis.`,
-            `Při stanovení sankce se přihlíží zejména k závažnosti a opakování jednání.`,
-            `Sankce nesmí být uložena ve vyšším rozsahu, než stanoví tento zákon.`,
-            `Od sankce lze za stanovených podmínek upustit, pokud to okolnosti případu odůvodňují.`
+            `Při zjištění porušení může být osoba vyzvána k odstranění jeho následků.`,
+            `Nápravné opatření musí odpovídat závažnosti porušení.`,
+            `Pokud je možné napravit stav dobrovolně, může být stanovena přiměřená lhůta.`,
+            `Splnění nápravného opatření může být následně ověřeno.`
         ]]
     ];
+
+    if(law.type===1){
+        special[0]=[
+            "Rozsah úpravy",
+            [
+                `${law.title} vymezuje konkrétní pravidla vztahující se k oblasti ${c}.`,
+                "Ustanovení se použijí na území ST-CITY v rozsahu stanoveném tímto zákonem.",
+                "Při posuzování konkrétní situace se přihlíží k jejím okolnostem.",
+                "Pravidla nesmí být vykládána způsobem odporujícím účelu zákona."
+            ]
+        ];
+    }
+
+    if(law.type===2){
+        special[1]=[
+            "Podmínky používání",
+            [
+                "Použití zařízení, prostoru nebo služby musí odpovídat stanovenému účelu.",
+                "Uživatel nesmí způsobit zbytečnou škodu ani ohrozit ostatní osoby.",
+                "Při zjištění závady musí být přijato přiměřené opatření.",
+                "Pokud je stanoveno zvláštní omezení, musí být viditelně oznámeno."
+            ]
+        ];
+    }
+
+    if(law.type===3){
+        special[1]=[
+            "Odpovědnost",
+            [
+                "Za splnění povinností odpovídá osoba, které je zákon ukládá.",
+                "Při posuzování odpovědnosti se zohledňuje závažnost jednání a jeho následky.",
+                "Opakované porušení může být hodnoceno přísněji.",
+                "Pokud byla způsobena škoda, může vzniknout povinnost její náhrady."
+            ]
+        ];
+    }
+
+    return special;
 }
 
 
 /* ==========================================================
-   PARAGRAFY
+   SANKCE
 ========================================================== */
 
-function getParagraphs(law){
+function sanctionFor(law){
 
-    const sections=createSections(law);
+    const c=law.category;
 
-    return sections.map((section,index)=>({
-        number:index+1,
-        title:section[0],
-        texts:section[1]
-    }));
+    const sanctions={
+
+        "Doprava":
+        "Za porušení tohoto zákona může být podle závažnosti uložena pokuta nebo jiné opatření stanovené právním řádem ST-CITY.",
+
+        "Parkování":
+        "Za neoprávněné parkování může být uložena pokuta až do 5 000 Kč. V odůvodněných případech může být vozidlo odstraněno.",
+
+        "Odpady":
+        "Za neoprávněné nakládání s odpadem může být uložena pokuta a povinnost odstranit následky porušení.",
+
+        "Zvířata":
+        "Za porušení povinností chovatele může být uložena pokuta nebo nápravné opatření.",
+
+        "Požární ochrana":
+        "Za porušení požárních povinností může být uložena pokuta podle míry vzniklého rizika.",
+
+        "Noční klid a hluk":
+        "Za závažné rušení nočního klidu nebo nadměrný hluk může být uložena pokuta až do 10 000 Kč.",
+
+        "Veřejná prostranství":
+        "Za neoprávněné nebo škodlivé užívání veřejného prostoru může být uložena pokuta a nápravné opatření.",
+
+        "Městská policie":
+        "Porušení povinností může být řešeno postupem stanoveným právním řádem ST-CITY.",
+
+        "Finance a poplatky":
+        "Při nesplnění stanovené platební povinnosti může vzniknout povinnost uhradit dlužnou částku a případné zákonné příslušenství."
+
+    };
+
+    return sanctions[c] ||
+        "Za porušení tohoto zákona může být podle závažnosti uloženo napomenutí, pokuta nebo nápravné opatření.";
 }
 
 
@@ -1329,12 +1738,20 @@ let historyList=JSON.parse(
     localStorage.getItem("stcity-history")||"[]"
 );
 
+const savedTheme=
+    localStorage.getItem("stcity-theme");
+
+if(savedTheme==="dark"){
+    document.body.classList.add("dark");
+}
+
 
 /* ==========================================================
    ESCAPE
 ========================================================== */
 
 function esc(value){
+
     return String(value)
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
@@ -1350,12 +1767,16 @@ function esc(value){
 
 function buildSidebar(){
 
-    const container=document.getElementById("sideCategories");
+    const container=
+        document.getElementById("sideCategories");
 
-    categories.forEach((category,index)=>{
+    categories.forEach((cat,index)=>{
+
+        const category=cat[0];
+        const icon=cat[1];
 
         const count=laws.filter(
-            law=>law.category===category
+            x=>x.category===category
         ).length;
 
         const button=document.createElement("button");
@@ -1363,14 +1784,60 @@ function buildSidebar(){
         button.className="side-btn";
 
         button.innerHTML=`
-            <span>§ ${index+1} ${esc(category)}</span>
+            <span>${icon} ${esc(category)}</span>
             <span class="side-count">${count}</span>
         `;
 
-        button.onclick=()=>showCategory(category);
+        button.onclick=()=>{
+            showCategory(category);
+            closeMobileMenu();
+        };
 
         container.appendChild(button);
+
     });
+}
+
+
+/* ==========================================================
+   LAW HTML
+========================================================== */
+
+function lawHTML(law){
+
+    const fav=favorites.includes(law.id);
+
+    return `
+    <div class="law"
+         onclick="openLaw(${law.id})">
+
+        <div class="law-number">
+            č. ${law.number}
+        </div>
+
+        <div>
+
+            <div class="law-name">
+                ${law.icon} ${esc(law.title)}
+            </div>
+
+            <div class="law-description">
+                ${esc(law.description)}
+            </div>
+
+        </div>
+
+        <button
+            class="star ${fav?"active":""}"
+            title="${fav?"Odebrat z oblíbených":"Přidat do oblíbených"}"
+            onclick="event.stopPropagation();toggleFavorite(${law.id})">
+
+            ${fav?"★":"☆"}
+
+        </button>
+
+    </div>
+    `;
 }
 
 
@@ -1382,77 +1849,184 @@ function home(){
 
     activateAll();
 
+    const paragraphCount=laws.reduce(
+        (total,law)=>total+createSections(law).length,
+        0
+    );
+
     main.innerHTML=`
 
-    <section class="welcome">
+    <section class="home-hero">
 
-        <div class="small-title">
-            ST-CITY · ELEKTRONICKÁ SBÍRKA
+        <div class="hero-top">
+
+            <div>
+
+                <div class="small-title">
+                    ⚖️ ST-CITY · ELEKTRONICKÁ SBÍRKA
+                </div>
+
+                <h1>
+                    Sbírka zákonů ST-CITY
+                </h1>
+
+                <p>
+                    Vítej v elektronické sbírce fiktivního
+                    právního systému ST-CITY. 📚
+                    Procházej zákony, vyhledávej konkrétní
+                    ustanovení a ukládej si své oblíbené předpisy.
+                </p>
+
+                <div class="status">
+                    🟢 SBÍRKA AKTIVNÍ
+                </div>
+
+                <div class="quick-actions">
+
+                    <button class="quick-action"
+                            onclick="showAllLaws()">
+                        📚 Všechny zákony
+                    </button>
+
+                    <button class="quick-action"
+                            onclick="favoritesPage()">
+                        ⭐ Oblíbené
+                    </button>
+
+                    <button class="quick-action"
+                            onclick="historyPage()">
+                        🕘 Historie
+                    </button>
+
+                    <button class="quick-action"
+                            onclick="aboutPage()">
+                        ℹ️ O systému
+                    </button>
+
+                    <button class="quick-action"
+                            onclick="toggleTheme()">
+                        🌙 Změnit motiv
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>
-            Sbírka zákonů ST-CITY
-        </h1>
-
-        <p>
-            Oficiálně působící elektronická sbírka fiktivních
-            právních předpisů města ST-CITY. Jednotlivé předpisy
-            jsou rozděleny podle právních oblastí a obsahují
-            vlastní paragrafy a odstavce.
-        </p>
-
-        <div class="status">
-            ● SBÍRKA AKTIVNÍ
-        </div>
 
         <div class="stats">
 
             <div class="stat">
                 <strong>${laws.length}</strong>
-                <span>zákonů</span>
+                <span>📜 zákonů</span>
             </div>
 
             <div class="stat">
                 <strong>${categories.length}</strong>
-                <span>oblastí</span>
+                <span>🏛️ oblastí</span>
             </div>
 
             <div class="stat">
-                <strong>${laws.reduce((a,l)=>a+getParagraphs(l).length,0)}</strong>
-                <span>paragrafů</span>
+                <strong>${paragraphCount}</strong>
+                <span>§ paragrafů</span>
             </div>
 
             <div class="stat">
-                <strong>ST-CITY</strong>
-                <span>právní systém</span>
+                <strong>${favorites.length}</strong>
+                <span>⭐ oblíbených</span>
             </div>
 
         </div>
 
     </section>
 
+
+    <div class="section-title">
+        📚 Právní oblasti
+    </div>
+
     <div id="categoryList"></div>
 
     <div class="copyright">
-        © SirTros - SirTros-city
+        ⚖️ ST-CITY Laws · © SirTros - SirTros-city
     </div>
     `;
 
-    const list=document.getElementById("categoryList");
+    const list=
+        document.getElementById("categoryList");
 
-    categories.forEach((category,index)=>{
+    categories.forEach((cat,index)=>{
+
+        const category=cat[0];
 
         const categoryLaws=laws.filter(
-            law=>law.category===category
+            x=>x.category===category
         );
-
-        if(!categoryLaws.length)return;
 
         list.insertAdjacentHTML(
             "beforeend",
-            categoryHTML(category,index+1,categoryLaws)
+            categoryHTML(
+                category,
+                index+1,
+                categoryLaws,
+                cat[1]
+            )
         );
+
     });
+}
+
+
+/* ==========================================================
+   ALL LAWS
+========================================================== */
+
+function showAllLaws(){
+
+    activateAll();
+
+    main.innerHTML=`
+
+    <div class="breadcrumb">
+        🏠 Domů · 📚 Všechny zákony
+    </div>
+
+    <section class="category">
+
+        <div class="category-head">
+
+            <div class="category-title">
+                <div class="category-icon">📚</div>
+
+                <div>
+                    <div class="category-name">
+                        Všechny zákony
+                    </div>
+                    <div class="category-count">
+                        Kompletní sbírka ST-CITY
+                    </div>
+                </div>
+            </div>
+
+            <span class="category-count">
+                ${laws.length} zákonů
+            </span>
+
+        </div>
+
+        <div class="laws" style="display:block">
+
+            ${laws.map(law=>lawHTML(law)).join("")}
+
+        </div>
+
+    </section>
+
+    <div class="copyright">
+        ⚖️ ST-CITY Laws · © SirTros
+    </div>
+    `;
 }
 
 
@@ -1460,28 +2034,42 @@ function home(){
    CATEGORY HTML
 ========================================================== */
 
-function categoryHTML(category,number,categoryLaws){
+function categoryHTML(
+    category,
+    number,
+    categoryLaws,
+    icon
+){
 
     return `
-    <section class="category" id="cat-${number}">
+
+    <section class="category">
 
         <div class="category-head"
-             onclick="toggleCategory(${number})">
+             onclick="this.parentElement.classList.toggle('open')">
 
             <div class="category-title">
 
-                <span class="category-number">
-                    § ${number}
-                </span>
+                <div class="category-icon">
+                    ${icon}
+                </div>
 
-                <span class="category-name">
-                    ${esc(category)}
-                </span>
+                <div>
+
+                    <div class="category-number">
+                        § ${number}
+                    </div>
+
+                    <div class="category-name">
+                        ${esc(category)}
+                    </div>
+
+                </div>
 
             </div>
 
             <span class="category-count">
-                ${categoryLaws.length} zákonů · otevřít ▾
+                ${categoryLaws.length} zákony · ▾
             </span>
 
         </div>
@@ -1498,59 +2086,6 @@ function categoryHTML(category,number,categoryLaws){
 
 
 /* ==========================================================
-   LAW HTML
-========================================================== */
-
-function lawHTML(law){
-
-    const fav=favorites.includes(law.id);
-
-    return `
-    <div class="law" onclick="openLaw(${law.id})">
-
-        <div class="law-number">
-            č. ${law.number}
-        </div>
-
-        <div>
-
-            <div class="law-name">
-                ${esc(law.title)}
-            </div>
-
-            <div class="law-description">
-                ${esc(law.description)}
-                · ve znění pozdějších předpisů
-            </div>
-
-        </div>
-
-        <button
-            class="star ${fav?"active":""}"
-            onclick="event.stopPropagation();toggleFavorite(${law.id})">
-
-            ${fav?"★":"☆"}
-
-        </button>
-
-    </div>
-    `;
-}
-
-
-/* ==========================================================
-   CATEGORY OPEN
-========================================================== */
-
-function toggleCategory(number){
-
-    const el=document.getElementById("cat-"+number);
-
-    if(el)el.classList.toggle("open");
-}
-
-
-/* ==========================================================
    SHOW CATEGORY
 ========================================================== */
 
@@ -1562,10 +2097,20 @@ function showCategory(category){
         law=>law.category===category
     );
 
+    const cat=categories.find(
+        x=>x[0]===category
+    );
+
     main.innerHTML=`
 
     <div class="breadcrumb">
-        Sbírka · ${esc(category)}
+
+        <button onclick="home()">
+            🏠 Domů
+        </button>
+
+        · ${cat?.[1]||"📚"} ${esc(category)}
+
     </div>
 
     <section class="category">
@@ -1574,18 +2119,18 @@ function showCategory(category){
 
             <div class="category-title">
 
-                <span class="category-number">
-                    §
-                </span>
+                <div class="category-icon">
+                    ${cat?.[1]||"📚"}
+                </div>
 
-                <span class="category-name">
+                <div class="category-name">
                     ${esc(category)}
-                </span>
+                </div>
 
             </div>
 
             <span class="category-count">
-                ${categoryLaws.length} zákonů
+                ${categoryLaws.length} zákony
             </span>
 
         </div>
@@ -1599,9 +2144,11 @@ function showCategory(category){
     </section>
 
     <div class="copyright">
-        © SirTros - SirTros-city
+        ⚖️ ST-CITY Laws · © SirTros
     </div>
     `;
+
+    closeMobileMenu();
 }
 
 
@@ -1609,9 +2156,11 @@ function showCategory(category){
    OPEN LAW
 ========================================================== */
 
-function openLaw(id,targetParagraph=null,targetOdst=null){
+function openLaw(id){
 
-    const law=laws.find(x=>x.id===id);
+    const law=laws.find(
+        x=>x.id===id
+    );
 
     if(!law)return;
 
@@ -1625,6 +2174,8 @@ function openLaw(id,targetParagraph=null,targetOdst=null){
         JSON.stringify(historyList)
     );
 
+    updateHistoryCount();
+
     renderLaw(law);
 
     window.scrollTo({
@@ -1632,23 +2183,7 @@ function openLaw(id,targetParagraph=null,targetOdst=null){
         behavior:"smooth"
     });
 
-    if(targetParagraph){
-
-        setTimeout(()=>{
-
-            const target=document.getElementById(
-                `p-${id}-${targetParagraph}`
-            );
-
-            if(target){
-                target.scrollIntoView({
-                    behavior:"smooth",
-                    block:"center"
-                });
-            }
-
-        },250);
-    }
+    closeMobileMenu();
 }
 
 
@@ -1658,121 +2193,123 @@ function openLaw(id,targetParagraph=null,targetOdst=null){
 
 function renderLaw(law){
 
-    const paragraphs=getParagraphs(law);
+    const sections=createSections(law);
 
     const favorite=favorites.includes(law.id);
 
-    let html="";
+    let content="";
 
-    paragraphs.forEach(paragraph=>{
+    sections.forEach((section,index)=>{
 
-        html+=`
+        content+=`
 
-        <section class="paragraph"
-                 id="p-${law.id}-${paragraph.number}">
+        <section
+            class="paragraph"
+            id="p-${law.id}-${index+1}">
 
             <div class="paragraph-heading">
 
                 <span class="paragraph-symbol">
-                    § ${paragraph.number}
+                    § ${index+1}
                 </span>
 
                 <span class="paragraph-title">
-                    ${esc(paragraph.title)}
+                    ${esc(section[0])}
                 </span>
 
             </div>
 
             <div class="paragraphs">
 
-        `;
+                ${section[1].map((text,i)=>`
 
-        paragraph.texts.forEach((text,index)=>{
+                    <div class="odst">
 
-            html+=`
+                        <div class="odst-num">
+                            (${i+1})
+                        </div>
 
-            <div class="odst">
+                        <div class="odst-text">
+                            ${esc(text)}
+                        </div>
 
-                <div class="odst-num">
-                    (${index+1})
-                </div>
+                    </div>
 
-                <div class="odst-text">
-                    ${esc(text)}
-                </div>
-
-            </div>
-
-            `;
-
-        });
-
-        html+=`
+                `).join("")}
 
             </div>
 
         </section>
 
         `;
+
     });
-
-
-    const sanction=
-        specificContent[law.id]?.sanction ||
-        createGenericSanction(law);
 
 
     main.innerHTML=`
 
     <div class="breadcrumb">
 
-        <button onclick="home()">Sbírka</button>
-
-        ·
-
-        <button onclick="showCategory('${esc(law.category)}')">
-            ${esc(law.category)}
+        <button onclick="home()">
+            🏠 Domů
         </button>
 
         ·
 
-        Zákon č. ${law.number}
+        <button onclick="showCategory('${esc(law.category)}')">
+            ${law.icon} ${esc(law.category)}
+        </button>
+
+        · Zákon č. ${law.number}
 
     </div>
+
 
     <div class="toolbar">
 
         <span>
-            Zákon č. ${law.number}
+            📜 Zákon č. ${law.number}
         </span>
 
         <div class="toolbar-buttons">
 
-            <button class="btn"
-                    onclick="toggleFavorite(${law.id})">
+            <button
+                class="btn"
+                onclick="toggleFavorite(${law.id})">
 
-                ${favorite?"★ Oblíbené":"☆ Oblíbené"}
+                ${favorite?"⭐ Oblíbené":"☆ Oblíbené"}
 
             </button>
 
-            <button class="btn"
-                    onclick="copyLaw(${law.id})">
+            <button
+                class="btn"
+                onclick="copyLaw(${law.id})">
 
                 🔗 Odkaz
 
             </button>
 
-            <button class="btn"
-                    onclick="window.print()">
+            <button
+                class="btn"
+                onclick="window.print()">
 
-                🖨 Tisk
+                🖨️ Tisk
 
             </button>
 
-            <button class="btn"
-                    onclick="showCategory('${esc(law.category)}')">
+            <button
+                class="btn"
+                onclick="showCategory('${esc(law.category)}')">
 
                 ← Zpět
+
+            </button>
+
+            <button
+                class="btn primary"
+                onclick="home()">
+
+                🏠 Domů
 
             </button>
 
@@ -1780,12 +2317,13 @@ function renderLaw(law){
 
     </div>
 
+
     <article class="document">
 
         <header class="document-head">
 
             <div class="document-number">
-                ZÁKON č. ${law.number}
+                ${law.icon} ZÁKON č. ${law.number}
             </div>
 
             <h1>
@@ -1804,24 +2342,36 @@ function renderLaw(law){
 
                 <span>
                     Oblast:
-                    <strong>${esc(law.category)}</strong>
+                    <strong>
+                        ${esc(law.category)}
+                    </strong>
                 </span>
 
                 <span>
                     Účinnost:
-                    <strong>1. 1. 2026</strong>
+                    <strong>
+                        1. 1. 2026
+                    </strong>
                 </span>
 
                 <span>
                     Stav:
-                    <strong style="color:#34734d">
+                    <strong style="color:var(--green)">
                         PLATNÝ
+                    </strong>
+                </span>
+
+                <span>
+                    Paragrafy:
+                    <strong>
+                        ${sections.length}
                     </strong>
                 </span>
 
             </div>
 
         </header>
+
 
         <section class="part">
 
@@ -1835,24 +2385,26 @@ function renderLaw(law){
                 ZÁKLADNÍ USTANOVENÍ
             </div>
 
-            ${html}
+            ${content}
+
 
             <div class="sanction">
 
                 <strong>
-                    Sankční ustanovení
+                    ⚖️ Sankční ustanovení
                 </strong>
 
                 <br><br>
 
-                ${esc(sanction)}
+                ${esc(sanctionFor(law))}
 
             </div>
+
 
             <div class="amendments">
 
                 <div class="amendments-title">
-                    ZNĚNÍ POZDĚJŠÍCH PŘEDPISŮ
+                    📑 ZNĚNÍ POZDĚJŠÍCH PŘEDPISŮ
                 </div>
 
                 <div class="amendments-content">
@@ -1869,20 +2421,27 @@ function renderLaw(law){
 
             </div>
 
+
             <div class="info">
 
-                <strong>Právní informace</strong><br><br>
+                <strong>
+                    ℹ️ Právní informace
+                </strong>
 
-                ST-CITY Laws představuje fiktivní právní
-                systém vytvořený pro projekt ST-CITY.
-                Tyto předpisy nejsou právními předpisy
-                České republiky a nemají skutečnou právní účinnost.
+                <br><br>
+
+                ST-CITY Laws je fiktivní právní systém
+                vytvořený pro projekt ST-CITY.
+                Tyto zákony nejsou právními předpisy
+                České republiky a nemají skutečnou
+                právní účinnost.
 
             </div>
 
+
             <div class="document-footer">
 
-                ST-CITY Laws · Elektronická sbírka
+                ⚖️ ST-CITY Laws · Elektronická sbírka
                 právních předpisů
 
                 <br><br>
@@ -1899,52 +2458,22 @@ function renderLaw(law){
 
 
 /* ==========================================================
-   GENERICKÉ SANKCE
-========================================================== */
-
-function createGenericSanction(law){
-
-    const category=law.category;
-
-    if(category==="Parkování"){
-        return "Za porušení tohoto zákona může být uložena pokuta až do 5 000 Kč. V případech stanovených předpisy může být vozidlo odstraněno.";
-    }
-
-    if(category==="Doprava"){
-        return "Za porušení pravidel tohoto zákona může být podle závažnosti uložena pokuta nebo jiné opatření stanovené právním řádem ST-CITY.";
-    }
-
-    if(category==="Odpady"){
-        return "Za neoprávněné nakládání s odpadem může být uložena pokuta a povinnost odstranit následky protiprávního jednání.";
-    }
-
-    if(category==="Zvířata"){
-        return "Za porušení povinností chovatele může být uložena pokuta a v odůvodněných případech také nápravné opatření.";
-    }
-
-    if(category==="Požární ochrana"){
-        return "Za porušení požárních povinností může být uložena pokuta s ohledem na míru vzniklého rizika.";
-    }
-
-    return "Za porušení tohoto zákona může být podle závažnosti jednání uloženo napomenutí, pokuta nebo nápravné opatření v rozsahu stanoveném právním řádem ST-CITY.";
-}
-
-
-/* ==========================================================
    SEARCH
 ========================================================== */
 
 document.getElementById("search").addEventListener(
-"input",
-function(){
+    "input",
+    function(){
 
-    clearTimeout(window.searchTimeout);
+        clearTimeout(window.searchTimeout);
 
-    window.searchTimeout=setTimeout(
-        ()=>searchLaws(this.value),
-        100
-    );
-});
+        window.searchTimeout=setTimeout(
+            ()=>searchLaws(this.value),
+            100
+        );
+
+    }
+);
 
 
 function searchLaws(query){
@@ -1956,23 +2485,21 @@ function searchLaws(query){
         return;
     }
 
-    const match=query.match(/(\d+)\s*\/\s*2026/);
+    const normalized=query
+        .replace("zákon č.","")
+        .replace("č.","")
+        .trim();
 
-    if(match){
+    const exact=laws.find(
+        law=>law.number.toLowerCase()===normalized
+    );
 
-        const law=laws.find(
-            x=>x.number===`${match[1]}/2026`
-        );
-
-        if(law){
-            openLaw(law.id);
-            return;
-        }
+    if(exact){
+        openLaw(exact.id);
+        return;
     }
 
     const results=laws.filter(law=>{
-
-        const paragraphs=getParagraphs(law);
 
         let text=[
             law.number,
@@ -1981,12 +2508,21 @@ function searchLaws(query){
             law.description
         ].join(" ").toLowerCase();
 
-        paragraphs.forEach(p=>{
-            text+=" "+p.number+" "+p.title;
-            p.texts.forEach(t=>text+=" "+t);
-        });
+        createSections(law).forEach(
+            (section,index)=>{
+
+                text+=" § "+(index+1);
+                text+=" "+section[0];
+
+                section[1].forEach(
+                    t=>text+=" "+t
+                );
+
+            }
+        );
 
         return text.includes(query);
+
     });
 
     showResults(query,results);
@@ -1994,18 +2530,22 @@ function searchLaws(query){
 
 
 /* ==========================================================
-   SEARCH RESULTS
+   RESULTS
 ========================================================== */
 
 function showResults(query,results){
 
     main.innerHTML=`
 
+    <div class="breadcrumb">
+        🔎 Výsledky vyhledávání
+    </div>
+
     <div class="results">
 
         <div class="results-header">
 
-            Výsledky hledání pro
+            🔎 Výsledky pro
             <strong>„${esc(query)}“</strong>
 
             · ${results.length} výsledků
@@ -2014,13 +2554,16 @@ function showResults(query,results){
 
         ${
             results.length
+
             ?
+
             results.map(law=>`
 
                 <div class="result"
                      onclick="openLaw(${law.id})">
 
                     <div class="result-number">
+                        ${law.icon}
                         ZÁKON č. ${law.number}
                     </div>
 
@@ -2035,29 +2578,37 @@ function showResults(query,results){
                 </div>
 
             `).join("")
+
             :
+
             `
+
             <div class="empty">
 
-                🔎
+                <div class="empty-icon">
+                    🔎
+                </div>
 
                 <h2>
                     Nic jsme nenašli
                 </h2>
 
                 <p>
-                    Zkus jiné slovo nebo číslo zákona.
+                    Zkus jiné slovo, číslo zákona nebo
+                    část textu.
                 </p>
 
             </div>
+
             `
         }
 
     </div>
 
     <div class="copyright">
-        © SirTros - SirTros-city
+        ⚖️ ST-CITY Laws · © SirTros
     </div>
+
     `;
 }
 
@@ -2070,7 +2621,9 @@ function toggleFavorite(id){
 
     if(favorites.includes(id)){
 
-        favorites=favorites.filter(x=>x!==id);
+        favorites=favorites.filter(
+            x=>x!==id
+        );
 
     }else{
 
@@ -2085,11 +2638,14 @@ function toggleFavorite(id){
 
     updateFavoriteCount();
 
-    const current=laws.find(x=>x.id===id);
+    const current=laws.find(
+        x=>x.id===id
+    );
 
     if(current){
         renderLaw(current);
     }
+
 }
 
 
@@ -2098,6 +2654,7 @@ function updateFavoriteCount(){
     document.getElementById(
         "favoriteCount"
     ).textContent=favorites.length;
+
 }
 
 
@@ -2111,19 +2668,23 @@ function favoritesPage(){
 
     main.innerHTML=`
 
+    <div class="breadcrumb">
+        🏠 Domů · ⭐ Oblíbené
+    </div>
+
     <section class="category">
 
         <div class="category-head">
 
             <div class="category-title">
 
-                <span class="category-number">
-                    ★
-                </span>
+                <div class="category-icon">
+                    ⭐
+                </div>
 
-                <span class="category-name">
+                <div class="category-name">
                     Oblíbené zákony
-                </span>
+                </div>
 
             </div>
 
@@ -2137,13 +2698,33 @@ function favoritesPage(){
 
             ${
                 selected.length
+
                 ?
-                selected.map(law=>lawHTML(law)).join("")
+
+                selected.map(
+                    law=>lawHTML(law)
+                ).join("")
+
                 :
+
                 `
+
                 <div class="empty">
-                    Zatím nemáš žádný oblíbený zákon.
+
+                    <div class="empty-icon">
+                        ⭐
+                    </div>
+
+                    <h2>
+                        Zatím žádné oblíbené
+                    </h2>
+
+                    <p>
+                        Klikni na ☆ u zákona a přidej ho sem.
+                    </p>
+
                 </div>
+
                 `
             }
 
@@ -2152,9 +2733,11 @@ function favoritesPage(){
     </section>
 
     <div class="copyright">
-        © SirTros - SirTros-city
+        ⚖️ ST-CITY Laws · © SirTros
     </div>
     `;
+
+    closeMobileMenu();
 }
 
 
@@ -2167,10 +2750,14 @@ function historyPage(){
     deactivateAll();
 
     const selected=historyList
-    .map(id=>laws.find(x=>x.id===id))
-    .filter(Boolean);
+        .map(id=>laws.find(x=>x.id===id))
+        .filter(Boolean);
 
     main.innerHTML=`
+
+    <div class="breadcrumb">
+        🏠 Domů · 🕘 Historie
+    </div>
 
     <section class="category">
 
@@ -2178,13 +2765,13 @@ function historyPage(){
 
             <div class="category-title">
 
-                <span class="category-number">
-                    ◷
-                </span>
+                <div class="category-icon">
+                    🕘
+                </div>
 
-                <span class="category-name">
+                <div class="category-name">
                     Historie
-                </span>
+                </div>
 
             </div>
 
@@ -2198,13 +2785,33 @@ function historyPage(){
 
             ${
                 selected.length
+
                 ?
-                selected.map(law=>lawHTML(law)).join("")
+
+                selected.map(
+                    law=>lawHTML(law)
+                ).join("")
+
                 :
+
                 `
+
                 <div class="empty">
-                    Historie je prázdná.
+
+                    <div class="empty-icon">
+                        🕘
+                    </div>
+
+                    <h2>
+                        Historie je prázdná
+                    </h2>
+
+                    <p>
+                        Otevřené zákony se zde automaticky zobrazí.
+                    </p>
+
                 </div>
+
                 `
             }
 
@@ -2213,9 +2820,24 @@ function historyPage(){
     </section>
 
     <div class="copyright">
-        © SirTros - SirTros-city
+        ⚖️ ST-CITY Laws · © SirTros
     </div>
+
     `;
+
+    closeMobileMenu();
+}
+
+
+function updateHistoryCount(){
+
+    const el=
+        document.getElementById("historyCount");
+
+    if(el){
+        el.textContent=historyList.length;
+    }
+
 }
 
 
@@ -2229,12 +2851,16 @@ function aboutPage(){
 
     main.innerHTML=`
 
+    <div class="breadcrumb">
+        🏠 Domů · ℹ️ O systému
+    </div>
+
     <article class="document">
 
         <header class="document-head">
 
             <div class="document-number">
-                ST-CITY LAWS
+                ⚖️ ST-CITY LAWS 2.0
             </div>
 
             <h1>
@@ -2242,7 +2868,7 @@ function aboutPage(){
             </h1>
 
             <div class="document-subtitle">
-                Právní systém města ST-CITY
+                Fiktivní právní systém města ST-CITY
             </div>
 
         </header>
@@ -2252,13 +2878,12 @@ function aboutPage(){
             <div class="part-line"></div>
 
             <div class="part-title">
-                INFORMACE
+                ℹ️ INFORMACE
             </div>
 
             <section class="paragraph">
 
                 <div class="paragraph-heading">
-
                     <span class="paragraph-symbol">
                         § 1
                     </span>
@@ -2266,7 +2891,6 @@ function aboutPage(){
                     <span class="paragraph-title">
                         Účel sbírky
                     </span>
-
                 </div>
 
                 <div class="odst">
@@ -2285,13 +2909,15 @@ function aboutPage(){
                     <div class="odst-num">(2)</div>
 
                     <div class="odst-text">
-                        Jednotlivé zákony mají vlastní obsah,
-                        právní oblast, paragrafy a odstavce.
+                        Jednotlivé zákony mají vlastní oblast,
+                        názvy, paragrafy, odstavce a sankční
+                        ustanovení.
                     </div>
 
                 </div>
 
             </section>
+
 
             <section class="paragraph">
 
@@ -2299,6 +2925,45 @@ function aboutPage(){
 
                     <span class="paragraph-symbol">
                         § 2
+                    </span>
+
+                    <span class="paragraph-title">
+                        Ovládání
+                    </span>
+
+                </div>
+
+                <div class="odst">
+
+                    <div class="odst-num">(1)</div>
+
+                    <div class="odst-text">
+                        Zákony lze vyhledávat pomocí názvu,
+                        čísla, kategorie nebo textu ustanovení.
+                    </div>
+
+                </div>
+
+                <div class="odst">
+
+                    <div class="odst-num">(2)</div>
+
+                    <div class="odst-text">
+                        Oblíbené zákony a historie otevřených
+                        dokumentů jsou uloženy v prohlížeči.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="paragraph">
+
+                <div class="paragraph-heading">
+
+                    <span class="paragraph-symbol">
+                        § 3
                     </span>
 
                     <span class="paragraph-title">
@@ -2312,7 +2977,7 @@ function aboutPage(){
                     <div class="odst-num">(1)</div>
 
                     <div class="odst-text">
-                        Zákony zveřejněné na tomto webu jsou
+                        Všechny zákony v této sbírce jsou
                         fiktivní a nemají právní účinky.
                     </div>
 
@@ -2320,35 +2985,14 @@ function aboutPage(){
 
             </section>
 
-            <section class="paragraph">
-
-                <div class="paragraph-heading">
-
-                    <span class="paragraph-symbol">
-                        § 3
-                    </span>
-
-                    <span class="paragraph-title">
-                        Autorská informace
-                    </span>
-
-                </div>
-
-                <div class="odst">
-
-                    <div class="odst-num">(1)</div>
-
-                    <div class="odst-text">
-                        © SirTros - SirTros-city
-                    </div>
-
-                </div>
-
-            </section>
 
             <div class="info">
 
-                <strong>UPOZORNĚNÍ</strong><br><br>
+                <strong>
+                    ⚠️ DŮLEŽITÉ UPOZORNĚNÍ
+                </strong>
+
+                <br><br>
 
                 ST-CITY Laws není skutečná právní databáze
                 České republiky. Jedná se o fiktivní systém
@@ -2356,7 +3000,10 @@ function aboutPage(){
 
             </div>
 
+
             <div class="document-footer">
+                ⚖️ ST-CITY Laws 2.0
+                <br><br>
                 © SirTros - SirTros-city
             </div>
 
@@ -2364,6 +3011,8 @@ function aboutPage(){
 
     </article>
     `;
+
+    closeMobileMenu();
 }
 
 
@@ -2373,15 +3022,26 @@ function aboutPage(){
 
 function copyLaw(id){
 
-    const url=location.href.split("#")[0]+"#law-"+id;
+    const url=
+        location.href.split("#")[0]+
+        "#law-"+id;
 
     if(navigator.clipboard){
 
-        navigator.clipboard.writeText(url);
+        navigator.clipboard.writeText(url)
+        .then(()=>{
+            alert("🔗 Odkaz na zákon byl zkopírován.");
+        });
 
-        alert("Odkaz na zákon byl zkopírován.");
+    }else{
+
+        prompt(
+            "🔗 Zkopíruj tento odkaz:",
+            url
+        );
 
     }
+
 }
 
 
@@ -2391,9 +3051,51 @@ function copyLaw(id){
 
 function clearSearch(){
 
-    document.getElementById("search").value="";
+    document.getElementById(
+        "search"
+    ).value="";
 
     home();
+
+}
+
+
+/* ==========================================================
+   THEME
+========================================================== */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "stcity-theme",
+        document.body.classList.contains("dark")
+        ? "dark"
+        : "light"
+    );
+
+}
+
+
+/* ==========================================================
+   MOBILE MENU
+========================================================== */
+
+function toggleMobileMenu(){
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("mobile-open");
+
+}
+
+
+function closeMobileMenu(){
+
+    document
+        .getElementById("sidebar")
+        .classList.remove("mobile-open");
 
 }
 
@@ -2404,18 +3106,27 @@ function clearSearch(){
 
 function activateAll(){
 
-    document.querySelectorAll(".side-btn")
-    .forEach(x=>x.classList.remove("active"));
+    document
+        .querySelectorAll(".side-btn")
+        .forEach(
+            x=>x.classList.remove("active")
+        );
 
-    document.getElementById("allButton")
-    .classList.add("active");
+    document
+        .getElementById("allButton")
+        .classList.add("active");
+
 }
 
 
 function deactivateAll(){
 
-    document.querySelectorAll(".side-btn")
-    .forEach(x=>x.classList.remove("active"));
+    document
+        .querySelectorAll(".side-btn")
+        .forEach(
+            x=>x.classList.remove("active")
+        );
+
 }
 
 
@@ -2423,24 +3134,84 @@ function deactivateAll(){
    KEYBOARD
 ========================================================== */
 
-document.addEventListener("keydown",event=>{
+document.addEventListener(
+    "keydown",
+    event=>{
 
-    if(
-        (event.ctrlKey||event.metaKey)
-        &&
-        event.key.toLowerCase()==="k"
-    ){
+        if(
+            (event.ctrlKey||event.metaKey)
+            &&
+            event.key.toLowerCase()==="k"
+        ){
 
-        event.preventDefault();
+            event.preventDefault();
 
-        document.getElementById("search").focus();
+            document
+                .getElementById("search")
+                .focus();
+
+        }
+
+        if(event.key==="Escape"){
+
+            clearSearch();
+
+        }
 
     }
+);
 
-    if(event.key==="Escape"){
-        clearSearch();
+
+/* ==========================================================
+   SCROLL BUTTON
+========================================================== */
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        const button=
+            document.getElementById("topButton");
+
+        if(window.scrollY>350){
+
+            button.style.display="block";
+
+        }else{
+
+            button.style.display="none";
+
+        }
+
     }
-});
+);
+
+
+/* ==========================================================
+   HASH NAVIGACE
+========================================================== */
+
+function openHash(){
+
+    const hash=
+        location.hash;
+
+    if(!hash.startsWith("#law-"))
+        return;
+
+    const id=
+        Number(hash.replace("#law-",""));
+
+    if(id){
+        openLaw(id);
+    }
+
+}
+
+window.addEventListener(
+    "hashchange",
+    openHash
+);
 
 
 /* ==========================================================
@@ -2449,9 +3220,11 @@ document.addEventListener("keydown",event=>{
 
 buildSidebar();
 updateFavoriteCount();
+updateHistoryCount();
 home();
+openHash();
 
 </script>
 
 </body>
-  </html>
+</html>
